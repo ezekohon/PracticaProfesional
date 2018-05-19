@@ -41,17 +41,18 @@
             this.buscarTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.puntoDeVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.reporteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.puntoDeVentaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.puntoDeVentaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -63,6 +64,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.reporteButton);
             this.splitContainer1.Panel1.Controls.Add(this.limpiarButton);
             this.splitContainer1.Panel1.Controls.Add(this.borrarButton);
             this.splitContainer1.Panel1.Controls.Add(this.modificarButton);
@@ -83,7 +85,7 @@
             // 
             // limpiarButton
             // 
-            this.limpiarButton.Location = new System.Drawing.Point(625, 137);
+            this.limpiarButton.Location = new System.Drawing.Point(614, 137);
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(75, 23);
             this.limpiarButton.TabIndex = 7;
@@ -196,6 +198,10 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -214,9 +220,15 @@
             // 
             this.puntoDeVentaBindingSource.DataSource = typeof(Practico1v4.Models.PuntoDeVenta);
             // 
-            // errorProvider1
+            // reporteButton
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.reporteButton.Location = new System.Drawing.Point(704, 137);
+            this.reporteButton.Name = "reporteButton";
+            this.reporteButton.Size = new System.Drawing.Size(75, 23);
+            this.reporteButton.TabIndex = 8;
+            this.reporteButton.Text = "Reporte";
+            this.reporteButton.UseVisualStyleBackColor = true;
+            this.reporteButton.Click += new System.EventHandler(this.reporteButton_Click);
             // 
             // PuntoDeVentasABM
             // 
@@ -235,8 +247,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.puntoDeVentaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.puntoDeVentaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -259,5 +271,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button limpiarButton;
+        private System.Windows.Forms.Button reporteButton;
     }
 }

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
 using Practico1v4.Helpers;
+using Practico1v4.Reportes;
 
 //TODO:desabilitar copiar y pegar en todos los textbox
 //TODO: que no pueda meter espacios
@@ -189,6 +190,12 @@ namespace Practico1v4.Views
             insertarButton.Enabled = true;
             modificarButton.Enabled = false;
             borrarButton.Enabled = false;
+        }
+
+        private void reporteButton_Click(object sender, EventArgs e)
+        {
+            Reportes.frmPuntoDeVentasReporte rpt = new Reportes.frmPuntoDeVentasReporte();
+            rpt.ShowDialog(this);
         }
     }
 }

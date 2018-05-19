@@ -70,17 +70,21 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="SearchBox, Version=2.0.2.6, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -111,10 +115,16 @@
       <DependentUpon>201805071749039_agrego FK zona.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Zona.cs" />
-    <Compile Include="Reportes\PuntosDeVentaReporte.cs">
+    <Compile Include="Reportes\PuntoDeVentasReporte.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PuntosDeVentaReporte.rpt</DependentUpon>
+      <DependentUpon>PuntoDeVentasReporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\VendedoresReporte.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VendedoresReporte.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\ABMs\BaseABM.cs">
@@ -169,11 +179,17 @@
     <Compile Include="Views\ABMs\PuntoDeVentasABM.Designer.cs">
       <DependentUpon>PuntoDeVentasABM.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Reportes\PuntoDeVentasReporte.cs">
+    <Compile Include="Views\Reportes\frmPuntoDeVentasReporte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Reportes\PuntoDeVentasReporte.Designer.cs">
-      <DependentUpon>PuntoDeVentasReporte.cs</DependentUpon>
+    <Compile Include="Views\Reportes\frmPuntoDeVentasReporte.Designer.cs">
+      <DependentUpon>frmPuntoDeVentasReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reportes\frmVendedoresReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Reportes\frmVendedoresReporte.Designer.cs">
+      <DependentUpon>frmVendedoresReporte.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Migrations\201804201841478_Puntodeventa add.resx">
       <DependentUpon>201804201841478_Puntodeventa add.cs</DependentUpon>
@@ -209,9 +225,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reportes\PuntosDeVentaReporte.rpt">
+    <EmbeddedResource Include="Reportes\PuntoDeVentasReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>PuntosDeVentaReporte.cs</LastGenOutput>
+      <LastGenOutput>PuntoDeVentasReporte.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\VendedoresReporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VendedoresReporte.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ABMs\BaseABM.resx">
       <DependentUpon>BaseABM.cs</DependentUpon>
@@ -224,6 +244,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reportes\frmPuntoDeVentasReporte.resx">
+      <DependentUpon>frmPuntoDeVentasReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reportes\frmVendedoresReporte.resx">
+      <DependentUpon>frmVendedoresReporte.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Practico1v4_TemporaryKey.pfx" />

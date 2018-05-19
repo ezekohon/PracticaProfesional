@@ -508,5 +508,11 @@ namespace Practico1v4.Views
                 e.Handled = true;
             }
         }
+
+        private void reporteButton_Click(object sender, EventArgs e)
+        {
+            Reportes.frmVendedoresReporte rpt = new Reportes.frmVendedoresReporte();
+            rpt.ShowDialog(this);
+        }
     }
 }

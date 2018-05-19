@@ -16,14 +16,14 @@ namespace Practico1v4.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class PuntosDeVentaReporte : ReportClass {
+    public class VendedoresReporte : ReportClass {
         
-        public PuntosDeVentaReporte() {
+        public VendedoresReporte() {
         }
         
         public override string ResourceName {
             get {
-                return "PuntosDeVentaReporte.rpt";
+                return "VendedoresReporte.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Practico1v4.Reportes {
         
         public override string FullResourceName {
             get {
-                return "Practico1v4.Reportes.PuntosDeVentaReporte.rpt";
+                return "Practico1v4.Reportes.VendedoresReporte.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace Practico1v4.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedPuntosDeVentaReporte : Component, ICachedReport {
+    public class CachedVendedoresReporte : Component, ICachedReport {
         
-        public CachedPuntosDeVentaReporte() {
+        public CachedVendedoresReporte() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace Practico1v4.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            PuntosDeVentaReporte rpt = new PuntosDeVentaReporte();
+            VendedoresReporte rpt = new VendedoresReporte();
             rpt.Site = this.Site;
             return rpt;
         }

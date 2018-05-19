@@ -32,10 +32,15 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label6 = new System.Windows.Forms.Label();
             this.DGVHelp2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.puntoDeVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zonaIdTextBox = new System.Windows.Forms.TextBox();
             this.zonaTextBox = new System.Windows.Forms.TextBox();
             this.limpiarButton = new System.Windows.Forms.Button();
             this.DGVHelp = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.puntoIdTextBox = new System.Windows.Forms.TextBox();
             this.puntoTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -57,24 +62,20 @@
             this.nombreErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.apellidoErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.puntoErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.puntoDeVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vendedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.zonaErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.reporteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVHelp2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.puntoDeVentaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVHelp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nombreErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.apellidoErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.puntoErrorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.puntoDeVentaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendedorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zonaErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -88,6 +89,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.reporteButton);
             this.splitContainer1.Panel1.Controls.Add(this.label6);
             this.splitContainer1.Panel1.Controls.Add(this.DGVHelp2);
             this.splitContainer1.Panel1.Controls.Add(this.zonaIdTextBox);
@@ -151,6 +153,25 @@
             this.DGVHelp2.Visible = false;
             this.DGVHelp2.DoubleClick += new System.EventHandler(this.DGVHelp2_DoubleClick);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Descripcion";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Descripcion";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // puntoDeVentaBindingSource
+            // 
+            this.puntoDeVentaBindingSource.DataSource = typeof(Practico1v4.Models.PuntoDeVenta);
+            // 
             // zonaIdTextBox
             // 
             this.zonaIdTextBox.Location = new System.Drawing.Point(457, 99);
@@ -172,7 +193,7 @@
             // 
             // limpiarButton
             // 
-            this.limpiarButton.Location = new System.Drawing.Point(713, 188);
+            this.limpiarButton.Location = new System.Drawing.Point(590, 188);
             this.limpiarButton.Name = "limpiarButton";
             this.limpiarButton.Size = new System.Drawing.Size(75, 23);
             this.limpiarButton.TabIndex = 20;
@@ -202,6 +223,21 @@
             this.DGVHelp.TabIndex = 19;
             this.DGVHelp.Visible = false;
             this.DGVHelp.DoubleClick += new System.EventHandler(this.DGVHelp_DoubleClick);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // puntoIdTextBox
             // 
@@ -388,40 +424,6 @@
             // 
             this.puntoErrorProvider.ContainerControl = this;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Descripcion";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Descripcion";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // puntoDeVentaBindingSource
-            // 
-            this.puntoDeVentaBindingSource.DataSource = typeof(Practico1v4.Models.PuntoDeVenta);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // descripcionDataGridViewTextBoxColumn
-            // 
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // vendedorBindingSource
             // 
             this.vendedorBindingSource.DataSource = typeof(Practico1v4.Models.Vendedor);
@@ -429,6 +431,16 @@
             // zonaErrorProvider
             // 
             this.zonaErrorProvider.ContainerControl = this;
+            // 
+            // reporteButton
+            // 
+            this.reporteButton.Location = new System.Drawing.Point(680, 188);
+            this.reporteButton.Name = "reporteButton";
+            this.reporteButton.Size = new System.Drawing.Size(75, 23);
+            this.reporteButton.TabIndex = 25;
+            this.reporteButton.Text = "Reporte";
+            this.reporteButton.UseVisualStyleBackColor = true;
+            this.reporteButton.Click += new System.EventHandler(this.reporteButton_Click);
             // 
             // VendedoresABM
             // 
@@ -446,12 +458,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVHelp2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.puntoDeVentaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVHelp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nombreErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.apellidoErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.puntoErrorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.puntoDeVentaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendedorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zonaErrorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -495,5 +507,6 @@
         private System.Windows.Forms.TextBox zonaTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ErrorProvider zonaErrorProvider;
+        private System.Windows.Forms.Button reporteButton;
     }
 }

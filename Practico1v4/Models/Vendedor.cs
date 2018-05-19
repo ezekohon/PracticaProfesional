@@ -19,9 +19,7 @@ namespace Practico1v4.Models
 
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        //public string Direccion { get; set; }
-        //public string Ciudad { get; set; }
-        //public long Telefono { get; set; }
+
         [Required]
         public Zona Zona { get; set; }
         [Required]
