@@ -20,6 +20,9 @@ namespace Practico1v4.Views.Main
             MessageBoxManager.OK = "Aceptar";
             MessageBoxManager.Yes = "Si";
             MessageBoxManager.Register();
+
+            //System.Console.WriteLine(Helpers.SecurePasswordHasher.Hash("super"));
+            //System.Console.WriteLine(Helpers.SecurePasswordHasher.Verify("carlos123", "$MYHASH$V1$10000$sYV9A5il3YTkIbvnXDftcsSuUNoGL4c9fDlaxnCXRpNKpVwM"));
         }
 
         private void puntoDeVentasToolStripMenuItem_Click(object sender, EventArgs e)

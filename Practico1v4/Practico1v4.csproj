@@ -98,6 +98,7 @@
   <ItemGroup>
     <Compile Include="Helpers\CenterWinDialog.cs" />
     <Compile Include="Helpers\MessageBoxManager.cs" />
+    <Compile Include="Helpers\SecurePasswordHasher.cs" />
     <Compile Include="Migrations\201804251928210_drop columnas de vendedores.cs" />
     <Compile Include="Migrations\201804251928210_drop columnas de vendedores.Designer.cs">
       <DependentUpon>201804251928210_drop columnas de vendedores.cs</DependentUpon>
@@ -114,6 +115,12 @@
     <Compile Include="Migrations\201805071749039_agrego FK zona.Designer.cs">
       <DependentUpon>201805071749039_agrego FK zona.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805202017156_usuarios y roles.cs" />
+    <Compile Include="Migrations\201805202017156_usuarios y roles.Designer.cs">
+      <DependentUpon>201805202017156_usuarios y roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Zona.cs" />
     <Compile Include="Reportes\PuntoDeVentasReporte.cs">
       <AutoGen>True</AutoGen>
@@ -215,6 +222,9 @@
     <EmbeddedResource Include="Migrations\201805071749039_agrego FK zona.resx">
       <DependentUpon>201805071749039_agrego FK zona.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805202017156_usuarios y roles.resx">
+      <DependentUpon>201805202017156_usuarios y roles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -241,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ABMs\VendedoresABM.resx">
       <DependentUpon>VendedoresABM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Lanzador.resx">
+      <DependentUpon>Lanzador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -12,6 +12,8 @@ namespace Practico1v4.Models
         public DbSet<PuntoDeVenta> PuntosDeVenta { get; set; }
         public DbSet<Vendedor> Vendedores { get; set; }
         public DbSet<Zona> Zonas { get; set; }
-        /*agregar la clase*/
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Rol> Roles { get; set; }
+
     }
 }
