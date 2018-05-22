@@ -209,7 +209,6 @@ namespace Practico1v4.Views
                     context.Entry(v).State = EntityState.Modified;
                     context.SaveChanges();
                     actualizarGrilla();
-
                 }
             }
             limpiarCampos();

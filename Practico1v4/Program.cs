@@ -17,7 +17,15 @@ namespace Practico1v4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Lanzador());
+			DialogResult result;
+			using (var loginForm = new Lanzador())
+				result = loginForm.ShowDialog();
+			if (result == DialogResult.OK)
+			{
+				// login was successful
+				Application.Run(new MainForm());
+			}
+			//Application.Run(new Lanzador());
         }
     }
 }

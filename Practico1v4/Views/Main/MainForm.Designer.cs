@@ -57,14 +57,14 @@
             // puntoDeVentasToolStripMenuItem
             // 
             this.puntoDeVentasToolStripMenuItem.Name = "puntoDeVentasToolStripMenuItem";
-            this.puntoDeVentasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.puntoDeVentasToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.puntoDeVentasToolStripMenuItem.Text = "Punto de Ventas";
             this.puntoDeVentasToolStripMenuItem.Click += new System.EventHandler(this.puntoDeVentasToolStripMenuItem_Click);
             // 
             // vendedoresToolStripMenuItem
             // 
             this.vendedoresToolStripMenuItem.Name = "vendedoresToolStripMenuItem";
-            this.vendedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vendedoresToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.vendedoresToolStripMenuItem.Text = "Vendedores";
             this.vendedoresToolStripMenuItem.Click += new System.EventHandler(this.vendedoresToolStripMenuItem_Click);
             // 
@@ -77,6 +77,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

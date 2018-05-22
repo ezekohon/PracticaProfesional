@@ -48,6 +48,8 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
             this.textBoxPassword.TabIndex = 1;
+            this.textBoxPassword.UseSystemPasswordChar = true;
+            this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
             // 
             // label1
             // 
@@ -89,6 +91,7 @@
             this.Controls.Add(this.textBoxUsuario);
             this.Name = "Lanzador";
             this.Text = "Ingreso al sistema";
+            this.Load += new System.EventHandler(this.Lanzador_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
