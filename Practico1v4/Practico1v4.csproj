@@ -127,6 +127,18 @@
     <Compile Include="Migrations\201805221922135_unique constraint username.Designer.cs">
       <DependentUpon>201805221922135_unique constraint username.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805231833418_audit.cs" />
+    <Compile Include="Migrations\201805231833418_audit.Designer.cs">
+      <DependentUpon>201805231833418_audit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805232030406_borre usuarios y roles.cs" />
+    <Compile Include="Migrations\201805232030406_borre usuarios y roles.Designer.cs">
+      <DependentUpon>201805232030406_borre usuarios y roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805232035395_agrego nuevamente usuarios y roles.cs" />
+    <Compile Include="Migrations\201805232035395_agrego nuevamente usuarios y roles.Designer.cs">
+      <DependentUpon>201805232035395_agrego nuevamente usuarios y roles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\VentasDBContext.Views.cs" />
@@ -142,6 +154,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VendedoresReporte.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\ABMs\UsuariosEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ABMs\UsuariosEditor.Designer.cs">
+      <DependentUpon>UsuariosEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ABMs\BaseEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ABMs\BaseEditor.Designer.cs">
+      <DependentUpon>BaseEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ABMs\UsuariosABM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ABMs\UsuariosABM.Designer.cs">
+      <DependentUpon>UsuariosABM.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ABMs\BaseABM.cs">
       <SubType>Form</SubType>
@@ -237,6 +267,15 @@
     <EmbeddedResource Include="Migrations\201805221922135_unique constraint username.resx">
       <DependentUpon>201805221922135_unique constraint username.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231833418_audit.resx">
+      <DependentUpon>201805231833418_audit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805232030406_borre usuarios y roles.resx">
+      <DependentUpon>201805232030406_borre usuarios y roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805232035395_agrego nuevamente usuarios y roles.resx">
+      <DependentUpon>201805232035395_agrego nuevamente usuarios y roles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -254,6 +293,15 @@
     <EmbeddedResource Include="Reportes\VendedoresReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>VendedoresReporte.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ABMs\UsuariosEditor.resx">
+      <DependentUpon>UsuariosEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ABMs\BaseEditor.resx">
+      <DependentUpon>BaseEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ABMs\UsuariosABM.resx">
+      <DependentUpon>UsuariosABM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ABMs\BaseABM.resx">
       <DependentUpon>BaseABM.cs</DependentUpon>
@@ -279,6 +327,7 @@
     <None Include="packages.config" />
     <None Include="Practico1v4_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\Practico1v4.Models.PuntoDeVenta.datasource" />
+    <None Include="Properties\DataSources\Practico1v4.Models.Usuario.datasource" />
     <None Include="Properties\DataSources\Practico1v4.Models.Vendedor.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

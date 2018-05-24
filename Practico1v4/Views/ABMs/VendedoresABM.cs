@@ -21,8 +21,6 @@ namespace Practico1v4.Views
         public VendedoresABM()
         {
             InitializeComponent();
-            //Reportes.PuntosDeVentaReporte rpt = new PuntosDeVentaReporte();
-            //rpt.
         }
 
         VentasDBContext contextGlobal = new VentasDBContext();

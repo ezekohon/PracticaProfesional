@@ -17,6 +17,7 @@ namespace Practico1v4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+			Application.ThreadException += Application_ThreadException;
 			DialogResult result;
 			using (var loginForm = new Lanzador())
 				result = loginForm.ShowDialog();
@@ -25,7 +26,13 @@ namespace Practico1v4
 				// login was successful
 				Application.Run(new MainForm());
 			}
+
 			//Application.Run(new Lanzador());
         }
-    }
+
+		private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+		{
+			throw new Exception(e.Exception.Message);
+		}
+	}
 }

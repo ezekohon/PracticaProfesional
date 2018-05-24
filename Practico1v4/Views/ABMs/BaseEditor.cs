@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace Practico1v4.Views.ABMs
 {
-    public partial class BaseABM : Form
-    {
-        public BaseABM()
-        {
-            InitializeComponent();
-        }
-
-		
-    }
+	public partial class BaseEditor : Form
+	{
+		public BaseEditor()
+		{
+			InitializeComponent();
+		}
+	}
 }

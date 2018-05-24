@@ -1,4 +1,5 @@
 ﻿using Practico1v4.Helpers;
+using Practico1v4.Views.ABMs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,5 +42,11 @@ namespace Practico1v4.Views.Main
         {
 
         }
-    }
+
+		private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			UsuariosABM form = new UsuariosABM();
+			form.ShowDialog(this);
+		}
+	}
 }

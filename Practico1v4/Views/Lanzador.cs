@@ -69,7 +69,7 @@ namespace Practico1v4
             if (loginCorrecto(usuarioIngresado, passwordIngresado))
             {
 				//TODO: cambiar 
-				Common.UsuarioData.usuario = contextGlobal.Usuarios.Where(u => u.Username == usuarioIngresado).Include(u => u.Roles).SingleOrDefault();
+				Common.UsuarioData.usuario = contextGlobal.Usuarios.Where(u => u.Username == usuarioIngresado).Include(u => u.Rol).SingleOrDefault();
 				//var query = from u in contextGlobal.Usuarios
 				//			join r in contextGlobal.Roles on u.Id equals r.Usuarios.
 

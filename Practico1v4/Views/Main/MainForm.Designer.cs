@@ -28,60 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.aBMsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.puntoDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vendedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.aBMsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.puntoDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.vendedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.menuStrip1.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// menuStrip1
+			// 
+			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aBMsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // aBMsToolStripMenuItem
-            // 
-            this.aBMsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+			this.menuStrip1.TabIndex = 0;
+			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// aBMsToolStripMenuItem
+			// 
+			this.aBMsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.puntoDeVentasToolStripMenuItem,
-            this.vendedoresToolStripMenuItem});
-            this.aBMsToolStripMenuItem.Name = "aBMsToolStripMenuItem";
-            this.aBMsToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.aBMsToolStripMenuItem.Text = "ABMs";
-            // 
-            // puntoDeVentasToolStripMenuItem
-            // 
-            this.puntoDeVentasToolStripMenuItem.Name = "puntoDeVentasToolStripMenuItem";
-            this.puntoDeVentasToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.puntoDeVentasToolStripMenuItem.Text = "Punto de Ventas";
-            this.puntoDeVentasToolStripMenuItem.Click += new System.EventHandler(this.puntoDeVentasToolStripMenuItem_Click);
-            // 
-            // vendedoresToolStripMenuItem
-            // 
-            this.vendedoresToolStripMenuItem.Name = "vendedoresToolStripMenuItem";
-            this.vendedoresToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.vendedoresToolStripMenuItem.Text = "Vendedores";
-            this.vendedoresToolStripMenuItem.Click += new System.EventHandler(this.vendedoresToolStripMenuItem_Click);
-            // 
-            // MainForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "MainForm";
-            this.Text = "MainForm";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            this.vendedoresToolStripMenuItem,
+            this.usuariosToolStripMenuItem});
+			this.aBMsToolStripMenuItem.Name = "aBMsToolStripMenuItem";
+			this.aBMsToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+			this.aBMsToolStripMenuItem.Text = "ABMs";
+			// 
+			// puntoDeVentasToolStripMenuItem
+			// 
+			this.puntoDeVentasToolStripMenuItem.Name = "puntoDeVentasToolStripMenuItem";
+			this.puntoDeVentasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.puntoDeVentasToolStripMenuItem.Text = "Punto de Ventas";
+			this.puntoDeVentasToolStripMenuItem.Click += new System.EventHandler(this.puntoDeVentasToolStripMenuItem_Click);
+			// 
+			// vendedoresToolStripMenuItem
+			// 
+			this.vendedoresToolStripMenuItem.Name = "vendedoresToolStripMenuItem";
+			this.vendedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.vendedoresToolStripMenuItem.Text = "Vendedores";
+			this.vendedoresToolStripMenuItem.Click += new System.EventHandler(this.vendedoresToolStripMenuItem_Click);
+			// 
+			// usuariosToolStripMenuItem
+			// 
+			this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+			this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.usuariosToolStripMenuItem.Text = "Usuarios";
+			this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+			// 
+			// MainForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.menuStrip1);
+			this.MainMenuStrip = this.menuStrip1;
+			this.Name = "MainForm";
+			this.Text = "MainForm";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
+			this.menuStrip1.ResumeLayout(false);
+			this.menuStrip1.PerformLayout();
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
@@ -91,5 +100,6 @@
         private System.Windows.Forms.ToolStripMenuItem aBMsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem puntoDeVentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendedoresToolStripMenuItem;
-    }
+		private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+	}
 }

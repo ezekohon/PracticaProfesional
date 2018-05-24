@@ -15,7 +15,15 @@ namespace Practico1v4.Models
         public DbSet<Zona> Zonas { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Rol> Roles { get; set; }
+		public DbSet<AuditEntry> AuditEntries { get; set; }
+		public DbSet<AuditEntryProperty> AuditEntryProperties { get; set; }
 
+		static VentasDBContext()
+		{
+			AuditManager.DefaultConfiguration.AutoSavePreAction = (context, audit) =>
+			   // ADD "Where(x => x.AuditEntryID == 0)" to allow multiple SaveChanges with same Audit
+			   (context as VentasDBContext).AuditEntries.AddRange(audit.Entries);
+		}
 
 		//static VentasDBContext()
 		//{
@@ -26,6 +34,7 @@ namespace Practico1v4.Models
 		public override int SaveChanges()
 		{
 			var audit = new Audit();
+			audit.CreatedBy = Common.UsuarioData.usuario.Id.ToString(); //concatenar el nombre de la terminal aca
 			audit.PreSaveChanges(this);
 			var rowAffecteds = base.SaveChanges();
 			audit.PostSaveChanges();

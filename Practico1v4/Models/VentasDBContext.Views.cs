@@ -11,7 +11,7 @@ using System.Data.Entity.Infrastructure.MappingViews;
 
 [assembly: DbMappingViewCacheTypeAttribute(
     typeof(Practico1v4.Models.VentasDBContext),
-    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets7807b44db5c634f4be5358b6d51213f2e503c7a2ddeedb63d83d3a0692e99bf9))]
+    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsb153103bf85106e65ab9c3d69b0d4765771b8e609759cbe7a21dc8df78e13b5a))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -23,14 +23,14 @@ namespace Edm_EntityMappingGeneratedViews
     /// Implements a mapping view cache.
     /// </summary>
     [GeneratedCode("Entity Framework Power Tools", "0.9.0.0")]
-    internal sealed class ViewsForBaseEntitySets7807b44db5c634f4be5358b6d51213f2e503c7a2ddeedb63d83d3a0692e99bf9 : DbMappingViewCache
+    internal sealed class ViewsForBaseEntitySetsb153103bf85106e65ab9c3d69b0d4765771b8e609759cbe7a21dc8df78e13b5a : DbMappingViewCache
     {
         /// <summary>
         /// Gets a hash value computed over the mapping closure.
         /// </summary>
         public override string MappingHashValue
         {
-            get { return "7807b44db5c634f4be5358b6d51213f2e503c7a2ddeedb63d83d3a0692e99bf9"; }
+            get { return "b153103bf85106e65ab9c3d69b0d4765771b8e609759cbe7a21dc8df78e13b5a"; }
         }
 
         /// <summary>
@@ -47,74 +47,174 @@ namespace Edm_EntityMappingGeneratedViews
 
             var extentName = extent.EntityContainer.Name + "." + extent.Name;
 
-            if (extentName == "CodeFirstDatabase.PuntoDeVenta")
+            if (extentName == "CodeFirstDatabase.AuditEntry")
             {
                 return GetView0();
             }
 
-            if (extentName == "CodeFirstDatabase.Vendedor")
+            if (extentName == "CodeFirstDatabase.AuditEntryProperty")
             {
                 return GetView1();
             }
 
-            if (extentName == "CodeFirstDatabase.Zona")
+            if (extentName == "VentasDBContext.AuditEntries")
             {
                 return GetView2();
             }
 
-            if (extentName == "VentasDBContext.PuntosDeVenta")
+            if (extentName == "VentasDBContext.AuditEntryProperties")
             {
                 return GetView3();
             }
 
-            if (extentName == "VentasDBContext.Vendedores")
+            if (extentName == "CodeFirstDatabase.PuntoDeVenta")
             {
                 return GetView4();
             }
 
-            if (extentName == "VentasDBContext.Zonas")
+            if (extentName == "CodeFirstDatabase.Vendedor")
             {
                 return GetView5();
             }
 
-            if (extentName == "CodeFirstDatabase.Rol")
+            if (extentName == "CodeFirstDatabase.Zona")
             {
                 return GetView6();
             }
 
-            if (extentName == "CodeFirstDatabase.Usuario")
+            if (extentName == "VentasDBContext.PuntosDeVenta")
             {
                 return GetView7();
             }
 
-            if (extentName == "CodeFirstDatabase.UsuarioRol")
+            if (extentName == "VentasDBContext.Vendedores")
             {
                 return GetView8();
             }
 
-            if (extentName == "VentasDBContext.Roles")
+            if (extentName == "VentasDBContext.Zonas")
             {
                 return GetView9();
             }
 
-            if (extentName == "VentasDBContext.Usuarios")
+            if (extentName == "CodeFirstDatabase.Rol")
             {
                 return GetView10();
             }
 
-            if (extentName == "VentasDBContext.Usuario_Roles")
+            if (extentName == "CodeFirstDatabase.Usuario")
             {
                 return GetView11();
+            }
+
+            if (extentName == "VentasDBContext.Roles")
+            {
+                return GetView12();
+            }
+
+            if (extentName == "VentasDBContext.Usuarios")
+            {
+                return GetView13();
             }
 
             return null;
         }
 
         /// <summary>
-        /// Gets the view for CodeFirstDatabase.PuntoDeVenta.
+        /// Gets the view for CodeFirstDatabase.AuditEntry.
         /// </summary>
         /// <returns>The mapping view.</returns>
         private static DbMappingView GetView0()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing AuditEntry
+        [CodeFirstDatabaseSchema.AuditEntry](T1.AuditEntry_AuditEntryID, T1.AuditEntry_EntitySetName, T1.AuditEntry_EntityTypeName, T1.AuditEntry_State, T1.AuditEntry_StateName, T1.AuditEntry_CreatedBy, T1.AuditEntry_CreatedDate)
+    FROM (
+        SELECT 
+            T.AuditEntryID AS AuditEntry_AuditEntryID, 
+            T.EntitySetName AS AuditEntry_EntitySetName, 
+            T.EntityTypeName AS AuditEntry_EntityTypeName, 
+            CAST(T.State AS [Edm.Int32]) AS AuditEntry_State, 
+            T.StateName AS AuditEntry_StateName, 
+            T.CreatedBy AS AuditEntry_CreatedBy, 
+            T.CreatedDate AS AuditEntry_CreatedDate, 
+            True AS _from0
+        FROM VentasDBContext.AuditEntries AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for CodeFirstDatabase.AuditEntryProperty.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView1()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing AuditEntryProperty
+        [CodeFirstDatabaseSchema.AuditEntryProperty](T1.AuditEntryProperty_AuditEntryPropertyID, T1.AuditEntryProperty_AuditEntryID, T1.AuditEntryProperty_RelationName, T1.AuditEntryProperty_PropertyName, T1.AuditEntryProperty_OldValue, T1.AuditEntryProperty_NewValue)
+    FROM (
+        SELECT 
+            T.AuditEntryPropertyID AS AuditEntryProperty_AuditEntryPropertyID, 
+            T.AuditEntryID AS AuditEntryProperty_AuditEntryID, 
+            T.RelationName AS AuditEntryProperty_RelationName, 
+            T.PropertyName AS AuditEntryProperty_PropertyName, 
+            T.OldValueFormatted AS AuditEntryProperty_OldValue, 
+            T.NewValueFormatted AS AuditEntryProperty_NewValue, 
+            True AS _from0
+        FROM VentasDBContext.AuditEntryProperties AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for VentasDBContext.AuditEntries.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView2()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing AuditEntries
+        [Practico1v4.Models.AuditEntry](T1.AuditEntry_AuditEntryID, T1.AuditEntry_CreatedBy, T1.AuditEntry_CreatedDate, T1.AuditEntry_EntitySetName, T1.AuditEntry_EntityTypeName, T1.AuditEntry_State, T1.AuditEntry_StateName)
+    FROM (
+        SELECT 
+            T.AuditEntryID AS AuditEntry_AuditEntryID, 
+            T.CreatedBy AS AuditEntry_CreatedBy, 
+            T.CreatedDate AS AuditEntry_CreatedDate, 
+            T.EntitySetName AS AuditEntry_EntitySetName, 
+            T.EntityTypeName AS AuditEntry_EntityTypeName, 
+            CAST(T.State AS [Practico1v4.Models.AuditEntryState]) AS AuditEntry_State, 
+            T.StateName AS AuditEntry_StateName, 
+            True AS _from0
+        FROM CodeFirstDatabase.AuditEntry AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for VentasDBContext.AuditEntryProperties.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView3()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing AuditEntryProperties
+        [Practico1v4.Models.AuditEntryProperty](T1.AuditEntryProperty_AuditEntryPropertyID, T1.AuditEntryProperty_AuditEntryID, T1.AuditEntryProperty_PropertyName, T1.AuditEntryProperty_RelationName, T1.AuditEntryProperty_NewValueFormatted, T1.AuditEntryProperty_OldValueFormatted)
+    FROM (
+        SELECT 
+            T.AuditEntryPropertyID AS AuditEntryProperty_AuditEntryPropertyID, 
+            T.AuditEntryID AS AuditEntryProperty_AuditEntryID, 
+            T.PropertyName AS AuditEntryProperty_PropertyName, 
+            T.RelationName AS AuditEntryProperty_RelationName, 
+            T.NewValue AS AuditEntryProperty_NewValueFormatted, 
+            T.OldValue AS AuditEntryProperty_OldValueFormatted, 
+            True AS _from0
+        FROM CodeFirstDatabase.AuditEntryProperty AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for CodeFirstDatabase.PuntoDeVenta.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView4()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing PuntoDeVenta
@@ -132,7 +232,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CodeFirstDatabase.Vendedor.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView1()
+        private static DbMappingView GetView5()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Vendedor
@@ -153,7 +253,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CodeFirstDatabase.Zona.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView2()
+        private static DbMappingView GetView6()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Zona
@@ -171,7 +271,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for VentasDBContext.PuntosDeVenta.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView3()
+        private static DbMappingView GetView7()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing PuntosDeVenta
@@ -189,7 +289,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for VentasDBContext.Vendedores.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView4()
+        private static DbMappingView GetView8()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Vendedores
@@ -210,7 +310,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for VentasDBContext.Zonas.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView5()
+        private static DbMappingView GetView9()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Zonas
@@ -228,7 +328,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CodeFirstDatabase.Rol.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView6()
+        private static DbMappingView GetView10()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Rol
@@ -247,36 +347,19 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CodeFirstDatabase.Usuario.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView7()
+        private static DbMappingView GetView11()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Usuario
-        [CodeFirstDatabaseSchema.Usuario](T1.Usuario_Id, T1.Usuario_Username, T1.Usuario_Password)
+        [CodeFirstDatabaseSchema.Usuario](T1.Usuario_Id, T1.Usuario_Username, T1.Usuario_Password, T1.Usuario_RolId)
     FROM (
         SELECT 
             T.Id AS Usuario_Id, 
             T.Username AS Usuario_Username, 
             T.Password AS Usuario_Password, 
+            T.RolId AS Usuario_RolId, 
             True AS _from0
         FROM VentasDBContext.Usuarios AS T
-    ) AS T1");
-        }
-
-        /// <summary>
-        /// Gets the view for CodeFirstDatabase.UsuarioRol.
-        /// </summary>
-        /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView8()
-        {
-            return new DbMappingView(@"
-    SELECT VALUE -- Constructing UsuarioRol
-        [CodeFirstDatabaseSchema.UsuarioRol](T1.[UsuarioRol.Usuario_Id], T1.[UsuarioRol.Rol_Id])
-    FROM (
-        SELECT 
-            Key(T.Usuario_Roles_Source).Id AS [UsuarioRol.Usuario_Id], 
-            Key(T.Usuario_Roles_Target).Id AS [UsuarioRol.Rol_Id], 
-            True AS _from0
-        FROM VentasDBContext.Usuario_Roles AS T
     ) AS T1");
         }
 
@@ -284,7 +367,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for VentasDBContext.Roles.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView9()
+        private static DbMappingView GetView12()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Roles
@@ -303,47 +386,20 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for VentasDBContext.Usuarios.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView10()
+        private static DbMappingView GetView13()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Usuarios
-        [Practico1v4.Models.Usuario](T1.Usuario_Id, T1.Usuario_Username, T1.Usuario_Password)
+        [Practico1v4.Models.Usuario](T1.Usuario_Id, T1.Usuario_Username, T1.Usuario_Password, T1.Usuario_RolId)
     FROM (
         SELECT 
             T.Id AS Usuario_Id, 
             T.Username AS Usuario_Username, 
             T.Password AS Usuario_Password, 
+            T.RolId AS Usuario_RolId, 
             True AS _from0
         FROM CodeFirstDatabase.Usuario AS T
     ) AS T1");
-        }
-
-        /// <summary>
-        /// Gets the view for VentasDBContext.Usuario_Roles.
-        /// </summary>
-        /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView11()
-        {
-            return new DbMappingView(@"
-    SELECT VALUE -- Constructing Usuario_Roles
-        [Practico1v4.Models.Usuario_Roles](T3.[Usuario_Roles.Usuario_Roles_Source], T3.[Usuario_Roles.Usuario_Roles_Target])
-    FROM (
-        SELECT -- Constructing Usuario_Roles_Source
-            CreateRef(VentasDBContext.Usuarios, row(T2.[Usuario_Roles.Usuario_Roles_Source.Id]), [Practico1v4.Models.Usuario]) AS [Usuario_Roles.Usuario_Roles_Source], 
-            T2.[Usuario_Roles.Usuario_Roles_Target]
-        FROM (
-            SELECT -- Constructing Usuario_Roles_Target
-                T1.[Usuario_Roles.Usuario_Roles_Source.Id], 
-                CreateRef(VentasDBContext.Roles, row(T1.[Usuario_Roles.Usuario_Roles_Target.Id]), [Practico1v4.Models.Rol]) AS [Usuario_Roles.Usuario_Roles_Target]
-            FROM (
-                SELECT 
-                    T.Usuario_Id AS [Usuario_Roles.Usuario_Roles_Source.Id], 
-                    T.Rol_Id AS [Usuario_Roles.Usuario_Roles_Target.Id], 
-                    True AS _from0
-                FROM CodeFirstDatabase.UsuarioRol AS T
-            ) AS T1
-        ) AS T2
-    ) AS T3");
         }
     }
 }

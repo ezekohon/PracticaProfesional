@@ -10,15 +10,19 @@ namespace Practico1v4.Models
 {
     class Usuario
     {
-        public int Id { get; set; }
-        [Required]
+		public int Id { get; set; }
+		[Required]
 		[Index(IsUnique = true)]
 		[StringLength(200)]
 		public string Username { get; set; }
-        [Required]
-        public string Password { get; set; }
+		[Required]
+		public string Password { get; set; }
 
-        public virtual ICollection<Rol> Roles { get; set; }
+		[Required]
+		public int RolId { get; set; }
+		[Required]
+		public Rol Rol { get; set; }
 
-    }
+
+	}
 }
