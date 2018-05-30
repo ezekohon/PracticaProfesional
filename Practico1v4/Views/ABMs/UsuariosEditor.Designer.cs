@@ -42,9 +42,12 @@
 			this.errorProviderUsuario = new System.Windows.Forms.ErrorProvider(this.components);
 			this.errorProviderRol = new System.Windows.Forms.ErrorProvider(this.components);
 			this.comboBoxRol = new System.Windows.Forms.ComboBox();
+			this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
+			this.errorProviderPassword = new System.Windows.Forms.ErrorProvider(this.components);
 			this.statusStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.errorProviderUsuario)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.errorProviderRol)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProviderPassword)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// buttonConfirmar
@@ -92,6 +95,7 @@
 			this.textBoxUsuario.Name = "textBoxUsuario";
 			this.textBoxUsuario.Size = new System.Drawing.Size(100, 20);
 			this.textBoxUsuario.TabIndex = 4;
+			this.textBoxUsuario.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxUsuario_Validating);
 			// 
 			// label2
 			// 
@@ -124,6 +128,7 @@
 			this.textBoxPassword.Name = "textBoxPassword";
 			this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
 			this.textBoxPassword.TabIndex = 9;
+			this.textBoxPassword.UseSystemPasswordChar = true;
 			// 
 			// label3
 			// 
@@ -136,10 +141,12 @@
 			// 
 			// errorProviderUsuario
 			// 
+			this.errorProviderUsuario.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
 			this.errorProviderUsuario.ContainerControl = this;
 			// 
 			// errorProviderRol
 			// 
+			this.errorProviderRol.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
 			this.errorProviderRol.ContainerControl = this;
 			// 
 			// comboBoxRol
@@ -150,11 +157,27 @@
 			this.comboBoxRol.Size = new System.Drawing.Size(100, 21);
 			this.comboBoxRol.TabIndex = 10;
 			// 
+			// checkBoxShowPassword
+			// 
+			this.checkBoxShowPassword.AutoSize = true;
+			this.checkBoxShowPassword.Location = new System.Drawing.Point(241, 108);
+			this.checkBoxShowPassword.Name = "checkBoxShowPassword";
+			this.checkBoxShowPassword.Size = new System.Drawing.Size(15, 14);
+			this.checkBoxShowPassword.TabIndex = 11;
+			this.checkBoxShowPassword.UseVisualStyleBackColor = true;
+			this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.checkBoxShowPassword_CheckedChanged);
+			// 
+			// errorProviderPassword
+			// 
+			this.errorProviderPassword.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+			this.errorProviderPassword.ContainerControl = this;
+			// 
 			// UsuariosEditor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(500, 298);
+			this.Controls.Add(this.checkBoxShowPassword);
 			this.Controls.Add(this.comboBoxRol);
 			this.Controls.Add(this.textBoxPassword);
 			this.Controls.Add(this.label3);
@@ -172,6 +195,7 @@
 			this.statusStrip1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.errorProviderUsuario)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.errorProviderRol)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.errorProviderPassword)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -192,5 +216,7 @@
 		private System.Windows.Forms.ErrorProvider errorProviderUsuario;
 		private System.Windows.Forms.ErrorProvider errorProviderRol;
 		private System.Windows.Forms.ComboBox comboBoxRol;
+		private System.Windows.Forms.CheckBox checkBoxShowPassword;
+		private System.Windows.Forms.ErrorProvider errorProviderPassword;
 	}
 }

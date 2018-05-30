@@ -33,13 +33,17 @@
 			this.puntoDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vendedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.auditoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aBMsToolStripMenuItem});
+            this.aBMsToolStripMenuItem,
+            this.auditoríasToolStripMenuItem,
+            this.cerrarSesiónToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -77,6 +81,21 @@
 			this.usuariosToolStripMenuItem.Text = "Usuarios";
 			this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
 			// 
+			// auditoríasToolStripMenuItem
+			// 
+			this.auditoríasToolStripMenuItem.Name = "auditoríasToolStripMenuItem";
+			this.auditoríasToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+			this.auditoríasToolStripMenuItem.Text = "Auditorías";
+			this.auditoríasToolStripMenuItem.Click += new System.EventHandler(this.auditoríasToolStripMenuItem_Click);
+			// 
+			// cerrarSesiónToolStripMenuItem
+			// 
+			this.cerrarSesiónToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+			this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+			this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
+			this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -101,5 +120,7 @@
         private System.Windows.Forms.ToolStripMenuItem puntoDeVentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendedoresToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem auditoríasToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
 	}
 }

@@ -44,16 +44,22 @@ namespace Practico1v4.Views.ABMs
 			set { _currentStatus = value; }
 		}
 
-		internal void cargarDatos(DataGridViewRow row) 
+		internal void cargarDatos(Usuario u) 
 		{
-			textBoxUsuario.Text = row.Cells["Nombre"].Value.ToString();
-			comboBoxRol.SelectedItem = row.Cells["Rol"].Value.ToString();
+			textBoxUsuario.Text = u.Username;
+			comboBoxRol.SelectedItem = u.Rol.Nombre;
 		}
 
 		private void buttonLimpiar_Click(object sender, EventArgs e)
 		{
+			limpiarCampos();
+		}
+
+		private void limpiarCampos()
+		{
 			textBoxUsuario.Clear();
 			comboBoxRol.SelectedIndex = -1;
+			textBoxPassword.Clear();
 		}
 
 		private void buttonConfirmar_Click(object sender, EventArgs e)
@@ -64,50 +70,92 @@ namespace Practico1v4.Views.ABMs
 				errorProviderUsuario.SetError(textBoxUsuario, "Requerido");
 				errorProviderUsuario.BlinkStyle = ErrorBlinkStyle.NeverBlink;
 				puedoInsertar = false;
-				//return;
 			}
 			else { errorProviderUsuario.Clear(); }
 
+			if (string.IsNullOrWhiteSpace(textBoxPassword.Text))
+			{
+				errorProviderPassword.SetError(textBoxPassword, "Requerido");
+				errorProviderPassword.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+				puedoInsertar = false;
+			}
+			else { errorProviderPassword.Clear(); }
+
+			if (comboBoxRol.SelectedIndex == -1)
+			{
+				errorProviderRol.SetError(comboBoxRol, "Requerido");
+				errorProviderRol.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+				puedoInsertar = false;
+			}
+			else { errorProviderRol.Clear(); }
+
 			if (puedoInsertar)
 			{
-				using (var context = new VentasDBContext())
-				{
-					Usuario u = new Usuario();
-					Rol rol = (Rol)comboBoxRol.SelectedItem;
-					u.Username = textBoxUsuario.Text;
-					u.RolId = rol.Id;
-					u.Rol = rol;
-					
-					u.Password = Helpers.SecurePasswordHasher.Hash(textBoxPassword.Text);
-
-					if (currentStatus == status.insertar) //insertar
-					{
-						context.Usuarios.Add(u);
-						context.Roles.Attach(rol);
-						
-						try
-						{
-							context.SaveChanges();
-						}
-						catch (Exception ex)
-						{ throw ex; }
-					}
-					else //editar
-					{
-						context.Entry(u).State = EntityState.Modified;
-						try
-						{
-							context.SaveChanges();
-						}
-						catch (Exception ex)
-						{ throw ex; }
-						this.Close();
-					}
-				}
-				
+				if (currentStatus == status.insertar)
+					insertar();
+				else if (currentStatus == status.editar)
+					editar();
 			}
 		}
 
+		public void insertar()
+		{
+			using (var context = new VentasDBContext())
+			{
+				Usuario u = new Usuario();
+				Rol rol = (Rol)comboBoxRol.SelectedItem;
+				u.Username = textBoxUsuario.Text;
+				u.RolId = rol.Id;
+				u.Rol = rol;
 
+				u.Password = Helpers.SecurePasswordHasher.Hash(textBoxPassword.Text);
+				context.Usuarios.Add(u);
+				context.Roles.Attach(rol);
+				try
+				{
+					context.SaveChanges();
+					DialogResult = DialogResult.OK;
+				}
+				catch (Exception ex)
+				{
+					throw;
+				}
+			}
+		}
+
+		private void editar()
+		{
+			using (var context = new VentasDBContext())
+			{
+				Usuario u = new Usuario();
+				Rol rol = (Rol)comboBoxRol.SelectedItem;
+				u.Username = textBoxUsuario.Text;
+				u.RolId = rol.Id;
+				u.Rol = rol;
+
+				u.Password = Helpers.SecurePasswordHasher.Hash(textBoxPassword.Text);
+				var entry = context.Usuarios.Find(u.Id);
+				context.Entry(entry).CurrentValues.SetValues(u);
+				try
+				{
+					context.SaveChanges();
+					DialogResult = DialogResult.OK;
+				}
+				catch (Exception ex)
+				{
+					throw;
+				}
+			}
+		}
+
+		private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
+		{
+			textBoxPassword.UseSystemPasswordChar = !checkBoxShowPassword.Checked;
+		}
+
+		private void textBoxUsuario_Validating(object sender, CancelEventArgs e)
+		{
+
+		}
 	}
 }

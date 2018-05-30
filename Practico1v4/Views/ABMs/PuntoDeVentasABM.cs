@@ -130,8 +130,11 @@ namespace Practico1v4.Views
             {
                 if (!string.IsNullOrWhiteSpace(p.Descripcion)) //modificar
                 {
-                    context.Entry(p).State = EntityState.Modified;
-                    context.SaveChanges();
+					//context.Entry(p).State = EntityState.Modified;
+					//para que ande bien el audit
+					var entry = context.PuntosDeVenta.Find(p.Id);
+					context.Entry(entry).CurrentValues.SetValues(p);
+					context.SaveChanges();
                 }
                 
             }

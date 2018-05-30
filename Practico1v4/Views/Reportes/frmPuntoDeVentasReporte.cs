@@ -33,7 +33,7 @@ namespace Practico1v4.Views.Reportes
             }
             crystalReportViewer1.ReportSource = rpt;
             
-            //crystalReportViewer1.PrintReport();
+       
         }
 
     }

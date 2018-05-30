@@ -13,6 +13,7 @@ using System.Reflection;
 using Practico1v4.Helpers;
 using System.Text.RegularExpressions;
 using Practico1v4.Reportes;
+using System.Data.Entity.Migrations;
 
 namespace Practico1v4.Views
 {
@@ -202,9 +203,13 @@ namespace Practico1v4.Views
             {
                 if (puedoInsertar) //modificar
                 {
-                    //context.PuntosDeVenta.Attach(pdv);
-                    //v.PuntoDeVenta = pdv;
-                    context.Entry(v).State = EntityState.Modified;
+					//context.PuntosDeVenta.Attach(pdv);
+					//v.PuntoDeVenta = pdv;
+					var entry = context.Vendedores.Find(v.Id);
+					context.Entry(entry).CurrentValues.SetValues(v);
+                    //context.Entry(v).State = EntityState.Modified;
+					//context.Vendedores.AddOrUpdate(v);
+					
                     context.SaveChanges();
                     actualizarGrilla();
                 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Practico1v4.Models
 {
-    class Usuario
+    public class Usuario
     {
 		public int Id { get; set; }
 		[Required]
@@ -16,7 +16,12 @@ namespace Practico1v4.Models
 		[StringLength(200)]
 		public string Username { get; set; }
 		[Required]
+		
 		public string Password { get; set; }
+
+		public long Telefono { get; set; }
+
+		public string Mail { get; set; }
 
 		[Required]
 		public int RolId { get; set; }

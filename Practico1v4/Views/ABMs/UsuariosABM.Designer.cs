@@ -41,6 +41,9 @@
 			this.toolStripButtonBorrar = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripButtonReporte = new System.Windows.Forms.ToolStripButton();
+			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.rolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.statusStrip1.SuspendLayout();
@@ -50,7 +53,15 @@
 			// 
 			// dataGridView1
 			// 
+			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToDeleteRows = false;
+			this.dataGridView1.AutoGenerateColumns = false;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.usernameDataGridViewTextBoxColumn,
+            this.rolDataGridViewTextBoxColumn});
+			this.dataGridView1.DataSource = this.usuarioBindingSource;
 			this.dataGridView1.Location = new System.Drawing.Point(12, 105);
 			this.dataGridView1.MultiSelect = false;
 			this.dataGridView1.Name = "dataGridView1";
@@ -59,6 +70,8 @@
 			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridView1.Size = new System.Drawing.Size(491, 194);
 			this.dataGridView1.TabIndex = 0;
+			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+
 			// 
 			// statusStrip1
 			// 
@@ -139,6 +152,7 @@
 			this.toolStripButtonBorrar.Name = "toolStripButtonBorrar";
 			this.toolStripButtonBorrar.Size = new System.Drawing.Size(47, 47);
 			this.toolStripButtonBorrar.Text = "toolStripButton3";
+			this.toolStripButtonBorrar.Click += new System.EventHandler(this.toolStripButtonBorrar_Click);
 			// 
 			// toolStripSeparator1
 			// 
@@ -155,6 +169,31 @@
 			this.toolStripButtonReporte.Name = "toolStripButtonReporte";
 			this.toolStripButtonReporte.Size = new System.Drawing.Size(47, 47);
 			this.toolStripButtonReporte.Text = "toolStripButton4";
+			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// usernameDataGridViewTextBoxColumn
+			// 
+			this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+			this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+			this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+			this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// rolDataGridViewTextBoxColumn
+			// 
+			this.rolDataGridViewTextBoxColumn.DataPropertyName = "Rol";
+			this.rolDataGridViewTextBoxColumn.HeaderText = "Rol";
+			this.rolDataGridViewTextBoxColumn.Name = "rolDataGridViewTextBoxColumn";
+			this.rolDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// usuarioBindingSource
+			// 
+			this.usuarioBindingSource.DataSource = typeof(Practico1v4.Models.Usuario);
 			// 
 			// UsuariosABM
 			// 
@@ -193,6 +232,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButtonReporte;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn rolDataGridViewTextBoxColumn;
 		private System.Windows.Forms.BindingSource usuarioBindingSource;
 	}
 }

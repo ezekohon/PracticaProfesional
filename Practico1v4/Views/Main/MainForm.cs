@@ -17,13 +17,8 @@ namespace Practico1v4.Views.Main
         public MainForm()
         {
             InitializeComponent();
-            //MessageBoxManager.Cancel = "Cancelar";
-            //MessageBoxManager.OK = "Aceptar";
-            //MessageBoxManager.Yes = "Si";
-            //MessageBoxManager.Register();
 
-            //System.Console.WriteLine(Helpers.SecurePasswordHasher.Hash("super"));
-            //System.Console.WriteLine(Helpers.SecurePasswordHasher.Verify("carlos123", "$MYHASH$V1$10000$sYV9A5il3YTkIbvnXDftcsSuUNoGL4c9fDlaxnCXRpNKpVwM"));
+			setupPermisos();
         }
 
         private void puntoDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -47,6 +42,40 @@ namespace Practico1v4.Views.Main
 		{
 			UsuariosABM form = new UsuariosABM();
 			form.ShowDialog(this);
+		}
+
+		private void auditoríasToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Auditorias.MainAuditorias form = new Auditorias.MainAuditorias();
+			form.ShowDialog(this);
+		}
+
+		private void setupPermisos()
+		{
+			if (! Common.UsuarioData.usuarioTieneAccesoOperacion(Common.UsuarioData.operaciones.AUDITORIAS_CONSULTAR))
+			{
+				auditoríasToolStripMenuItem.Enabled = false;
+			}
+			if (! Common.UsuarioData.usuarioTieneAccesoOperacion(Common.UsuarioData.operaciones.USUARIOS_SUPER))
+			{
+				usuariosToolStripMenuItem.Enabled = false;
+			}
+			if (!Common.UsuarioData.usuarioTieneAccesoOperacion(Common.UsuarioData.operaciones.PUNTOSDEVENTA_CONSULTAR))
+			{
+				puntoDeVentasToolStripMenuItem.Enabled = false;
+			}
+			if (!Common.UsuarioData.usuarioTieneAccesoOperacion(Common.UsuarioData.operaciones.VENDEDORES_CONSULTAR))
+			{
+				vendedoresToolStripMenuItem.Enabled = false;
+			}
+		}
+
+		private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			//this.Close();
+			//Lanzador frm = new Lanzador();
+			//frm.Show();
+			Application.Restart();
 		}
 	}
 }
