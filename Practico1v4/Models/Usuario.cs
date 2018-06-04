@@ -19,8 +19,6 @@ namespace Practico1v4.Models
 		
 		public string Password { get; set; }
 
-		public long Telefono { get; set; }
-
 		public string Mail { get; set; }
 
 		[Required]

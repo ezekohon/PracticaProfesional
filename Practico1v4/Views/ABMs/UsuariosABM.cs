@@ -81,7 +81,8 @@ namespace Practico1v4.Views.ABMs
 				var row = dataGridView1.SelectedRows[0];
 				var u = getUsuarioFromRow(row);
 				UsuariosEditor frm = new UsuariosEditor();
-				frm.cargarDatos(u);
+				//frm.cargarDatos(u);
+				frm.usuario = u;
 				frm.currentStatus = UsuariosEditor.status.editar;
 				frm.ShowDialog(this);
 				actualizarGrilla();
@@ -122,6 +123,12 @@ namespace Practico1v4.Views.ABMs
 		private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
 			usuarioSelected = (Usuario)dataGridView1.SelectedRows[0].DataBoundItem;
+		}
+
+		private void toolStripButtonReporte_Click(object sender, EventArgs e)
+		{
+			Reportes.frmUsuariosReporte rpt = new Reportes.frmUsuariosReporte();
+			rpt.ShowDialog(this);
 		}
 	}
 }

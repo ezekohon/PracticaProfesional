@@ -25,6 +25,7 @@ namespace Practico1v4.Views.Auditorias
 			using (var context = new VentasDBContext())
 			{
 				dataGridView1.DataSource = context.AuditEntryProperties.Where(x => x.AuditEntryID == IdEntry).ToList();
+				
 				//var audit = new Audit();
 				//var entries = audit.Entries;
 			}

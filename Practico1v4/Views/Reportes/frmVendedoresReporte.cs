@@ -30,8 +30,10 @@ namespace Practico1v4.Views.Reportes
             {
                 context.PuntosDeVenta.Load();
                 context.Vendedores.Load();
+				context.Zonas.Load();
                 rpt.Database.Tables[0].SetDataSource(context.Vendedores.Local);
                 rpt.Database.Tables[1].SetDataSource(context.PuntosDeVenta.Local);
+				rpt.Database.Tables[2].SetDataSource(context.Zonas.Local);
             }
             crystalReportViewer1.ReportSource = rpt;
         }

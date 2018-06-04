@@ -52,27 +52,32 @@ namespace Practico1v4.Views.Main
 
 		private void setupPermisos()
 		{
-			if (! Common.UsuarioData.usuarioTieneAccesoOperacion(Common.UsuarioData.operaciones.AUDITORIAS_CONSULTAR))
-			{
-				auditoríasToolStripMenuItem.Enabled = false;
-			}
-			if (! Common.UsuarioData.usuarioTieneAccesoOperacion(Common.UsuarioData.operaciones.USUARIOS_SUPER))
-			{
-				usuariosToolStripMenuItem.Enabled = false;
-			}
-			if (!Common.UsuarioData.usuarioTieneAccesoOperacion(Common.UsuarioData.operaciones.PUNTOSDEVENTA_CONSULTAR))
-			{
-				puntoDeVentasToolStripMenuItem.Enabled = false;
-			}
-			if (!Common.UsuarioData.usuarioTieneAccesoOperacion(Common.UsuarioData.operaciones.VENDEDORES_CONSULTAR))
-			{
-				vendedoresToolStripMenuItem.Enabled = false;
-			}
+			//if (! Common.UsuarioData.usuarioTieneAccesoOperacion(Common.UsuarioData.operaciones.AUDITORIAS_CONSULTAR))
+			//{
+			//	auditoríasToolStripMenuItem.Enabled = false;
+			//}
+			//if (! Common.UsuarioData.usuarioTieneAccesoOperacion(Common.UsuarioData.operaciones.USUARIOS_SUPER))
+			//{
+			//	usuariosToolStripMenuItem.Enabled = false;
+			//}
+			//if (!Common.UsuarioData.usuarioTieneAccesoOperacion(Common.UsuarioData.operaciones.PUNTOSDEVENTA_CONSULTAR))
+			//{
+			//	puntoDeVentasToolStripMenuItem.Enabled = false;
+			//}
+			//if (!Common.UsuarioData.usuarioTieneAccesoOperacion(Common.UsuarioData.operaciones.VENDEDORES_CONSULTAR))
+			//{
+			//	vendedoresToolStripMenuItem.Enabled = false;
+			//}
+
+			SetupPermisosHelper.instance.setupMenuPorOperacion(auditoríasToolStripMenuItem, Common.UsuarioData.operaciones.AUDITORIAS_CONSULTAR);
+			SetupPermisosHelper.instance.setupMenuPorOperacion(usuariosToolStripMenuItem, Common.UsuarioData.operaciones.USUARIOS_SUPER);
+			SetupPermisosHelper.instance.setupMenuPorOperacion(puntoDeVentasToolStripMenuItem, Common.UsuarioData.operaciones.PUNTOSDEVENTA_CONSULTAR);
+			SetupPermisosHelper.instance.setupMenuPorOperacion(vendedoresToolStripMenuItem, Common.UsuarioData.operaciones.VENDEDORES_CONSULTAR);
 		}
 
 		private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			//this.Close();
+			//this.Hide();
 			//Lanzador frm = new Lanzador();
 			//frm.Show();
 			Application.Restart();

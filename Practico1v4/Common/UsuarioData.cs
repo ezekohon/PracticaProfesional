@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Practico1v4.Common
 {
-	internal static class UsuarioData
+	public static class UsuarioData
 	{
 		public static Usuario usuario;
 
@@ -23,9 +23,10 @@ namespace Practico1v4.Common
 			PUNTOSDEVENTA_ALTABAJA = 8,
 			PUNTOSDEVENTA_SUPER = 9,
 			VENDEDORES_CONSULTAR = 10,
-			VENDEDORES_ALTABAJA = 11,
-			VENDEDORES_SUPER = 12,
-			AUDITORIAS_CONSULTAR = 13
+			VENDEDORES_MODIFICAR = 11,
+			VENDEDORES_ALTABAJA = 12,
+			VENDEDORES_SUPER = 13,
+			AUDITORIAS_CONSULTAR = 14
 		}
 
 		public static bool usuarioTieneAccesoOperacion(operaciones operacion)

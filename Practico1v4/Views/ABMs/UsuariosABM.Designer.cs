@@ -31,6 +31,10 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsuariosABM));
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.rolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.label1 = new System.Windows.Forms.Label();
@@ -41,14 +45,10 @@
 			this.toolStripButtonBorrar = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripButtonReporte = new System.Windows.Forms.ToolStripButton();
-			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.rolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
 			this.statusStrip1.SuspendLayout();
 			this.toolStrip1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dataGridView1
@@ -71,7 +71,31 @@
 			this.dataGridView1.Size = new System.Drawing.Size(491, 194);
 			this.dataGridView1.TabIndex = 0;
 			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-
+			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// usernameDataGridViewTextBoxColumn
+			// 
+			this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+			this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+			this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+			this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// rolDataGridViewTextBoxColumn
+			// 
+			this.rolDataGridViewTextBoxColumn.DataPropertyName = "Rol";
+			this.rolDataGridViewTextBoxColumn.HeaderText = "Rol";
+			this.rolDataGridViewTextBoxColumn.Name = "rolDataGridViewTextBoxColumn";
+			this.rolDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// usuarioBindingSource
+			// 
+			this.usuarioBindingSource.DataSource = typeof(Practico1v4.Models.Usuario);
 			// 
 			// statusStrip1
 			// 
@@ -169,31 +193,7 @@
 			this.toolStripButtonReporte.Name = "toolStripButtonReporte";
 			this.toolStripButtonReporte.Size = new System.Drawing.Size(47, 47);
 			this.toolStripButtonReporte.Text = "toolStripButton4";
-			// 
-			// idDataGridViewTextBoxColumn
-			// 
-			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			this.idDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// usernameDataGridViewTextBoxColumn
-			// 
-			this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
-			this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-			this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-			this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// rolDataGridViewTextBoxColumn
-			// 
-			this.rolDataGridViewTextBoxColumn.DataPropertyName = "Rol";
-			this.rolDataGridViewTextBoxColumn.HeaderText = "Rol";
-			this.rolDataGridViewTextBoxColumn.Name = "rolDataGridViewTextBoxColumn";
-			this.rolDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// usuarioBindingSource
-			// 
-			this.usuarioBindingSource.DataSource = typeof(Practico1v4.Models.Usuario);
+			this.toolStripButtonReporte.Click += new System.EventHandler(this.toolStripButtonReporte_Click);
 			// 
 			// UsuariosABM
 			// 
@@ -209,11 +209,11 @@
 			this.Text = "UsuariosABM";
 			this.Load += new System.EventHandler(this.UsuariosABM_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
 			this.statusStrip1.ResumeLayout(false);
 			this.statusStrip1.PerformLayout();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

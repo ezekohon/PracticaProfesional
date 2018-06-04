@@ -33,7 +33,10 @@ namespace Practico1v4.Views.Auditorias
 		{
 			using (var context = new VentasDBContext())
 			{
-				dataGridView1.DataSource = context.AuditEntries.ToList() ;
+				dataGridView1.DataSource = context.AuditEntries.OrderByDescending(x => x.CreatedDate).ToList();
+				comboBoxTablas.ValueMember = "AuditEntryID";
+				comboBoxTablas.DisplayMember = "EntitySetName";
+				comboBoxTablas.DataSource = context.AuditEntries.GroupBy(x => x.EntitySetName).Select(x => x.FirstOrDefault()).ToList();
 			}
 			dataGridView1.ClearSelection();
 		}
@@ -88,6 +91,13 @@ namespace Practico1v4.Views.Auditorias
 			form.IdEntry = auditEntrySelected.AuditEntryID;
 			form.StartPosition = FormStartPosition.CenterParent;
 			form.ShowDialog(this);
+		}
+
+		private void buttonIrTabla_Click(object sender, EventArgs e)
+		{
+			TablaAuditoria frm = new TablaAuditoria();
+			frm.entry = (AuditEntry)comboBoxTablas.SelectedItem;
+			frm.ShowDialog(this);
 		}
 	}
 }

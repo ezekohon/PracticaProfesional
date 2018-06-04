@@ -14,7 +14,7 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Ezequiel\Desktop\Deploy9\</PublishUrl>
+    <PublishUrl>C:\Users\Ezequiel\Desktop\Deploy\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -24,7 +24,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -104,6 +104,7 @@
     <Compile Include="Helpers\CreadorMensajes.cs" />
     <Compile Include="Helpers\MessageBoxManager.cs" />
     <Compile Include="Helpers\SecurePasswordHasher.cs" />
+    <Compile Include="Helpers\SetupPermisosHelper.cs" />
     <Compile Include="Migrations\201804251928210_drop columnas de vendedores.cs" />
     <Compile Include="Migrations\201804251928210_drop columnas de vendedores.Designer.cs">
       <DependentUpon>201804251928210_drop columnas de vendedores.cs</DependentUpon>
@@ -148,6 +149,10 @@
     <Compile Include="Migrations\201805292227584_operacion y modif rol.Designer.cs">
       <DependentUpon>201805292227584_operacion y modif rol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805311932205_sacar telefono.cs" />
+    <Compile Include="Migrations\201805311932205_sacar telefono.Designer.cs">
+      <DependentUpon>201805311932205_sacar telefono.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Operacion.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Usuario.cs" />
@@ -156,6 +161,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PuntoDeVentasReporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\UsuariosReporte.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsuariosReporte.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\VendedoresReporte.cs">
@@ -205,6 +216,12 @@
     </Compile>
     <Compile Include="Views\Auditorias\MainAuditorias.Designer.cs">
       <DependentUpon>MainAuditorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Auditorias\TablaAuditoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Auditorias\TablaAuditoria.Designer.cs">
+      <DependentUpon>TablaAuditoria.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\BaseForm.cs">
       <SubType>Form</SubType>
@@ -264,6 +281,12 @@
     <Compile Include="Views\Reportes\frmPuntoDeVentasReporte.Designer.cs">
       <DependentUpon>frmPuntoDeVentasReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Reportes\frmUsuariosReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Reportes\frmUsuariosReporte.Designer.cs">
+      <DependentUpon>frmUsuariosReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Reportes\frmVendedoresReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,6 +338,9 @@
     <EmbeddedResource Include="Migrations\201805292227584_operacion y modif rol.resx">
       <DependentUpon>201805292227584_operacion y modif rol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805311932205_sacar telefono.resx">
+      <DependentUpon>201805311932205_sacar telefono.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -328,6 +354,10 @@
     <EmbeddedResource Include="Reportes\PuntoDeVentasReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PuntoDeVentasReporte.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\UsuariosReporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>UsuariosReporte.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\VendedoresReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -357,6 +387,9 @@
     <EmbeddedResource Include="Views\Auditorias\MainAuditorias.resx">
       <DependentUpon>MainAuditorias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Auditorias\TablaAuditoria.resx">
+      <DependentUpon>TablaAuditoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -371,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Reportes\frmPuntoDeVentasReporte.resx">
       <DependentUpon>frmPuntoDeVentasReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reportes\frmUsuariosReporte.resx">
+      <DependentUpon>frmUsuariosReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Reportes\frmVendedoresReporte.resx">
       <DependentUpon>frmVendedoresReporte.cs</DependentUpon>
@@ -411,6 +447,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="log4net">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

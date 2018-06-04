@@ -24,11 +24,21 @@ namespace Practico1v4.Views.ABMs
 			toolStripStatusLabel1.Text = (currentStatus == status.insertar) ? "Modo insertar" : "Modo editar";
 			using (var context = new VentasDBContext())
 			{
-				comboBoxRol.DataSource = context.Roles.ToList();
+				
+				comboBoxRol.ValueMember = "Id";
 				comboBoxRol.DisplayMember = "Nombre";
+				comboBoxRol.DataSource = context.Roles.ToList();
 				comboBoxRol.SelectedIndex = -1;
 			}
+			if (currentStatus == status.editar)
+			{
+				textBoxPassword.Enabled = false;
+				checkBoxShowPassword.Enabled = false;
+				cargarDatos();
+			}
 		}
+
+		public Usuario usuario { get; set; }
 
 		public enum status
 		{
@@ -44,10 +54,10 @@ namespace Practico1v4.Views.ABMs
 			set { _currentStatus = value; }
 		}
 
-		internal void cargarDatos(Usuario u) 
+		internal void cargarDatos() 
 		{
-			textBoxUsuario.Text = u.Username;
-			comboBoxRol.SelectedItem = u.Rol.Nombre;
+			textBoxUsuario.Text = usuario.Username;
+			comboBoxRol.SelectedValue = usuario.Rol.Id;
 		}
 
 		private void buttonLimpiar_Click(object sender, EventArgs e)
@@ -64,6 +74,17 @@ namespace Practico1v4.Views.ABMs
 
 		private void buttonConfirmar_Click(object sender, EventArgs e)
 		{
+			if (validarCampos())
+			{
+				if (currentStatus == status.insertar)
+					insertar();
+				else if (currentStatus == status.editar)
+					editar();
+			}
+		}
+
+		public bool validarCampos()
+		{
 			bool puedoInsertar = true;
 			if (string.IsNullOrWhiteSpace(textBoxUsuario.Text))
 			{
@@ -73,13 +94,16 @@ namespace Practico1v4.Views.ABMs
 			}
 			else { errorProviderUsuario.Clear(); }
 
-			if (string.IsNullOrWhiteSpace(textBoxPassword.Text))
+			if (currentStatus != status.editar)
 			{
-				errorProviderPassword.SetError(textBoxPassword, "Requerido");
-				errorProviderPassword.BlinkStyle = ErrorBlinkStyle.NeverBlink;
-				puedoInsertar = false;
+				if (string.IsNullOrWhiteSpace(textBoxPassword.Text))
+				{
+					errorProviderPassword.SetError(textBoxPassword, "Requerido");
+					errorProviderPassword.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+					puedoInsertar = false;
+				}
+				else { errorProviderPassword.Clear(); }
 			}
-			else { errorProviderPassword.Clear(); }
 
 			if (comboBoxRol.SelectedIndex == -1)
 			{
@@ -89,13 +113,7 @@ namespace Practico1v4.Views.ABMs
 			}
 			else { errorProviderRol.Clear(); }
 
-			if (puedoInsertar)
-			{
-				if (currentStatus == status.insertar)
-					insertar();
-				else if (currentStatus == status.editar)
-					editar();
-			}
+			return puedoInsertar;
 		}
 
 		public void insertar()
@@ -127,15 +145,15 @@ namespace Practico1v4.Views.ABMs
 		{
 			using (var context = new VentasDBContext())
 			{
-				Usuario u = new Usuario();
+				//Usuario u = new Usuario();
 				Rol rol = (Rol)comboBoxRol.SelectedItem;
-				u.Username = textBoxUsuario.Text;
-				u.RolId = rol.Id;
-				u.Rol = rol;
-
-				u.Password = Helpers.SecurePasswordHasher.Hash(textBoxPassword.Text);
-				var entry = context.Usuarios.Find(u.Id);
-				context.Entry(entry).CurrentValues.SetValues(u);
+				
+				usuario.Username = textBoxUsuario.Text;
+				usuario.RolId = rol.Id;
+				usuario.Rol = rol;
+				//u.Password = Helpers.SecurePasswordHasher.Hash(textBoxPassword.Text);
+				var entry = context.Usuarios.Find(usuario.Id);
+				context.Entry(entry).CurrentValues.SetValues(usuario);
 				try
 				{
 					context.SaveChanges();
