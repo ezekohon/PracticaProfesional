@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
 using Practico1v4.Views.Login;
+using Practico1v4.Models.Helpers;
 
 namespace Practico1v4
 {
@@ -31,9 +32,9 @@ namespace Practico1v4
             MessageBoxManager.Register();
             
         }
-        VentasDBContext contextGlobal = new VentasDBContext();
+		VentasDBContext contextGlobal; 
 
-        private async Task loadContext()
+		private async Task loadContext()
         {
             await contextGlobal.Usuarios.LoadAsync();
         }
@@ -55,7 +56,11 @@ namespace Practico1v4
 			else if (loginCorrecto(usuarioIngresado, passwordIngresado))
 			{
 				//TODO: cambiar 
-				Common.UsuarioData.usuario = contextGlobal.Usuarios.Where(u => u.Username == usuarioIngresado).Include(u => u.Rol).SingleOrDefault();
+				
+				using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+				{
+					Common.UsuarioData.usuario = context.Usuarios.Where(u => u.Username == usuarioIngresado).Include(u => u.Rol).SingleOrDefault();
+				}
 				DialogResult = DialogResult.OK;
 			}
 		}
@@ -64,7 +69,12 @@ namespace Practico1v4
 
 		private bool loginCorrecto(string usu, string pass)
         {
-			Usuario usuario = contextGlobal.Usuarios.SingleOrDefault(u => u.Username == usu);
+			Usuario usuario;
+			//using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+			//{
+				contextGlobal.Usuarios.Load();
+				usuario = contextGlobal.Usuarios.SingleOrDefault(u => u.Username == usu);
+			//}
 			if (usuario != null && (Helpers.SecurePasswordHasher.Verify(pass, usuario.Password)))
 			{
 				return true;
@@ -78,7 +88,7 @@ namespace Practico1v4
 
 		private void Lanzador_Load(object sender, EventArgs e)
         {
-            contextGlobal.Usuarios.Load();
+            //contextGlobal.Usuarios.Load();
 		}
 
         private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
@@ -118,6 +128,38 @@ namespace Practico1v4
 		{
 			OlvidoPassword frm = new OlvidoPassword();
 			frm.ShowDialog(this);
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			var ctx1 = new VentasDBContext("data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=prueba; integrated security=SSPI");
+			//Models.Helpers.DatabaseOperations.MigrateDatabase(v);
+			ctx1.Database.Initialize(true);
+		}
+
+		private void button2_Click_1(object sender, EventArgs e)
+		{
+			// NO var context = DBFactory.GetContext(textBoxTenant.Text);
+
+			//INIT EL CONTEXT TENANT Y TRAER EL TENANT, GUARDARLO EN EL COMMON
+			Tenant tenant = new Tenant();
+			using (var context = new TenantsDBContext())
+			{
+				//siendo serio, tengo que traer por host, ahora solo traigo por nombre de DB
+				//tenant = context.getTenant(textBoxTenant.Text);
+				tenant = context.Tenants.SingleOrDefault(t => t.BaseDeDatos == textBoxTenant.Text);
+				if (tenant != null)
+				{
+					Common.TenantData.tenant = tenant;
+					contextGlobal = new VentasDBContext(Common.TenantData.tenant.ConnectionString);
+					contextGlobal.Usuarios.Load();
+				}
+				else
+				{
+					Helpers.CreadorMensajes.mensajeError("No existe");
+				}
+
+			}
 		}
 	}
 }

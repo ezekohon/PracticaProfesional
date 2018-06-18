@@ -99,12 +99,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\TenantData.cs" />
     <Compile Include="Common\UsuarioData.cs" />
     <Compile Include="Helpers\CenterWinDialog.cs" />
     <Compile Include="Helpers\CreadorMensajes.cs" />
     <Compile Include="Helpers\MessageBoxManager.cs" />
     <Compile Include="Helpers\SecurePasswordHasher.cs" />
     <Compile Include="Helpers\SetupPermisosHelper.cs" />
+    <Compile Include="Interfaces\ITenantProvider.cs" />
     <Compile Include="Migrations\201804251928210_drop columnas de vendedores.cs" />
     <Compile Include="Migrations\201804251928210_drop columnas de vendedores.Designer.cs">
       <DependentUpon>201804251928210_drop columnas de vendedores.cs</DependentUpon>
@@ -153,8 +155,21 @@
     <Compile Include="Migrations\201805311932205_sacar telefono.Designer.cs">
       <DependentUpon>201805311932205_sacar telefono.cs</DependentUpon>
     </Compile>
+    <Compile Include="MigrationsTenants\ConfigurationTenants.cs" />
+    <Compile Include="Migrations\201806181925306_dsads.cs" />
+    <Compile Include="Migrations\201806181925306_dsads.Designer.cs">
+      <DependentUpon>201806181925306_dsads.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806181928109_dsads1.cs" />
+    <Compile Include="Migrations\201806181928109_dsads1.Designer.cs">
+      <DependentUpon>201806181928109_dsads1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Helpers\DatabaseOperations.cs" />
+    <Compile Include="Models\Helpers\DBFactory.cs" />
     <Compile Include="Models\Operacion.cs" />
     <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\Tenant.cs" />
+    <Compile Include="Models\TenantsDBContext.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Zona.cs" />
     <Compile Include="Reportes\PuntoDeVentasReporte.cs">
@@ -243,15 +258,7 @@
     <Compile Include="Migrations\201804201850504_FK required.Designer.cs">
       <DependentUpon>201804201850504_FK required.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804201852217_popular tablas.cs" />
-    <Compile Include="Migrations\201804201852217_popular tablas.Designer.cs">
-      <DependentUpon>201804201852217_popular tablas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804201856436_popular tablas 2.cs" />
-    <Compile Include="Migrations\201804201856436_popular tablas 2.Designer.cs">
-      <DependentUpon>201804201856436_popular tablas 2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\ConfigurationVentas.cs" />
     <Compile Include="Models\PuntoDeVenta.cs" />
     <Compile Include="Models\Vendedor.cs" />
     <Compile Include="Models\VentasDBContext.cs" />
@@ -299,12 +306,6 @@
     <EmbeddedResource Include="Migrations\201804201850504_FK required.resx">
       <DependentUpon>201804201850504_FK required.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804201852217_popular tablas.resx">
-      <DependentUpon>201804201852217_popular tablas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804201856436_popular tablas 2.resx">
-      <DependentUpon>201804201856436_popular tablas 2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804251928210_drop columnas de vendedores.resx">
       <DependentUpon>201804251928210_drop columnas de vendedores.cs</DependentUpon>
     </EmbeddedResource>
@@ -340,6 +341,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805311932205_sacar telefono.resx">
       <DependentUpon>201805311932205_sacar telefono.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806181925306_dsads.resx">
+      <DependentUpon>201806181925306_dsads.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806181928109_dsads1.resx">
+      <DependentUpon>201806181928109_dsads1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -460,5 +467,6 @@
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

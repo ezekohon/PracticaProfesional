@@ -5,9 +5,9 @@ namespace Practico1v4.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Practico1v4.Models.VentasDBContext>
+    internal sealed class ConfigurationVentas : DbMigrationsConfiguration<Practico1v4.Models.VentasDBContext>
     {
-        public Configuration()
+        public ConfigurationVentas()
         {
             AutomaticMigrationsEnabled = true;
         }
