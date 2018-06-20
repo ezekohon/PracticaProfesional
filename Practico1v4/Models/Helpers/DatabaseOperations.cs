@@ -11,21 +11,21 @@ namespace Practico1v4.Models.Helpers
 {
 	class DatabaseOperations
 	{
-		public static void MigrateDatabase(VentasDBContext context)
+		public static void MigrateDatabase(VentasDBContext ctx)
 		{
 			//context.Database.Create();
 			//var datab = context.Database;
 
-			var newDbConnString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=prueba; integrated security=SSPI";//context.Database.Connection.ConnectionString;
+			var newDbConnString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=VentasDBContext; integrated security=SSPI";//context.Database.Connection.ConnectionString;
 			var connStringBuilder = new SqlConnectionStringBuilder(newDbConnString);
 			//var newDbName = connStringBuilder.InitialCatalog;
 
-			//connStringBuilder.InitialCatalog = "prueba";
+			connStringBuilder.InitialCatalog = "VentasDBContext";
 
 			ConfigurationVentas config = new ConfigurationVentas();
 			DbMigrator migrator = new DbMigrator(config);
 
-			VentasDBContext ctx = new VentasDBContext();
+			//VentasDBContext ctx = new VentasDBContext();
 			ctx.Database.Create();
 
 			Console.WriteLine("Past migrations:");

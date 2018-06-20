@@ -22,36 +22,39 @@ namespace Practico1v4.Models
 		public DbSet<AuditEntry> AuditEntries { get; set; }
 		public DbSet<AuditEntryProperty> AuditEntryProperties { get; set; }
 
-		public  VentasDBContext() //es static, no public
+		//public  VentasDBContext() //es static, no public
+		//{
+		//	AuditManager.DefaultConfiguration.AutoSavePreAction = (context, audit) =>
+		//	   // ADD "Where(x => x.AuditEntryID == 0)" to allow multiple SaveChanges with same Audit
+		//	   (context as VentasDBContext).AuditEntries.AddRange(audit.Entries);
+		//	//AuditManager.DefaultConfiguration.IgnorePropertyUnchanged = false;
+		//}
+
+		public VentasDBContext(/*string connectionString*/) : base(/*connectionString*/Common.TenantData.tenant.ConnectionString)
 		{
 			AuditManager.DefaultConfiguration.AutoSavePreAction = (context, audit) =>
 			   // ADD "Where(x => x.AuditEntryID == 0)" to allow multiple SaveChanges with same Audit
 			   (context as VentasDBContext).AuditEntries.AddRange(audit.Entries);
 			//AuditManager.DefaultConfiguration.IgnorePropertyUnchanged = false;
-		}
-
-		public VentasDBContext(string connectionString) : base(connectionString)
-		{
-			AuditManager.DefaultConfiguration.AutoSavePreAction = (context, audit) =>
-			   // ADD "Where(x => x.AuditEntryID == 0)" to allow multiple SaveChanges with same Audit
-			   (context as VentasDBContext).AuditEntries.AddRange(audit.Entries);
-			//AuditManager.DefaultConfiguration.IgnorePropertyUnchanged = false;
 
 
-			var migrationConfig = new MigrationConf();
+			//var migrationConfig = new MigrationConf();
 
 
 			
-			Database.SetInitializer<VentasDBContext>(
-				new MigrateDatabaseToLatestVersion<
-					VentasDBContext, MigrationConf>(true, migrationConfig));
+			//Database.SetInitializer<VentasDBContext>(
+			//	new MigrateDatabaseToLatestVersion<
+			//		VentasDBContext, MigrationConf>(true, migrationConfig));
+
+			
 		}
 
 		//static VentasDBContext()
 		//{
 		//	AuditManager.DefaultConfiguration.AutoSavePreAction = (context, audit) =>
-		//		ADD "Where(x => x.AuditEntryID == 0)" to allow multiple SaveChanges with same Audit
+		//	   // ADD "Where(x => x.AuditEntryID == 0)" to allow multiple SaveChanges with same Audit
 		//	   (context as VentasDBContext).AuditEntries.AddRange(audit.Entries);
+		//	//AuditManager.DefaultConfiguration.IgnorePropertyUnchanged = false;
 		//}
 		public override int SaveChanges()
 		{
@@ -78,7 +81,7 @@ namespace Practico1v4.Models
 		public MigrationConf()
 			: base()
 		{
-			AutomaticMigrationsEnabled = false;
+			AutomaticMigrationsEnabled = true;
 			AutomaticMigrationDataLossAllowed = true;
 
 		}

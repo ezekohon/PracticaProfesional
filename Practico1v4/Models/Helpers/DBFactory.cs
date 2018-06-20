@@ -19,7 +19,7 @@ namespace Practico1v4.Models.Helpers
 		public static DbContext GetContext(string dbNombre)
 		{
 			
-			return new VentasDBContext(connectionStringBuilder(dbNombre));
+			return new VentasDBContext();
 		}
 
 		public static string connectionStringBuilder(string dbNombre)//, string datasource)

@@ -107,6 +107,15 @@
     <Compile Include="Helpers\SecurePasswordHasher.cs" />
     <Compile Include="Helpers\SetupPermisosHelper.cs" />
     <Compile Include="Interfaces\ITenantProvider.cs" />
+    <Compile Include="MigrationsTenants\ConfigurationTenants.cs" />
+    <Compile Include="Migrations\201804201841478_Puntodeventa add.cs" />
+    <Compile Include="Migrations\201804201841478_Puntodeventa add.Designer.cs">
+      <DependentUpon>201804201841478_Puntodeventa add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804201850504_FK required.cs" />
+    <Compile Include="Migrations\201804201850504_FK required.Designer.cs">
+      <DependentUpon>201804201850504_FK required.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201804251928210_drop columnas de vendedores.cs" />
     <Compile Include="Migrations\201804251928210_drop columnas de vendedores.Designer.cs">
       <DependentUpon>201804251928210_drop columnas de vendedores.cs</DependentUpon>
@@ -155,7 +164,6 @@
     <Compile Include="Migrations\201805311932205_sacar telefono.Designer.cs">
       <DependentUpon>201805311932205_sacar telefono.cs</DependentUpon>
     </Compile>
-    <Compile Include="MigrationsTenants\ConfigurationTenants.cs" />
     <Compile Include="Migrations\201806181925306_dsads.cs" />
     <Compile Include="Migrations\201806181925306_dsads.Designer.cs">
       <DependentUpon>201806181925306_dsads.cs</DependentUpon>
@@ -164,6 +172,15 @@
     <Compile Include="Migrations\201806181928109_dsads1.Designer.cs">
       <DependentUpon>201806181928109_dsads1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806182006441_Initial.cs" />
+    <Compile Include="Migrations\201806182006441_Initial.Designer.cs">
+      <DependentUpon>201806182006441_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806182223214_dsads2.cs" />
+    <Compile Include="Migrations\201806182223214_dsads2.Designer.cs">
+      <DependentUpon>201806182223214_dsads2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ConfigurationVentas.cs" />
     <Compile Include="Models\Helpers\DatabaseOperations.cs" />
     <Compile Include="Models\Helpers\DBFactory.cs" />
     <Compile Include="Models\Operacion.cs" />
@@ -250,15 +267,6 @@
     <Compile Include="Views\Login\Lanzador.Designer.cs">
       <DependentUpon>Lanzador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804201841478_Puntodeventa add.cs" />
-    <Compile Include="Migrations\201804201841478_Puntodeventa add.Designer.cs">
-      <DependentUpon>201804201841478_Puntodeventa add.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804201850504_FK required.cs" />
-    <Compile Include="Migrations\201804201850504_FK required.Designer.cs">
-      <DependentUpon>201804201850504_FK required.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ConfigurationVentas.cs" />
     <Compile Include="Models\PuntoDeVenta.cs" />
     <Compile Include="Models\Vendedor.cs" />
     <Compile Include="Models\VentasDBContext.cs" />
@@ -347,6 +355,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806181928109_dsads1.resx">
       <DependentUpon>201806181928109_dsads1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806182006441_Initial.resx">
+      <DependentUpon>201806182006441_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806182223214_dsads2.resx">
+      <DependentUpon>201806182223214_dsads2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

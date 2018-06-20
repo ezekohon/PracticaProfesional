@@ -32,12 +32,12 @@ namespace Practico1v4
             MessageBoxManager.Register();
             
         }
-		VentasDBContext contextGlobal; 
+		//VentasDBContext contextGlobal;// = new VentasDBContext();
 
-		private async Task loadContext()
-        {
-            await contextGlobal.Usuarios.LoadAsync();
-        }
+		//private async Task loadContext()
+  //      {
+  //          await contextGlobal.Usuarios.LoadAsync();
+  //      }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -57,9 +57,9 @@ namespace Practico1v4
 			{
 				//TODO: cambiar 
 				
-				using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+				using (var context = new VentasDBContext())
 				{
-					Common.UsuarioData.usuario = context.Usuarios.Where(u => u.Username == usuarioIngresado).Include(u => u.Rol).SingleOrDefault();
+					Common.UsuarioData.usuario = context.Usuarios.Where(u => u.Username == usuarioIngresado).Include(u => u.Rol).Include(u => u.Rol.Operaciones).SingleOrDefault();
 				}
 				DialogResult = DialogResult.OK;
 			}
@@ -70,11 +70,13 @@ namespace Practico1v4
 		private bool loginCorrecto(string usu, string pass)
         {
 			Usuario usuario;
-			//using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
-			//{
-				contextGlobal.Usuarios.Load();
-				usuario = contextGlobal.Usuarios.SingleOrDefault(u => u.Username == usu);
-			//}
+			using (var context = new VentasDBContext())
+			{
+				//contextGlobal.Usuarios.Load();
+				//usuario = contextGlobal.Usuarios.SingleOrDefault(u => u.Username == usu);
+				context.Usuarios.Load();
+				usuario = context.Usuarios.SingleOrDefault(u => u.Username == usu);
+			}
 			if (usuario != null && (Helpers.SecurePasswordHasher.Verify(pass, usuario.Password)))
 			{
 				return true;
@@ -132,9 +134,9 @@ namespace Practico1v4
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			var ctx1 = new VentasDBContext("data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=prueba; integrated security=SSPI");
+			//var ctx1 = new VentasDBContext("data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=Test; integrated security=SSPI");
 			//Models.Helpers.DatabaseOperations.MigrateDatabase(v);
-			ctx1.Database.Initialize(true);
+			//ctx1.Database.Initialize(true);
 		}
 
 		private void button2_Click_1(object sender, EventArgs e)
@@ -151,15 +153,26 @@ namespace Practico1v4
 				if (tenant != null)
 				{
 					Common.TenantData.tenant = tenant;
-					contextGlobal = new VentasDBContext(Common.TenantData.tenant.ConnectionString);
-					contextGlobal.Usuarios.Load();
+					//contextGlobal = new VentasDBContext();
+					//contextGlobal.Usuarios.Load();
+					using (var context2 = new VentasDBContext())
+					{
+						//context2 = new VentasDBContext();
+						context2.Usuarios.Load();
+					}
 				}
 				else
 				{
 					Helpers.CreadorMensajes.mensajeError("No existe");
 				}
-
 			}
+		}
+
+		private void button4_Click(object sender, EventArgs e)
+		{
+			//var ctx1 = new VentasDBContext("data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=Test2; integrated security=SSPI");
+			//Models.Helpers.DatabaseOperations.MigrateDatabase(ctx1);
+			//ctx1.Database.Initialize(true);
 		}
 	}
 }

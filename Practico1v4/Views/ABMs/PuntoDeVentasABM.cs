@@ -24,11 +24,11 @@ namespace Practico1v4.Views
             InitializeComponent();
         }
 
-        VentasDBContext contextGlobal = new VentasDBContext(Common.TenantData.tenant.ConnectionString);
+        VentasDBContext contextGlobal = new VentasDBContext();
 
         private void PuntoDeVentasABM_Load(object sender, EventArgs e)
         {
-            using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+            using (var context = new VentasDBContext())
             {
                 context.PuntosDeVenta.Load();
                 this.dataGridView1.DataSource = context.PuntosDeVenta.Local.ToBindingList();
@@ -54,7 +54,7 @@ namespace Practico1v4.Views
                 errorProvider1.Clear();
             }
 
-            using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+            using (var context = new VentasDBContext())
             {
                 if (p.Id == 0 && !string.IsNullOrWhiteSpace(p.Descripcion)) //insertar
                 {
@@ -70,7 +70,7 @@ namespace Practico1v4.Views
         private void actualizarGrilla()
         {
             this.dataGridView1.DataSource = null;
-            using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+            using (var context = new VentasDBContext())
             {
                 context.PuntosDeVenta.Load();
                 this.dataGridView1.DataSource = context.PuntosDeVenta.Local.ToBindingList();
@@ -92,7 +92,7 @@ namespace Practico1v4.Views
             PuntoDeVenta p = new PuntoDeVenta();
             p.Descripcion = descripcionTextBox.Text;
             p.Id = (string.IsNullOrWhiteSpace(idTextBox.Text)) ? 0 : Convert.ToInt32(idTextBox.Text);
-            using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+            using (var context = new VentasDBContext())
             {
                 if (context.Vendedores.Where(x => x.PuntoDeVenta.Id == p.Id).Any())
                 {
@@ -126,7 +126,7 @@ namespace Practico1v4.Views
             PuntoDeVenta p = new PuntoDeVenta();
             p.Descripcion = descripcionTextBox.Text;
             p.Id = (string.IsNullOrWhiteSpace(idTextBox.Text)) ? 0 : Convert.ToInt32(idTextBox.Text);
-            using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+            using (var context = new VentasDBContext())
             {
                 if (!string.IsNullOrWhiteSpace(p.Descripcion)) //modificar
                 {
@@ -162,7 +162,7 @@ namespace Practico1v4.Views
             {
                 PuntoDeVenta p = new PuntoDeVenta();
                 p.Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+                using (var context = new VentasDBContext())
                 {
                     p = context.PuntosDeVenta.Where(x => x.Id == p.Id).FirstOrDefault();
                     descripcionTextBox.Text = p.Descripcion;

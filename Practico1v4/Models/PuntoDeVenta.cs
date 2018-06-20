@@ -11,8 +11,8 @@ namespace Practico1v4.Models
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
+		public string dummy { get; set; }
 
-
-        public ICollection<Vendedor> Vendedores { get; set; }
+		public ICollection<Vendedor> Vendedores { get; set; }
     }
 }
