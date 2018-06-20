@@ -32,7 +32,7 @@ namespace Practico1v4
             MessageBoxManager.Register();
             
         }
-		//VentasDBContext contextGlobal;// = new VentasDBContext();
+		//VentasDBContext contextGlobal;// = new VentasDBContext(Common.TenantData.tenant.ConnectionString);
 
 		//private async Task loadContext()
   //      {
@@ -57,7 +57,7 @@ namespace Practico1v4
 			{
 				//TODO: cambiar 
 				
-				using (var context = new VentasDBContext())
+				using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 				{
 					Common.UsuarioData.usuario = context.Usuarios.Where(u => u.Username == usuarioIngresado).Include(u => u.Rol).Include(u => u.Rol.Operaciones).SingleOrDefault();
 				}
@@ -70,7 +70,7 @@ namespace Practico1v4
 		private bool loginCorrecto(string usu, string pass)
         {
 			Usuario usuario;
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				//contextGlobal.Usuarios.Load();
 				//usuario = contextGlobal.Usuarios.SingleOrDefault(u => u.Username == usu);
@@ -139,40 +139,44 @@ namespace Practico1v4
 			//ctx1.Database.Initialize(true);
 		}
 
-		private void button2_Click_1(object sender, EventArgs e)
+		private void button4_Click(object sender, EventArgs e)
 		{
-			// NO var context = DBFactory.GetContext(textBoxTenant.Text);
+			//NUEVA
+			//var ctx1 = new VentasDBContext("data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=Test2; integrated security=SSPI");
+			//Models.Helpers.DatabaseOperations.MigrateDatabase(ctx1);
 
-			//INIT EL CONTEXT TENANT Y TRAER EL TENANT, GUARDARLO EN EL COMMON
+		}
+
+		private void buttonAccederEmpresa_Click(object sender, EventArgs e)
+		{
 			Tenant tenant = new Tenant();
 			using (var context = new TenantsDBContext())
 			{
 				//siendo serio, tengo que traer por host, ahora solo traigo por nombre de DB
-				//tenant = context.getTenant(textBoxTenant.Text);
 				tenant = context.Tenants.SingleOrDefault(t => t.BaseDeDatos == textBoxTenant.Text);
 				if (tenant != null)
 				{
 					Common.TenantData.tenant = tenant;
-					//contextGlobal = new VentasDBContext();
-					//contextGlobal.Usuarios.Load();
-					using (var context2 = new VentasDBContext())
+					using (var context2 = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 					{
-						//context2 = new VentasDBContext();
 						context2.Usuarios.Load();
 					}
+					textBoxPassword.Enabled = true;
+					textBoxUsuario.Enabled = true;
 				}
 				else
 				{
-					Helpers.CreadorMensajes.mensajeError("No existe");
+					Helpers.CreadorMensajes.mensajeError("No existe la empresa");
 				}
 			}
 		}
 
-		private void button4_Click(object sender, EventArgs e)
+		private void nuevaEmpresaToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			//var ctx1 = new VentasDBContext("data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=Test2; integrated security=SSPI");
-			//Models.Helpers.DatabaseOperations.MigrateDatabase(ctx1);
-			//ctx1.Database.Initialize(true);
+			NuevaEmpresa frm = new NuevaEmpresa();
+			frm.ShowDialog(this);
+			textBoxPassword.Enabled = false;
+			textBoxUsuario.Enabled = false;
 		}
 	}
 }

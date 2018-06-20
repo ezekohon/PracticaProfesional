@@ -11,20 +11,14 @@ namespace Practico1v4.Models.Helpers
 	{
 		public static Tenant _tenant;
 
-		//public static DBFactory(Tenant tenant)
+		//public static DbContext GetContext(string dbNombre)
 		//{
-
+		//	return new VentasDBContext();
 		//}
 
-		public static DbContext GetContext(string dbNombre)
-		{
-			
-			return new VentasDBContext();
-		}
-
-		public static string connectionStringBuilder(string dbNombre)//, string datasource)
-		{
-			return "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=" + dbNombre + "; integrated security=SSPI";
-		}
+		//public static string connectionStringBuilder(string dbNombre)//, string datasource)
+		//{
+		//	return "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=" + dbNombre + "; integrated security=SSPI";
+		//}
 	}
 }

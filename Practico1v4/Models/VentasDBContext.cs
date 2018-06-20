@@ -11,9 +11,11 @@ namespace Practico1v4.Models
 {
     class VentasDBContext : DbContext
     {
-		private Tenant _tenant;
+		//private static Tenant _tenant;
 
-        public DbSet<PuntoDeVenta> PuntosDeVenta { get; set; }
+		//public Tenant tenant { get; set; }
+
+		public DbSet<PuntoDeVenta> PuntosDeVenta { get; set; }
         public DbSet<Vendedor> Vendedores { get; set; }
         public DbSet<Zona> Zonas { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
@@ -22,22 +24,23 @@ namespace Practico1v4.Models
 		public DbSet<AuditEntry> AuditEntries { get; set; }
 		public DbSet<AuditEntryProperty> AuditEntryProperties { get; set; }
 
-		//public  VentasDBContext() //es static, no public
-		//{
-		//	AuditManager.DefaultConfiguration.AutoSavePreAction = (context, audit) =>
-		//	   // ADD "Where(x => x.AuditEntryID == 0)" to allow multiple SaveChanges with same Audit
-		//	   (context as VentasDBContext).AuditEntries.AddRange(audit.Entries);
-		//	//AuditManager.DefaultConfiguration.IgnorePropertyUnchanged = false;
-		//}
+		public VentasDBContext() //es static, no public
+		{
+			AuditManager.DefaultConfiguration.AutoSavePreAction = (context, audit) =>
+			   // ADD "Where(x => x.AuditEntryID == 0)" to allow multiple SaveChanges with same Audit
+			   (context as VentasDBContext).AuditEntries.AddRange(audit.Entries);
+			//AuditManager.DefaultConfiguration.IgnorePropertyUnchanged = false;
+		}
 
-		public VentasDBContext(/*string connectionString*/) : base(/*connectionString*/Common.TenantData.tenant.ConnectionString)
+
+		public VentasDBContext(string connectionString) : base(connectionString)//Common.TenantData.tenant.ConnectionString)
 		{
 			AuditManager.DefaultConfiguration.AutoSavePreAction = (context, audit) =>
 			   // ADD "Where(x => x.AuditEntryID == 0)" to allow multiple SaveChanges with same Audit
 			   (context as VentasDBContext).AuditEntries.AddRange(audit.Entries);
 			//AuditManager.DefaultConfiguration.IgnorePropertyUnchanged = false;
 
-
+			
 			//var migrationConfig = new MigrationConf();
 
 

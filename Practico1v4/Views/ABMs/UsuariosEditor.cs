@@ -22,7 +22,7 @@ namespace Practico1v4.Views.ABMs
 		private void UsuariosEditor_Load(object sender, EventArgs e)
 		{
 			toolStripStatusLabel1.Text = (currentStatus == status.insertar) ? "Modo insertar" : "Modo editar";
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				
 				comboBoxRol.ValueMember = "Id";
@@ -118,7 +118,7 @@ namespace Practico1v4.Views.ABMs
 
 		public void insertar()
 		{
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				Usuario u = new Usuario();
 				Rol rol = (Rol)comboBoxRol.SelectedItem;
@@ -143,7 +143,7 @@ namespace Practico1v4.Views.ABMs
 
 		private void editar()
 		{
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				//Usuario u = new Usuario();
 				Rol rol = (Rol)comboBoxRol.SelectedItem;

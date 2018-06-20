@@ -11,21 +11,32 @@ namespace Practico1v4.Models.Helpers
 {
 	class DatabaseOperations
 	{
-		public static void MigrateDatabase(VentasDBContext ctx)
+		public static void MigrateDatabase(string DBName/*VentasDBContext ctx*/)
 		{
 			//context.Database.Create();
 			//var datab = context.Database;
+			Tenant tenant = new Tenant();
+			using (var context = new TenantsDBContext())
+			{
 
-			var newDbConnString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=VentasDBContext; integrated security=SSPI";//context.Database.Connection.ConnectionString;
+				tenant.BaseDeDatos = DBName;
+				tenant.ConnectionString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=" + DBName + "; integrated security=SSPI";
+				tenant.Host = "DESKTOP-JSIT42C\\SQLEXPRESS"; //hardcoded
+				tenant.Nombre = DBName;
+				context.Tenants.Add(tenant);
+				context.SaveChanges();
+			}
+			Common.TenantData.tenant = tenant;
+			var newDbConnString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=" + DBName + "; integrated security=SSPI";//context.Database.Connection.ConnectionString;
 			var connStringBuilder = new SqlConnectionStringBuilder(newDbConnString);
 			//var newDbName = connStringBuilder.InitialCatalog;
 
-			connStringBuilder.InitialCatalog = "VentasDBContext";
+			connStringBuilder.InitialCatalog = DBName;
 
 			ConfigurationVentas config = new ConfigurationVentas();
 			DbMigrator migrator = new DbMigrator(config);
 
-			//VentasDBContext ctx = new VentasDBContext();
+			VentasDBContext ctx = new VentasDBContext(newDbConnString);
 			ctx.Database.Create();
 
 			Console.WriteLine("Past migrations:");
@@ -50,6 +61,11 @@ namespace Practico1v4.Models.Helpers
 				//Assert
 				//act.ShouldNotThrow();
 			}
+
+			//using (var context = new VentasDBContext())
+			//{
+			//	//insertar 1 usuario, los roles y las operaciones
+			//}
 		}
 	}
 }

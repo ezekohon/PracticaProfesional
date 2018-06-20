@@ -272,6 +272,12 @@
     <Compile Include="Models\VentasDBContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Login\NuevaEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Login\NuevaEmpresa.Designer.cs">
+      <DependentUpon>NuevaEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login\OlvidoPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -416,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\Lanzador.resx">
       <DependentUpon>Lanzador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login\NuevaEmpresa.resx">
+      <DependentUpon>NuevaEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\OlvidoPassword.resx">
       <DependentUpon>OlvidoPassword.cs</DependentUpon>

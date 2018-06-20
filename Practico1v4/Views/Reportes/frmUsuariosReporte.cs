@@ -27,7 +27,7 @@ namespace Practico1v4.Views.Reportes
 		{
 			UsuariosReporte rpt = new UsuariosReporte();
 			
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				context.Usuarios.Load();
 				context.Roles.Load();

@@ -36,20 +36,24 @@
 			this.labelOlvidoPassword = new System.Windows.Forms.LinkLabel();
 			this.label3 = new System.Windows.Forms.Label();
 			this.textBoxTenant = new System.Windows.Forms.TextBox();
-			this.button2 = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
+			this.buttonAccederEmpresa = new System.Windows.Forms.Button();
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.nuevaEmpresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// textBoxUsuario
 			// 
-			this.textBoxUsuario.Location = new System.Drawing.Point(160, 157);
+			this.textBoxUsuario.Enabled = false;
+			this.textBoxUsuario.Location = new System.Drawing.Point(160, 181);
 			this.textBoxUsuario.Name = "textBoxUsuario";
 			this.textBoxUsuario.Size = new System.Drawing.Size(100, 20);
 			this.textBoxUsuario.TabIndex = 0;
 			// 
 			// textBoxPassword
 			// 
-			this.textBoxPassword.Location = new System.Drawing.Point(160, 205);
+			this.textBoxPassword.Enabled = false;
+			this.textBoxPassword.Location = new System.Drawing.Point(160, 229);
 			this.textBoxPassword.Name = "textBoxPassword";
 			this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
 			this.textBoxPassword.TabIndex = 1;
@@ -59,7 +63,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(65, 160);
+			this.label1.Location = new System.Drawing.Point(65, 184);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(43, 13);
 			this.label1.TabIndex = 2;
@@ -68,7 +72,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(65, 208);
+			this.label2.Location = new System.Drawing.Point(65, 232);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(61, 13);
 			this.label2.TabIndex = 3;
@@ -99,7 +103,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(59, 50);
+			this.label3.Location = new System.Drawing.Point(65, 59);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(59, 13);
 			this.label3.TabIndex = 6;
@@ -107,38 +111,44 @@
 			// 
 			// textBoxTenant
 			// 
-			this.textBoxTenant.Location = new System.Drawing.Point(160, 43);
+			this.textBoxTenant.Location = new System.Drawing.Point(160, 56);
 			this.textBoxTenant.Name = "textBoxTenant";
 			this.textBoxTenant.Size = new System.Drawing.Size(100, 20);
 			this.textBoxTenant.TabIndex = 7;
 			// 
-			// button2
+			// buttonAccederEmpresa
 			// 
-			this.button2.Location = new System.Drawing.Point(286, 40);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(75, 23);
-			this.button2.TabIndex = 8;
-			this.button2.Text = "button2";
-			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click_1);
+			this.buttonAccederEmpresa.Location = new System.Drawing.Point(156, 98);
+			this.buttonAccederEmpresa.Name = "buttonAccederEmpresa";
+			this.buttonAccederEmpresa.Size = new System.Drawing.Size(104, 23);
+			this.buttonAccederEmpresa.TabIndex = 8;
+			this.buttonAccederEmpresa.Text = "Acceder Empresa";
+			this.buttonAccederEmpresa.UseVisualStyleBackColor = true;
+			this.buttonAccederEmpresa.Click += new System.EventHandler(this.buttonAccederEmpresa_Click);
 			// 
-			// button4
+			// menuStrip1
 			// 
-			this.button4.Location = new System.Drawing.Point(305, 92);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(75, 23);
-			this.button4.TabIndex = 10;
-			this.button4.Text = "Nueva";
-			this.button4.UseVisualStyleBackColor = true;
-			this.button4.Click += new System.EventHandler(this.button4_Click);
+			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevaEmpresaToolStripMenuItem});
+			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Size = new System.Drawing.Size(396, 24);
+			this.menuStrip1.TabIndex = 9;
+			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// nuevaEmpresaToolStripMenuItem
+			// 
+			this.nuevaEmpresaToolStripMenuItem.Name = "nuevaEmpresaToolStripMenuItem";
+			this.nuevaEmpresaToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+			this.nuevaEmpresaToolStripMenuItem.Text = "Nueva Empresa";
+			this.nuevaEmpresaToolStripMenuItem.Click += new System.EventHandler(this.nuevaEmpresaToolStripMenuItem_Click);
 			// 
 			// Lanzador
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(396, 329);
-			this.Controls.Add(this.button4);
-			this.Controls.Add(this.button2);
+			this.Controls.Add(this.buttonAccederEmpresa);
 			this.Controls.Add(this.textBoxTenant);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.labelOlvidoPassword);
@@ -147,9 +157,13 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.textBoxPassword);
 			this.Controls.Add(this.textBoxUsuario);
+			this.Controls.Add(this.menuStrip1);
+			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "Lanzador";
 			this.Text = "Ingreso al sistema";
 			this.Load += new System.EventHandler(this.Lanzador_Load);
+			this.menuStrip1.ResumeLayout(false);
+			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -165,8 +179,9 @@
 		private System.Windows.Forms.LinkLabel labelOlvidoPassword;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox textBoxTenant;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Button buttonAccederEmpresa;
+		private System.Windows.Forms.MenuStrip menuStrip1;
+		private System.Windows.Forms.ToolStripMenuItem nuevaEmpresaToolStripMenuItem;
 	}
 }
 

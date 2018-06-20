@@ -24,11 +24,11 @@ namespace Practico1v4.Views
             InitializeComponent();
         }
 
-        VentasDBContext contextGlobal = new VentasDBContext();
+        VentasDBContext contextGlobal = new VentasDBContext(Common.TenantData.tenant.ConnectionString);
 
         private void VendedoresABM_Load(object sender, EventArgs e)
         {
-            //using (var context = new VentasDBContext())
+            //using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
             //{
             //    context.Vendedores.Load();
             //    context.PuntosDeVenta.Load();
@@ -91,7 +91,7 @@ namespace Practico1v4.Views
             PuntoDeVenta pdv = contextGlobal.PuntosDeVenta.Where(p => p.Id == puntoId).FirstOrDefault();
             Zona z = contextGlobal.Zonas.Where(p => p.Id == zonaId).FirstOrDefault();
 
-            using (var context = new VentasDBContext())
+            using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
             {
                 if (v.Id == 0 && puedoInsertar) //insertar
                 {
@@ -124,7 +124,7 @@ namespace Practico1v4.Views
             Vendedor v = new Vendedor();
 
             v.Id = (string.IsNullOrWhiteSpace(idTextBox.Text)) ? 0 : Convert.ToInt32(idTextBox.Text);
-            using (var context = new VentasDBContext())
+            using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
             {
                 if (v.Id != 0)
                 {
@@ -199,7 +199,7 @@ namespace Practico1v4.Views
             }
             else { zonaErrorProvider.Clear(); }
 
-            using (var context = new VentasDBContext())
+            using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
             {
                 if (puedoInsertar) //modificar
                 {
@@ -222,7 +222,7 @@ namespace Practico1v4.Views
         {
             string filter = buscarTextBox.Text;
             //dataGridView1.DataSource = contextGlobal.Vendedores.Where(x => x.Nombre.Contains(filter) || x.Apellido.Contains(filter)).ToList();
-            using (var context = new VentasDBContext())
+            using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
             {
                 var query = from p in context.PuntosDeVenta
                             join v in context.Vendedores on p.Id equals v.PuntoDeVenta.Id
@@ -246,7 +246,7 @@ namespace Practico1v4.Views
         {
             string filter = buscarTextBox2.Text;
 
-                using (var context = new VentasDBContext())
+                using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
                 {
                     var query = from p in context.PuntosDeVenta
                                 join v in context.Vendedores on p.Id equals v.PuntoDeVenta.Id
@@ -274,7 +274,7 @@ namespace Practico1v4.Views
                 Vendedor v = new Vendedor();
                 v.Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
 
-                using (var context = new VentasDBContext())
+                using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
                 {
                     v = context.Vendedores.Where(x => x.Id == v.Id).Include(x => x.PuntoDeVenta).Include(x => x.Zona).FirstOrDefault();
                  
@@ -294,7 +294,7 @@ namespace Practico1v4.Views
 
         private void actualizarGrilla()
         {
-            using (var context = new VentasDBContext())
+            using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
             {
                 var query = from p in context.PuntosDeVenta
                             join v in context.Vendedores on p.Id equals v.PuntoDeVenta.Id
@@ -321,7 +321,7 @@ namespace Practico1v4.Views
         //    puntoTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         //    puntoTextBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
         //    AutoCompleteStringCollection c = new AutoCompleteStringCollection();
-        //    using (var context = new VentasDBContext())
+        //    using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
         //    {
         //        var query = from p in context.PuntosDeVenta
         //                    select p.Descripcion;
@@ -338,7 +338,7 @@ namespace Practico1v4.Views
                 int id = (puntoIdTextBox.Text != "") ? Convert.ToInt32(puntoIdTextBox.Text) : 0;
                 if (id != 0)
                 {
-                    using (var context = new VentasDBContext())
+                    using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
                     {
                         
                         PuntoDeVenta pdv = context.PuntosDeVenta.Where(p => p.Id == id).FirstOrDefault();
@@ -366,7 +366,7 @@ namespace Practico1v4.Views
             else if (e.KeyCode.ToString() == "F1")
             {
                 //abrir grid
-                using (var context = new VentasDBContext())
+                using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
                 {
                     context.PuntosDeVenta.Load();
                     DGVHelp.DataSource = context.PuntosDeVenta.Local.ToBindingList();
@@ -390,7 +390,7 @@ namespace Practico1v4.Views
             {
                 PuntoDeVenta p = new PuntoDeVenta();
                 p.Id = Convert.ToInt32(DGVHelp.CurrentRow.Cells[0].Value);
-                using (var context = new VentasDBContext())
+                using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
                 {
                     p = context.PuntosDeVenta.Where(x => x.Id == p.Id).FirstOrDefault();
                     puntoTextBox.Text = p.Descripcion;
@@ -443,7 +443,7 @@ namespace Practico1v4.Views
             {
                 Zona p = new Zona();
                 p.Id = Convert.ToInt32(DGVHelp2.CurrentRow.Cells[0].Value);
-                using (var context = new VentasDBContext())
+                using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
                 {
                     p = context.Zonas.Where(x => x.Id == p.Id).FirstOrDefault();
                     zonaTextBox.Text = p.Descripcion;
@@ -465,7 +465,7 @@ namespace Practico1v4.Views
                 int id = (zonaIdTextBox.Text != "") ? Convert.ToInt32(zonaIdTextBox.Text) : 0;
                 if (id != 0)
                 {
-                    using (var context = new VentasDBContext())
+                    using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
                     {
 
                         Zona pdv = context.Zonas.Where(p => p.Id == id).FirstOrDefault();
@@ -493,7 +493,7 @@ namespace Practico1v4.Views
             else if (e.KeyCode.ToString() == "F1")
             {
                 //abrir grid
-                using (var context = new VentasDBContext())
+                using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
                 {
                     context.Zonas.Load();
                     DGVHelp2.DataSource = context.Zonas.Local.ToBindingList();

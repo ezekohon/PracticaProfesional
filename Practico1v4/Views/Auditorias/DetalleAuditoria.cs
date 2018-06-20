@@ -22,7 +22,7 @@ namespace Practico1v4.Views.Auditorias
 
 		private void DetalleAuditoria_Load(object sender, EventArgs e)
 		{
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				dataGridView1.DataSource = context.AuditEntryProperties.Where(x => x.AuditEntryID == IdEntry).ToList();
 				

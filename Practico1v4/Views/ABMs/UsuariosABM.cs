@@ -19,7 +19,7 @@ namespace Practico1v4.Views.ABMs
         {
             InitializeComponent();
         }
-		VentasDBContext contextGlobal = new VentasDBContext();
+		VentasDBContext contextGlobal = new VentasDBContext(Common.TenantData.tenant.ConnectionString);
 
 		private void UsuariosABM_Load(object sender, EventArgs e)
 		{
@@ -36,7 +36,7 @@ namespace Practico1v4.Views.ABMs
 
 		private void actualizarGrilla()
 		{
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				context.Usuarios.Include(r => r.Rol).Load();
 				
@@ -48,7 +48,7 @@ namespace Practico1v4.Views.ABMs
 		private void textBoxBuscar_TextChanged(object sender, EventArgs e)
 		{
 			string filter = textBoxBuscar.Text;
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				dataGridView1.DataSource = contextGlobal.Usuarios.Where(x => x.Username.Contains(filter)).ToList();
 				//var query = from r in context.Roles
@@ -105,7 +105,7 @@ namespace Practico1v4.Views.ABMs
 
 		private void eliminar()
 		{
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				DialogResult r = Helpers.CreadorMensajes.mensajeEliminar("el Usuario");
 				if (r != DialogResult.Cancel)

@@ -35,7 +35,7 @@ namespace Practico1v4.Views.Login
 		private bool validarUsuarioYMail(string usuarioIngresado, string mailIngresado)
 		{
 			Usuario usuario = new Usuario();
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				usuario = (context.Usuarios.Where(u => u.Username == usuarioIngresado && u.Mail == mailIngresado).SingleOrDefault());
 			}

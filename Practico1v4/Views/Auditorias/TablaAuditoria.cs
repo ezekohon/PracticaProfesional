@@ -57,7 +57,7 @@ namespace Practico1v4.Views.Auditorias
 		private void textBoxId_TextChanged(object sender, EventArgs e)
 		{
 			string filtro = textBoxId.Text;
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				//agarrar todos los AuditEntryID que su NewValue == filtro, distinct
 				//traer todas las entradas que tengan alguno de esos AuditEntryID
@@ -93,7 +93,7 @@ namespace Practico1v4.Views.Auditorias
 		}
 		private void cargarTabla()
 		{
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				//dataGridView1.DataSource = context.AuditEntryProperties.Where(x => x.Parent.EntitySetName == entry.EntitySetName).ToList();
 				//hacer query
@@ -118,7 +118,7 @@ namespace Practico1v4.Views.Auditorias
 		private void textBoxCreador_TextChanged(object sender, EventArgs e)
 		{
 			string filtro = textBoxCreador.Text;
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				var q1 = (from p in context.AuditEntryProperties
 						  join a in context.AuditEntries on p.AuditEntryID equals a.AuditEntryID
@@ -152,7 +152,7 @@ namespace Practico1v4.Views.Auditorias
 		private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
 		{
 			string filtro = textBoxCreador.Text;
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				var q1 = (from p in context.AuditEntryProperties
 						  join a in context.AuditEntries on p.AuditEntryID equals a.AuditEntryID

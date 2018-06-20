@@ -26,7 +26,7 @@ namespace Practico1v4.Views.Reportes
         private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
             VendedoresReporte rpt = new VendedoresReporte();
-            using (var context = new VentasDBContext())
+            using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
             {
                 context.PuntosDeVenta.Load();
                 context.Vendedores.Load();

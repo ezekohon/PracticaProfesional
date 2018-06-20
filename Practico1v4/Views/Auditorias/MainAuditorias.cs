@@ -27,11 +27,11 @@ namespace Practico1v4.Views.Auditorias
 			set { _auditEntrySelected = value; }
 		}
 
-		VentasDBContext contextGlobal = new VentasDBContext();
+		VentasDBContext contextGlobal = new VentasDBContext(Common.TenantData.tenant.ConnectionString);
 
 		private void MainAuditorias_Load(object sender, EventArgs e)
 		{
-			using (var context = new VentasDBContext())
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				dataGridView1.DataSource = context.AuditEntries.OrderByDescending(x => x.CreatedDate).ToList();
 				comboBoxTablas.ValueMember = "AuditEntryID";
