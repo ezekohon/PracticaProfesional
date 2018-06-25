@@ -82,5 +82,11 @@ namespace Practico1v4.Views.Main
 			//frm.Show();
 			Application.Restart();
 		}
+
+		private void copiaDeSeguridadToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Backup.BackupFrm form = new Backup.BackupFrm();
+			form.ShowDialog(this);
+		}
 	}
 }

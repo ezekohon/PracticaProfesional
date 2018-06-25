@@ -32,12 +32,9 @@ namespace Practico1v4
             MessageBoxManager.Register();
             
         }
-		//VentasDBContext contextGlobal;// = new VentasDBContext(Common.TenantData.tenant.ConnectionString);
+		TenantsDBContext contextGlobal = new TenantsDBContext();// = new VentasDBContext(Common.TenantData.tenant.ConnectionString);
 
-		//private async Task loadContext()
-  //      {
-  //          await contextGlobal.Usuarios.LoadAsync();
-  //      }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -90,14 +87,14 @@ namespace Practico1v4
 
 		private void Lanzador_Load(object sender, EventArgs e)
         {
-            //contextGlobal.Usuarios.Load();
+            contextGlobal.Tenants.Load();
 		}
 
         private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                button1.PerformClick();
+                buttonIngresar.PerformClick();
                 e.SuppressKeyPress = true;
             }
         }
@@ -163,6 +160,9 @@ namespace Practico1v4
 					}
 					textBoxPassword.Enabled = true;
 					textBoxUsuario.Enabled = true;
+					buttonIngresar.Enabled = true;
+					buttonAccederEmpresa.Enabled = false;
+					textBoxTenant.Enabled = false;
 				}
 				else
 				{
@@ -177,6 +177,7 @@ namespace Practico1v4
 			frm.ShowDialog(this);
 			textBoxPassword.Enabled = false;
 			textBoxUsuario.Enabled = false;
+			buttonIngresar.Enabled = true;
 		}
 	}
 }

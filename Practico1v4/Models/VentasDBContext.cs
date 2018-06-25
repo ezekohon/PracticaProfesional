@@ -40,16 +40,28 @@ namespace Practico1v4.Models
 			   (context as VentasDBContext).AuditEntries.AddRange(audit.Entries);
 			//AuditManager.DefaultConfiguration.IgnorePropertyUnchanged = false;
 
-			
+
 			//var migrationConfig = new MigrationConf();
+			//var migrator = new DbMigrator(migrationConfig);
+			//migrationConfig.TargetDatabase = new System.Data.Entity.Infrastructure.DbConnectionInfo(connectionString);
+			//migrator.Configuration.TargetDatabase = new System.Data.Entity.Infrastructure.DbConnectionInfo(connectionString);
+			//var migrations = migrator.GetPendingMigrations();
+			//var already = migrator.GetDatabaseMigrations();
+			//foreach (string s in migrator.GetPendingMigrations())//GetPendingMigrations())
+			//{
+			//	//Act
+			//	Console.WriteLine("Applying migration {0}", s);
+			//	Action act = () => migrator.Update(s);
 
+			//	//Assert
+			//	//act.ShouldNotThrow();
+			//}
 
-			
 			//Database.SetInitializer<VentasDBContext>(
 			//	new MigrateDatabaseToLatestVersion<
 			//		VentasDBContext, MigrationConf>(true, migrationConfig));
 
-			
+
 		}
 
 		//static VentasDBContext()
@@ -84,8 +96,18 @@ namespace Practico1v4.Models
 		public MigrationConf()
 			: base()
 		{
-			AutomaticMigrationsEnabled = true;
+			AutomaticMigrationsEnabled = false;
 			AutomaticMigrationDataLossAllowed = true;
+
+			//aded
+			var dbMigrator = new DbMigrator(this);
+
+			var pendingMigrationsExist = dbMigrator.GetPendingMigrations().Any();
+
+			if (pendingMigrationsExist)
+			{
+				dbMigrator.Update();
+			}
 
 		}
 	}

@@ -1,6 +1,7 @@
 ﻿using Practico1v4.Migrations;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Data.SqlClient;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace Practico1v4.Models.Helpers
 			Common.TenantData.tenant = tenant;
 			var newDbConnString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=" + DBName + "; integrated security=SSPI";//context.Database.Connection.ConnectionString;
 			var connStringBuilder = new SqlConnectionStringBuilder(newDbConnString);
-			//var newDbName = connStringBuilder.InitialCatalog;
+			
 
 			connStringBuilder.InitialCatalog = DBName;
 
@@ -62,10 +63,18 @@ namespace Practico1v4.Models.Helpers
 				//act.ShouldNotThrow();
 			}
 
-			//using (var context = new VentasDBContext())
-			//{
-			//	//insertar 1 usuario, los roles y las operaciones
-			//}
+		}
+	}
+
+	sealed class MigrationConf : DbMigrationsConfiguration<VentasDBContext>
+	{
+		public MigrationConf()
+			: base()
+		{
+			AutomaticMigrationsEnabled = false;
+			AutomaticMigrationDataLossAllowed = true;
+
+
 		}
 	}
 }

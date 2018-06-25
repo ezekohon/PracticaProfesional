@@ -78,6 +78,10 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="SearchBox, Version=2.0.2.6, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -180,6 +184,18 @@
     <Compile Include="Migrations\201806182223214_dsads2.Designer.cs">
       <DependentUpon>201806182223214_dsads2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806212041383_probando.cs" />
+    <Compile Include="Migrations\201806212041383_probando.Designer.cs">
+      <DependentUpon>201806212041383_probando.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806212044302_data inicial.cs" />
+    <Compile Include="Migrations\201806212044302_data inicial.Designer.cs">
+      <DependentUpon>201806212044302_data inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806252006195_probando1.cs" />
+    <Compile Include="Migrations\201806252006195_probando1.Designer.cs">
+      <DependentUpon>201806252006195_probando1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ConfigurationVentas.cs" />
     <Compile Include="Models\Helpers\DatabaseOperations.cs" />
     <Compile Include="Models\Helpers\DBFactory.cs" />
@@ -254,6 +270,12 @@
     </Compile>
     <Compile Include="Views\Auditorias\TablaAuditoria.Designer.cs">
       <DependentUpon>TablaAuditoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Backup\BackupFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Backup\BackupFrm.Designer.cs">
+      <DependentUpon>BackupFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\BaseForm.cs">
       <SubType>Form</SubType>
@@ -368,6 +390,15 @@
     <EmbeddedResource Include="Migrations\201806182223214_dsads2.resx">
       <DependentUpon>201806182223214_dsads2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806212041383_probando.resx">
+      <DependentUpon>201806212041383_probando.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806212044302_data inicial.resx">
+      <DependentUpon>201806212044302_data inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806252006195_probando1.resx">
+      <DependentUpon>201806252006195_probando1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -416,6 +447,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Auditorias\TablaAuditoria.resx">
       <DependentUpon>TablaAuditoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Backup\BackupFrm.resx">
+      <DependentUpon>BackupFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
