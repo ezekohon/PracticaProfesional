@@ -99,16 +99,8 @@ namespace Practico1v4.Models
 			AutomaticMigrationsEnabled = false;
 			AutomaticMigrationDataLossAllowed = true;
 
-			//aded
-			var dbMigrator = new DbMigrator(this);
-
-			var pendingMigrationsExist = dbMigrator.GetPendingMigrations().Any();
-
-			if (pendingMigrationsExist)
-			{
-				dbMigrator.Update();
-			}
-
+			
+			
 		}
 	}
 }

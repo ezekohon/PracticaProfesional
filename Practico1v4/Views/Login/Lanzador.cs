@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using System.Net.Mail;
 using Practico1v4.Views.Login;
 using Practico1v4.Models.Helpers;
+using System.Data.Entity.Migrations;
 
 namespace Practico1v4
 {
@@ -156,8 +157,84 @@ namespace Practico1v4
 					Common.TenantData.tenant = tenant;
 					using (var context2 = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 					{
-						context2.Usuarios.Load();
+
+						context2.Roles.AddOrUpdate(
+							new Models.Rol { Id = 1, Nombre = "Super", Privilegio = 1000 },
+							new Models.Rol { Id = 2, Nombre = "Supervisor", Privilegio = 600 },
+							new Models.Rol { Id = 3, Nombre = "Auditor", Privilegio = 400 },
+							new Models.Rol { Id = 4, Nombre = "Base", Privilegio = 100 }
+							);
+						context2.Operaciones.AddOrUpdate(
+							new Models.Operacion { Id = 1, Nombre = "SUPER" },
+							new Models.Operacion { Id = 2, Nombre = "USUARIOS_CONSULTAR" },
+							new Models.Operacion { Id = 3, Nombre = "USUARIOS_MODIFICAR" },
+							new Models.Operacion { Id = 4, Nombre = "USUARIOS_ALTABAJA" },
+							new Models.Operacion { Id = 5, Nombre = "USUARIOS_SUPER" },
+							new Models.Operacion { Id = 6, Nombre = "PUNTOSDEVENTA_CONSULTAR" },
+							new Models.Operacion { Id = 7, Nombre = "PUNTOSDEVENTA_MODIFICAR" },
+							new Models.Operacion { Id = 8, Nombre = "PUNTOSDEVENTA_ALTABAJA" },
+							new Models.Operacion { Id = 9, Nombre = "PUNTOSDEVENTA_SUPER" },
+							new Models.Operacion { Id = 10, Nombre = "VENDEDORES_CONSULTAR" },
+							new Models.Operacion { Id = 11, Nombre = "VENDEDORES_MODIFICAR" },
+							new Models.Operacion { Id = 12, Nombre = "VENDEDORES_ALTABAJA" },
+							new Models.Operacion { Id = 13, Nombre = "VENDEDORES_SUPER" },
+							new Models.Operacion { Id = 14, Nombre = "AUDITORIAS_CONSULTAR" }
+							);
+						
+
+						
+
+						//context2.SaveChanges();
+
+						try
+						{
+							// Your code...
+							// Could also be before try if you know the exception occurs in SaveChanges
+
+							context2.SaveChanges();
+						}
+						catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+						{
+							foreach (var eve in ex.EntityValidationErrors)
+							{
+								Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+									eve.Entry.Entity.GetType().Name, eve.Entry.State);
+								foreach (var ve in eve.ValidationErrors)
+								{
+									Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+										ve.PropertyName, ve.ErrorMessage);
+								}
+							}
+							throw;
+						}
+
+						//context2.Database.ExecuteSqlCommand("INSERT [dbo].[RolOperacions] ([Rol_Id], [Operacion_Id]) VALUES (1, 1)");
+						//context2.Database.ExecuteSqlCommand("INSERT [dbo].[RolOperacions] ([Rol_Id], [Operacion_Id]) VALUES (2, 5)");
+						//context2.Database.ExecuteSqlCommand("INSERT [dbo].[RolOperacions] ([Rol_Id], [Operacion_Id]) VALUES (4, 6)");
+						//context2.Database.ExecuteSqlCommand("INSERT [dbo].[RolOperacions] ([Rol_Id], [Operacion_Id]) VALUES (4, 10)");
+						//context2.Database.ExecuteSqlCommand("INSERT [dbo].[RolOperacions] ([Rol_Id], [Operacion_Id]) VALUES (3, 14)");
+
+						//context2.Usuarios.Load();
 					}
+					using (var context2 = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+					{
+						context2.Usuarios.AddOrUpdate(
+							new Usuario { Id = 1, Username = "super", Password = "$MYHASH$V1$10000$ORJGEFlUuFSyLCDFA4Om0+fZxePwDhchY3QRDpYjww/SM4+M", RolId = 1, Rol = context2.Roles.Where(r => r.Id == 1).Single() }
+							);
+
+						Rol super = context2.Roles.Where(r => r.Id == 1).Single();
+						super.Operaciones.Add(context2.Operaciones.Where(o => o.Id == 1).Single());
+						Rol supervisor = context2.Roles.Where(r => r.Id == 2).Single();
+						supervisor.Operaciones.Add(context2.Operaciones.Where(o => o.Id == 5).Single());
+						Rol auditor = context2.Roles.Where(r => r.Id == 3).Single();
+						auditor.Operaciones.Add(context2.Operaciones.Where(o => o.Id == 14).Single());
+						Rol basee = context2.Roles.Where(r => r.Id == 4).Single();
+						basee.Operaciones.Add(context2.Operaciones.Where(o => o.Id == 6).Single());
+						basee.Operaciones.Add(context2.Operaciones.Where(o => o.Id == 10).Single());
+
+						context2.SaveChanges();
+					}
+
 					textBoxPassword.Enabled = true;
 					textBoxUsuario.Enabled = true;
 					buttonIngresar.Enabled = true;

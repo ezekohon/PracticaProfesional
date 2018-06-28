@@ -7,12 +7,14 @@ namespace Practico1v4.Migrations
     {
         public override void Up()
         {
-			//Sql("SET IDENTITY_INSERT Roles ON");
-			Sql("INSERT INTO Roles (Nombre, Privilegio) VALUES (N'Super', 1000)");
-			//Sql("INSERT [dbo].[Roles] ([Id], [Nombre], [Privilegio]) VALUES (2, N'Supervisor', 600)");
-			//Sql("INSERT [dbo].[Roles] ([Id], [Nombre], [Privilegio]) VALUES (3, N'Auditor', 400)");
-			//Sql("INSERT [dbo].[Roles] ([Id], [Nombre], [Privilegio]) VALUES (4, N'Base', 100)");
-			//Sql("SET IDENTITY_INSERT [dbo].[Roles] OFF");
+
+
+			Sql("SET IDENTITY_INSERT [dbo].[Roles] ON");
+			Sql("INSERT [dbo].[Roles] ([Id], [Nombre], [Privilegio]) VALUES (1, N'Super', 1000)");
+			Sql("INSERT [dbo].[Roles] ([Id], [Nombre], [Privilegio]) VALUES (2, N'Supervisor', 600)");
+			Sql("INSERT [dbo].[Roles] ([Id], [Nombre], [Privilegio]) VALUES (3, N'Auditor', 400)");
+			Sql("INSERT [dbo].[Roles] ([Id], [Nombre], [Privilegio]) VALUES (4, N'Base', 100)");
+			Sql("SET IDENTITY_INSERT [dbo].[Roles] OFF");
 
 			Sql("SET IDENTITY_INSERT [dbo].[Operaciones] ON");
 			Sql("INSERT [dbo].[Operaciones] ([Id], [Nombre]) VALUES (1, N'SUPER')");

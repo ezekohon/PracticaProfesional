@@ -19,6 +19,10 @@ namespace Practico1v4.Migrations
 			
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+
+			//context.Roles.AddOrUpdate(
+			//	new Rol { Id = 1, Nombre = "Super", Privilegio = 1000 }
+			//);
         }
     }
 }
