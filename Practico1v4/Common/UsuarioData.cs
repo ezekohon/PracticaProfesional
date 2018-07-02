@@ -26,12 +26,14 @@ namespace Practico1v4.Common
 			VENDEDORES_MODIFICAR = 11,
 			VENDEDORES_ALTABAJA = 12,
 			VENDEDORES_SUPER = 13,
-			AUDITORIAS_CONSULTAR = 14
+			AUDITORIAS_CONSULTAR = 14,
+			BACKUP = 15,
+			RESTAURAR = 16
 		}
 
 		public static bool usuarioTieneAccesoOperacion(operaciones operacion)
 		{
-			return usuario.RolId == 1 || usuario.Rol.Operaciones.Any(o => o.Id == (int)operacion);
+			return usuario.RolId == 1 || usuario.Rol.Operaciones.Any(o => o.Nombre == operacion.ToString());
 		}
 	}
 }

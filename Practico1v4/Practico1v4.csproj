@@ -277,6 +277,12 @@
     <Compile Include="Views\Backup\BackupFrm.Designer.cs">
       <DependentUpon>BackupFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Backup\ConfirmacionRestauracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Backup\ConfirmacionRestauracion.Designer.cs">
+      <DependentUpon>ConfirmacionRestauracion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -450,6 +456,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Backup\BackupFrm.resx">
       <DependentUpon>BackupFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Backup\ConfirmacionRestauracion.resx">
+      <DependentUpon>ConfirmacionRestauracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>

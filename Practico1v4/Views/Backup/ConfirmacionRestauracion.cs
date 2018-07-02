@@ -19,6 +19,8 @@ namespace Practico1v4.Views.Backup
 			InitializeComponent();
 		}
 
+		string imagepath = @"C:\Users\Ezequiel\Desktop\BACKUPS\tempimage.bmp";
+
 		private void CreateImage()
 		{
 			Random rand = new Random();
@@ -38,25 +40,44 @@ namespace Practico1v4.Views.Backup
 				counter += 20;
 			}
 			DrawRandomLines(g);
-			if (File.Exists("d:/tempimage.bmp"))
+			Image img;
+			
+
+			//if (File.Exists(imagepath))
+			//{
+			//	try
+			//	{
+					
+					
+			//		File.Delete(imagepath);
+					
+			//		bitmap.Save(imagepath);
+					
+					
+			//	}
+			//	catch (Exception ex)
+			//	{
+			//		throw ex;
+			//		//MessageBox.Show(ex.Message);
+			//	}
+			//}
+			//else
+			//{
+			//	bitmap.Save(imagepath);
+				
+			//}
+			using (var bmpTemp = new Bitmap(bitmap))
 			{
-				try
-				{
-					File.Delete("d:/tempimage.bmp");
-					bitmap.Save("d:/tempimage.bmp");
-				}
-				catch (Exception ex)
-				{
-					MessageBox.Show(ex.Message);
-				}
+				img = new Bitmap(bmpTemp);
+				pictureBox1.Image = img;
 			}
-			else
-			{
-				bitmap.Save("d:/tempimage.bmp");
-			}
+
 			g.Dispose();
 			bitmap.Dispose();
-			pictureBox1.Image = Image.FromFile("d:/tempimage.bmp");
+			
+			//pictureBox1.Image = Image.FromFile(imagepath);
+			
+
 		}
 
 		string code;
@@ -65,7 +86,7 @@ namespace Practico1v4.Views.Backup
 			StringBuilder randomText = new StringBuilder();
 			if (String.IsNullOrEmpty(code))
 			{
-				string alphabets = "abcdefghijklmnopqrstuvwxyz1234567890";
+				string alphabets = "abcdefghijklmnopqrstuvwxyz123456789";
 				Random r = new Random();
 				for (int j = 0; j <= 5; j++)
 				{
@@ -104,6 +125,11 @@ namespace Practico1v4.Views.Backup
 			{
 				MessageBox.Show("Incorrecto");
 			}
+		}
+
+		private void ConfirmacionRestauracion_Load(object sender, EventArgs e)
+		{
+			CreateImage();
 		}
 	}
 }

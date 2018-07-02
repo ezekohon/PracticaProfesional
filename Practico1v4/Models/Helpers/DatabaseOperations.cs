@@ -19,10 +19,9 @@ namespace Practico1v4.Models.Helpers
 			Tenant tenant = new Tenant();
 			using (var context = new TenantsDBContext())
 			{
-
 				tenant.BaseDeDatos = DBName;
 				tenant.ConnectionString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=" + DBName + "; integrated security=SSPI";
-				tenant.Host = "DESKTOP-JSIT42C\\SQLEXPRESS"; //hardcoded
+				tenant.Host = (System.Environment.MachineName == "DESKTOP-JSIT42C") ? "DESKTOP-JSIT42C\\SQLEXPRESS" : "localhost"; 
 				tenant.Nombre = DBName;
 				context.Tenants.Add(tenant);
 				context.SaveChanges();

@@ -28,12 +28,7 @@ namespace Practico1v4.Views.Backup
 
 		private void buttonBuscar1_Click(object sender, EventArgs e)
 		{
-			FolderBrowserDialog dlg = new FolderBrowserDialog();
-			if (dlg.ShowDialog() == DialogResult.OK)
-			{
-				//textBox1.Text = dlg.SelectedPath;
-				buttonBackup.Enabled = true;
-			}
+			
 		}
 
 		private void buttonBackup_Click(object sender, EventArgs e)
@@ -45,7 +40,7 @@ namespace Practico1v4.Views.Backup
 				var fullpath = Path.Combine(folder, Common.TenantData.tenant.BaseDeDatos);
 				System.IO.Directory.CreateDirectory(fullpath);
 
-				string cmd = "BACKUP DATABASE [" + database + "] TO DISK='" + fullpath + "\\" + Common.TenantData.tenant.BaseDeDatos + "-" + DateTime.Now.ToString("dd-MM-yyyy-(HH:mm:ss)") + ".bak'";
+				string cmd = "BACKUP DATABASE [" + database + "] TO DISK='" + textBoxBackup.Text + "\\" + Common.TenantData.tenant.BaseDeDatos + "-" + DateTime.Now.ToString("yyyy-MM-dd-(HH-mm-ss)") + ".bak'";
 
 				using (SqlCommand command = new SqlCommand(cmd, con))
 				{
@@ -91,17 +86,23 @@ namespace Practico1v4.Views.Backup
 					SqlCommand bu3 = new SqlCommand(sqlStmt3, con);
 					bu3.ExecuteNonQuery();
 
-					string sqlStmt4 = string.Format("ALTER DATABASE [" + database + "] SET MULTI_USER");
-					SqlCommand bu4 = new SqlCommand(sqlStmt4, con);
-					bu4.ExecuteNonQuery();
+					
 
 					Helpers.CreadorMensajes.mensajeObservacion("Restauración realizada con éxito.");
-					con.Close();
+					
 				}
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.ToString());
+				throw ex;
+			}
+			finally
+			{
+				string sqlStmt4 = string.Format("ALTER DATABASE [" + database + "] SET MULTI_USER");
+				SqlCommand bu4 = new SqlCommand(sqlStmt4, con);
+				bu4.ExecuteNonQuery();
+
+				con.Close();
 			}
 		}
 
@@ -143,20 +144,42 @@ namespace Practico1v4.Views.Backup
 						SqlCommand bu3 = new SqlCommand(sqlStmt3, con);
 						bu3.ExecuteNonQuery();
 
-						string sqlStmt4 = string.Format("ALTER DATABASE [" + database + "] SET MULTI_USER");
-						SqlCommand bu4 = new SqlCommand(sqlStmt4, con);
-						bu4.ExecuteNonQuery();
+						//string sqlStmt4 = string.Format("ALTER DATABASE [" + database + "] SET MULTI_USER");
+						//SqlCommand bu4 = new SqlCommand(sqlStmt4, con);
+						//bu4.ExecuteNonQuery();
 
 						Helpers.CreadorMensajes.mensajeObservacion("Restauración realizada con éxito.");
-						con.Close();
+						//con.Close();
 					}
 					else
 						Helpers.CreadorMensajes.mensajeError("No es una copia de seguridad de la base de datos que está queriendo restaurar!");
 				}
 				catch (Exception ex)
 				{
-					MessageBox.Show(ex.ToString());
+					Helpers.CreadorMensajes.mensajeError("No es una copia de seguridad de la base de datos que está queriendo restaurar!");
+
+					//throw ex;
 				}
+				finally
+				{
+					string sqlStmt4 = string.Format("ALTER DATABASE [" + database + "] SET MULTI_USER");
+					SqlCommand bu4 = new SqlCommand(sqlStmt4, con);
+					bu4.ExecuteNonQuery();
+
+					con.Close();
+				}
+			}
+		}
+
+		private void buttonBuscar_Click(object sender, EventArgs e)
+		{
+			var path = Path.Combine("C:/Users/Ezequiel/Desktop/BACKUPS/", Common.TenantData.tenant.BaseDeDatos);
+			FolderBrowserDialog dlg = new FolderBrowserDialog();
+			dlg.SelectedPath = @"C:\Users\Ezequiel\Desktop\BACKUPS\" + Common.TenantData.tenant.BaseDeDatos;
+			if (dlg.ShowDialog() == DialogResult.OK)
+			{
+				textBoxBackup.Text = dlg.SelectedPath;
+				buttonBackup.Enabled = true;
 			}
 		}
 	}

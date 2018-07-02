@@ -178,7 +178,9 @@ namespace Practico1v4
 							new Models.Operacion { Id = 11, Nombre = "VENDEDORES_MODIFICAR" },
 							new Models.Operacion { Id = 12, Nombre = "VENDEDORES_ALTABAJA" },
 							new Models.Operacion { Id = 13, Nombre = "VENDEDORES_SUPER" },
-							new Models.Operacion { Id = 14, Nombre = "AUDITORIAS_CONSULTAR" }
+							new Models.Operacion { Id = 14, Nombre = "AUDITORIAS_CONSULTAR" },
+							new Models.Operacion { Id = 15, Nombre = "BACKUP" },
+							new Models.Operacion { Id = 16, Nombre = "RESTAURAR" }
 							);
 						
 
@@ -208,11 +210,6 @@ namespace Practico1v4
 							throw;
 						}
 
-						//context2.Database.ExecuteSqlCommand("INSERT [dbo].[RolOperacions] ([Rol_Id], [Operacion_Id]) VALUES (1, 1)");
-						//context2.Database.ExecuteSqlCommand("INSERT [dbo].[RolOperacions] ([Rol_Id], [Operacion_Id]) VALUES (2, 5)");
-						//context2.Database.ExecuteSqlCommand("INSERT [dbo].[RolOperacions] ([Rol_Id], [Operacion_Id]) VALUES (4, 6)");
-						//context2.Database.ExecuteSqlCommand("INSERT [dbo].[RolOperacions] ([Rol_Id], [Operacion_Id]) VALUES (4, 10)");
-						//context2.Database.ExecuteSqlCommand("INSERT [dbo].[RolOperacions] ([Rol_Id], [Operacion_Id]) VALUES (3, 14)");
 
 						//context2.Usuarios.Load();
 					}
@@ -228,6 +225,7 @@ namespace Practico1v4
 						supervisor.Operaciones.Add(context2.Operaciones.Where(o => o.Id == 5).Single());
 						Rol auditor = context2.Roles.Where(r => r.Id == 3).Single();
 						auditor.Operaciones.Add(context2.Operaciones.Where(o => o.Id == 14).Single());
+
 						Rol basee = context2.Roles.Where(r => r.Id == 4).Single();
 						basee.Operaciones.Add(context2.Operaciones.Where(o => o.Id == 6).Single());
 						basee.Operaciones.Add(context2.Operaciones.Where(o => o.Id == 10).Single());

@@ -37,7 +37,7 @@
 			// 
 			// pictureBox1
 			// 
-			this.pictureBox1.Location = new System.Drawing.Point(128, 75);
+			this.pictureBox1.Location = new System.Drawing.Point(63, 76);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(177, 88);
 			this.pictureBox1.TabIndex = 0;
@@ -46,7 +46,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(146, 31);
+			this.label1.Location = new System.Drawing.Point(81, 32);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(139, 13);
 			this.label1.TabIndex = 1;
@@ -54,18 +54,18 @@
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(149, 193);
+			this.textBox1.Location = new System.Drawing.Point(84, 194);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(127, 20);
 			this.textBox1.TabIndex = 2;
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(171, 230);
+			this.button1.Location = new System.Drawing.Point(106, 231);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(75, 23);
 			this.button1.TabIndex = 3;
-			this.button1.Text = "Aceptar";
+			this.button1.Text = "Verificar";
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
@@ -73,13 +73,14 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(455, 265);
+			this.ClientSize = new System.Drawing.Size(314, 265);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.pictureBox1);
 			this.Name = "ConfirmacionRestauracion";
 			this.Text = "ConfirmacionRestauracion";
+			this.Load += new System.EventHandler(this.ConfirmacionRestauracion_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

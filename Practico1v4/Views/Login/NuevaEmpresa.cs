@@ -20,7 +20,21 @@ namespace Practico1v4.Views.Login
 		private void buttonCrear_Click(object sender, EventArgs e)
 		{
 			if (! string.IsNullOrWhiteSpace(textBoxNombre.Text))
-				Models.Helpers.DatabaseOperations.MigrateDatabase(textBoxNombre.Text);
+			{
+				try
+				{
+					Models.Helpers.DatabaseOperations.MigrateDatabase(textBoxNombre.Text);
+					buttonCrear.Enabled = false;
+					textBoxNombre.Enabled = false;
+					Helpers.CreadorMensajes.mensajeObservacion("Empresa creada con éxito.");
+				}
+				catch (Exception ex)
+				{
+					throw ex;
+				}
+
+			}
+				
 		}
 	}
 }
