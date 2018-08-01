@@ -17,6 +17,13 @@ namespace Practico1v4.Views.Backup
 		public BackupFrm()
 		{
 			InitializeComponent();
+			setupPermisos();
+		}
+
+		private void setupPermisos()
+		{
+			Helpers.SetupPermisosHelper.instance.setupMenuPorOperacion(buttonBuscarRestaurar, Common.UsuarioData.operaciones.RESTAURAR);
+			Helpers.SetupPermisosHelper.instance.setupMenuPorOperacion(buttonRestaurarElegir, Common.UsuarioData.operaciones.RESTAURAR);
 		}
 
 		private void BackupFrm_Load(object sender, EventArgs e)

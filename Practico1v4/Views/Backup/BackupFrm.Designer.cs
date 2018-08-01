@@ -56,6 +56,7 @@
 			this.buttonRestaurar.TabIndex = 5;
 			this.buttonRestaurar.Text = "Restaurar a última copia";
 			this.buttonRestaurar.UseVisualStyleBackColor = true;
+			this.buttonRestaurar.Visible = false;
 			this.buttonRestaurar.Click += new System.EventHandler(this.buttonRestaurar_Click);
 			// 
 			// textBoxRestauracion
@@ -78,6 +79,7 @@
 			// 
 			// buttonRestaurarElegir
 			// 
+			this.buttonRestaurarElegir.Enabled = false;
 			this.buttonRestaurarElegir.Location = new System.Drawing.Point(31, 173);
 			this.buttonRestaurarElegir.Name = "buttonRestaurarElegir";
 			this.buttonRestaurarElegir.Size = new System.Drawing.Size(191, 23);

@@ -182,10 +182,6 @@ namespace Practico1v4
 							new Models.Operacion { Id = 15, Nombre = "BACKUP" },
 							new Models.Operacion { Id = 16, Nombre = "RESTAURAR" }
 							);
-						
-
-						
-
 						//context2.SaveChanges();
 
 						try
@@ -222,6 +218,7 @@ namespace Practico1v4
 						Rol super = context2.Roles.Where(r => r.Id == 1).Single();
 						super.Operaciones.Add(context2.Operaciones.Where(o => o.Id == 1).Single());
 						Rol supervisor = context2.Roles.Where(r => r.Id == 2).Single();
+						supervisor.Operaciones.Add(context2.Operaciones.Where(o => o.Id == 16).Single());
 						supervisor.Operaciones.Add(context2.Operaciones.Where(o => o.Id == 5).Single());
 						Rol auditor = context2.Roles.Where(r => r.Id == 3).Single();
 						auditor.Operaciones.Add(context2.Operaciones.Where(o => o.Id == 14).Single());

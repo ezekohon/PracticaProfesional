@@ -88,5 +88,11 @@ namespace Practico1v4.Views.Main
 			Backup.BackupFrm form = new Backup.BackupFrm();
 			form.ShowDialog(this);
 		}
+
+		private void MainForm_Load(object sender, EventArgs e)
+		{
+			toolStripStatusLabelEmpresa.Text = "Empresa: " + Common.TenantData.tenant.Nombre;
+			toolStripStatusLabelUsuario.Text = "Usuario: " + Common.UsuarioData.usuario.Username + " (" + Common.UsuarioData.usuario.Rol.Nombre + ")";
+		}
 	}
 }
