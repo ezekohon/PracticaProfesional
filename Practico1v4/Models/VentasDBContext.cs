@@ -23,6 +23,7 @@ namespace Practico1v4.Models
 		public DbSet<Operacion> Operaciones { get; set; }
 		public DbSet<AuditEntry> AuditEntries { get; set; }
 		public DbSet<AuditEntryProperty> AuditEntryProperties { get; set; }
+		public DbSet<Cuenta> Cuentas { get; set; }
 
 		public VentasDBContext() //es static, no public
 		{

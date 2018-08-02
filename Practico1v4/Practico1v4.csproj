@@ -196,7 +196,16 @@
     <Compile Include="Migrations\201806252006195_probando1.Designer.cs">
       <DependentUpon>201806252006195_probando1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808012025502_cuenta.cs" />
+    <Compile Include="Migrations\201808012025502_cuenta.Designer.cs">
+      <DependentUpon>201808012025502_cuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808021907157_cuenta-fix.cs" />
+    <Compile Include="Migrations\201808021907157_cuenta-fix.Designer.cs">
+      <DependentUpon>201808021907157_cuenta-fix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ConfigurationVentas.cs" />
+    <Compile Include="Models\Cuenta.cs" />
     <Compile Include="Models\Helpers\DatabaseOperations.cs" />
     <Compile Include="Models\Helpers\DBFactory.cs" />
     <Compile Include="Models\Operacion.cs" />
@@ -404,6 +413,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806252006195_probando1.resx">
       <DependentUpon>201806252006195_probando1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808012025502_cuenta.resx">
+      <DependentUpon>201808012025502_cuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808021907157_cuenta-fix.resx">
+      <DependentUpon>201808021907157_cuenta-fix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

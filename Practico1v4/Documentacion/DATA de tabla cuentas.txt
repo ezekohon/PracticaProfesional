@@ -1,0 +1,124 @@
+USE [VentasDBContext]
+GO
+SET IDENTITY_INSERT [dbo].[Cuentas] ON 
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (2, 0, N'Activo', N'1', NULL)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (3, 0, N'Activo Corriente', N'1.1', 2)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (4, 0, N'Disponibilidades', N'1.1.01', 3)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (5, 1, N'Caja', N'1.1.01.01', 4)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (6, 0, N'Bancos', N'1.1.01.02', 4)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (7, 1, N'Banco Pcia. Cta.Cte.', N'1.1.01.02.01', 6)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (8, 1, N'Banco Nacion Cta.Cte', N'1.1.01.02.02', 6)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (9, 0, N'Cuentas Por Cobrar', N'1.1.02', 3)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (10, 1, N'Deudores en Cta.Cte', N'1.1.02.01', 9)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (11, 1, N'Documentos a Cobrar', N'1.1.02.02', 9)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (12, 1, N'IVA Credito Fiscal', N'1.1.02.03', 9)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (13, 0, N'Bienes De Cambio', N'1.1.03', 3)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (14, 0, N'Inversiones', N'1.1.04', 3)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (15, 0, N'Activos No Corrientes', N'1.2', 2)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (16, 0, N'Bienes de Uso', N'1.2.01', 15)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (17, 0, N'Pasivo', N'2', NULL)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (18, 1, N'Rodados', N'1.2.01.01', 16)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (19, 1, N'Muebles y utiles', N'1.2.01.02', 16)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (20, 0, N'Pasivo Corriente', N'2.1', 17)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (21, 0, N'Deudas', N'2.1.01', 20)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (22, 0, N'Deudas Comerciales', N'2.1.01.01', 21)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (23, 1, N'Proveedores', N'2.1.01.01.01', 22)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (24, 1, N'Obligaciones a Pagar', N'2.1.01.01.02', 22)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (25, 0, N'Deudas Fiscales', N'2.1.01.02', 21)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (26, 1, N'IVA Debito Fiscal', N'2.1.01.02.01', 25)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (27, 1, N'IVA Percepciones', N'2.1.01.02.02', 25)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (28, 1, N'Ingresos Brutos a Pagar', N'2.1.01.02.03', 25)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (29, 0, N'Deudas Previsionales', N'2.1.01.03', 21)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (30, 1, N'Sueldos a Pagar', N'2.1.01.03.01', 29)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (31, 1, N'Cargas Sociales a Pagar', N'2.1.01.03.02', 29)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (32, 0, N'Deudas Bancarias', N'2.1.01.04', 21)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (33, 0, N'Pasivo no Corriente', N'2.2', 17)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (34, 0, N'Patrimonio Neto', N'3', NULL)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (35, 0, N'Capital', N'3.1', 34)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (36, 1, N'Capital Social', N'3.1.01', 35)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (37, 0, N'Reservas', N'3.2', 34)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (38, 0, N'Resultados Acumulados', N'3.3', 34)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (39, 1, N'Resultado Ejercicio Anterior', N'3.3.01', 38)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (40, 0, N'Resultado Positivo', N'4', NULL)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (41, 0, N'Ingresos Ordinarios', N'4.1', 40)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (42, 1, N'Ventas', N'4.1.01', 41)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (43, 1, N'Intereses Obtenidos', N'4.1.02', 41)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (44, 1, N'Descuentos Obtenidos', N'4.1.03', 41)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (45, 0, N'Ingresos Extraordinarios', N'4.2', 40)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (46, 0, N'Resultado Negativo', N'5', NULL)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (47, 0, N'Gastos de Comercializacion', N'5.1', 46)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (48, 1, N'Costo de Venta', N'5.1.01', 47)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (49, 0, N'Gastos Administrativos', N'5.2', 46)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (50, 1, N'Agua, luz y gas', N'5.2.01', 49)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (51, 1, N'Impuestos', N'5.2.02', 49)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (52, 1, N'Telefono', N'5.2.03', 49)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (53, 0, N'Gastos en Personal', N'5.3', 46)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (54, 1, N'Sueldos y Jornales', N'5.3.01', 53)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (55, 1, N'Cargas Sociales', N'5.3.02', 53)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (56, 0, N'Gastos Financieros', N'5.4', 46)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (57, 1, N'Intereses Cedidos', N'5.4.01', 56)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (58, 1, N'Descuentos Cedidos', N'5.4.02', 56)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (59, 1, N'Gastos Bancarios', N'5.4.03', 56)
+GO
+INSERT [dbo].[Cuentas] ([Id], [Tipo], [Nombre], [CodigoBalance], [IdPadre]) VALUES (60, 0, N'Otros Gastos', N'5.5', 46)
+GO
+SET IDENTITY_INSERT [dbo].[Cuentas] OFF
+GO
