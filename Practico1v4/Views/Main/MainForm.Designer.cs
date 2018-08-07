@@ -39,6 +39,7 @@
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabelEmpresa = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabelUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+			this.planDeCuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -49,7 +50,8 @@
             this.aBMsToolStripMenuItem,
             this.auditoríasToolStripMenuItem,
             this.cerrarSesiónToolStripMenuItem,
-            this.copiaDeSeguridadToolStripMenuItem});
+            this.copiaDeSeguridadToolStripMenuItem,
+            this.planDeCuentasToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -132,6 +134,13 @@
 			this.toolStripStatusLabelUsuario.Size = new System.Drawing.Size(118, 17);
 			this.toolStripStatusLabelUsuario.Text = "toolStripStatusLabel1";
 			// 
+			// planDeCuentasToolStripMenuItem
+			// 
+			this.planDeCuentasToolStripMenuItem.Name = "planDeCuentasToolStripMenuItem";
+			this.planDeCuentasToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
+			this.planDeCuentasToolStripMenuItem.Text = "Plan de Cuentas";
+			this.planDeCuentasToolStripMenuItem.Click += new System.EventHandler(this.planDeCuentasToolStripMenuItem_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,5 +175,6 @@
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelEmpresa;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelUsuario;
+		private System.Windows.Forms.ToolStripMenuItem planDeCuentasToolStripMenuItem;
 	}
 }

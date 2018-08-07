@@ -13,5 +13,12 @@ namespace Practico1v4.Models
 		public string Host { get; set; }
 		public string BaseDeDatos { get; set; }
 		public string ConnectionString { get; set; }
+		public DateTime FechaInicioEjercicioContable { get; set; }
+		public DateTime FechaCierreEjercicioContable { get; set; }
+		public DateTime FechaImpresionUltimoDiario { get; set; }
+		public long CUIT { get; set; }
+		public string RazonSocial { get; set; }
+		public string SituacionFrenteAIVA { get; set; } //enum?
+		public string  DireccionFisica { get; set; }
 	}
 }

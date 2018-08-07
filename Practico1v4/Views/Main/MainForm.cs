@@ -94,5 +94,11 @@ namespace Practico1v4.Views.Main
 			toolStripStatusLabelEmpresa.Text = "Empresa: " + Common.TenantData.tenant.Nombre;
 			toolStripStatusLabelUsuario.Text = "Usuario: " + Common.UsuarioData.usuario.Username + " (" + Common.UsuarioData.usuario.Rol.Nombre + ")";
 		}
+
+		private void planDeCuentasToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Contabilidad.PlanDeCuentas frm = new Contabilidad.PlanDeCuentas();
+			frm.ShowDialog(this);
+		}
 	}
 }

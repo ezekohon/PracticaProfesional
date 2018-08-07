@@ -204,16 +204,35 @@
     <Compile Include="Migrations\201808021907157_cuenta-fix.Designer.cs">
       <DependentUpon>201808021907157_cuenta-fix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808051855000_cuenta no nulleable.cs" />
+    <Compile Include="Migrations\201808051855000_cuenta no nulleable.Designer.cs">
+      <DependentUpon>201808051855000_cuenta no nulleable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808072002407_agrego campos de empresa.cs" />
+    <Compile Include="Migrations\201808072002407_agrego campos de empresa.Designer.cs">
+      <DependentUpon>201808072002407_agrego campos de empresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808072101015_renglon.cs" />
+    <Compile Include="Migrations\201808072101015_renglon.Designer.cs">
+      <DependentUpon>201808072101015_renglon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ConfigurationVentas.cs" />
     <Compile Include="Models\Cuenta.cs" />
     <Compile Include="Models\Helpers\DatabaseOperations.cs" />
     <Compile Include="Models\Helpers\DBFactory.cs" />
     <Compile Include="Models\Operacion.cs" />
+    <Compile Include="Models\Renglon.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Tenant.cs" />
     <Compile Include="Models\TenantsDBContext.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Zona.cs" />
+    <Compile Include="Reportes\PlanDeCuentasReporte.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlanDeCuentasReporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\PuntoDeVentasReporte.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -298,6 +317,24 @@
     <Compile Include="Views\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Contabilidad\Asientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Contabilidad\Asientos.Designer.cs">
+      <DependentUpon>Asientos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contabilidad\PlanDeCuentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Contabilidad\PlanDeCuentas.Designer.cs">
+      <DependentUpon>PlanDeCuentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Contabilidad\PlanDeCuentasEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Contabilidad\PlanDeCuentasEditor.Designer.cs">
+      <DependentUpon>PlanDeCuentasEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login\Lanzador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -332,6 +369,12 @@
     </Compile>
     <Compile Include="Views\ABMs\PuntoDeVentasABM.Designer.cs">
       <DependentUpon>PuntoDeVentasABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reportes\frmPlanDeCuentasReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Reportes\frmPlanDeCuentasReporte.Designer.cs">
+      <DependentUpon>frmPlanDeCuentasReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Reportes\frmPuntoDeVentasReporte.cs">
       <SubType>Form</SubType>
@@ -420,6 +463,15 @@
     <EmbeddedResource Include="Migrations\201808021907157_cuenta-fix.resx">
       <DependentUpon>201808021907157_cuenta-fix.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808051855000_cuenta no nulleable.resx">
+      <DependentUpon>201808051855000_cuenta no nulleable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808072002407_agrego campos de empresa.resx">
+      <DependentUpon>201808072002407_agrego campos de empresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808072101015_renglon.resx">
+      <DependentUpon>201808072101015_renglon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -430,6 +482,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\PlanDeCuentasReporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PlanDeCuentasReporte.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\PuntoDeVentasReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PuntoDeVentasReporte.cs</LastGenOutput>
@@ -478,6 +534,15 @@
     <EmbeddedResource Include="Views\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Contabilidad\Asientos.resx">
+      <DependentUpon>Asientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Contabilidad\PlanDeCuentas.resx">
+      <DependentUpon>PlanDeCuentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Contabilidad\PlanDeCuentasEditor.resx">
+      <DependentUpon>PlanDeCuentasEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\Lanzador.resx">
       <DependentUpon>Lanzador.cs</DependentUpon>
     </EmbeddedResource>
@@ -490,6 +555,9 @@
     <EmbeddedResource Include="Views\Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reportes\frmPlanDeCuentasReporte.resx">
+      <DependentUpon>frmPlanDeCuentasReporte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Reportes\frmPuntoDeVentasReporte.resx">
       <DependentUpon>frmPuntoDeVentasReporte.cs</DependentUpon>
     </EmbeddedResource>
@@ -501,6 +569,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Practico1v4_TemporaryKey.pfx" />
+    <None Include="Properties\DataSources\Practico1v4.Models.Cuenta.datasource" />
     <None Include="Properties\DataSources\Practico1v4.Models.PuntoDeVenta.datasource" />
     <None Include="Properties\DataSources\Practico1v4.Models.Usuario.datasource" />
     <None Include="Properties\DataSources\Practico1v4.Models.Vendedor.datasource" />

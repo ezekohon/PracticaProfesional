@@ -31,8 +31,9 @@ namespace Practico1v4
             MessageBoxManager.OK = "Aceptar";
             MessageBoxManager.Yes = "Si";
             MessageBoxManager.Register();
-            
-        }
+
+
+		}
 		TenantsDBContext contextGlobal = new TenantsDBContext();// = new VentasDBContext(Common.TenantData.tenant.ConnectionString);
 
 
@@ -89,6 +90,39 @@ namespace Practico1v4
 		private void Lanzador_Load(object sender, EventArgs e)
         {
             contextGlobal.Tenants.Load();
+
+			//autologin
+			Tenant tenant = new Tenant();
+			using (var context = new TenantsDBContext())
+			{
+				tenant = context.Tenants.SingleOrDefault(t => t.BaseDeDatos == "VentasDBContext");
+				Common.TenantData.tenant = tenant;
+			}
+
+			string usuarioIngresado = "super";
+			string passwordIngresado = "super";
+
+			if (string.IsNullOrEmpty(usuarioIngresado) || string.IsNullOrEmpty(passwordIngresado))
+			{
+				Helpers.CreadorMensajes.mensajeError("Ingrese usuario y contraseña");
+			}
+			else if (loginCorrecto(usuarioIngresado, passwordIngresado))
+			{
+				using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+				{
+					Common.UsuarioData.usuario = context.Usuarios.Where(u => u.Username == usuarioIngresado).Include(u => u.Rol).Include(u => u.Rol.Operaciones).SingleOrDefault();
+				}
+				DialogResult = DialogResult.OK;
+			}
+
+			//autologin
+
+			//para que las proximas veces que abra crystal sea rapido. La primera tarda
+			Views.Reportes.frmPlanDeCuentasReporte rpt = new Views.Reportes.frmPlanDeCuentasReporte();
+			//rpt.Show();
+			rpt.Hide();
+			rpt.Close();
+			rpt.Dispose();
 		}
 
         private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
