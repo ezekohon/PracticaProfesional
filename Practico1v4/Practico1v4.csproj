@@ -216,6 +216,26 @@
     <Compile Include="Migrations\201808072101015_renglon.Designer.cs">
       <DependentUpon>201808072101015_renglon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808081927021_debe.cs" />
+    <Compile Include="Migrations\201808081927021_debe.Designer.cs">
+      <DependentUpon>201808081927021_debe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808081927594_debe2.cs" />
+    <Compile Include="Migrations\201808081927594_debe2.Designer.cs">
+      <DependentUpon>201808081927594_debe2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808131833174_renglon-fix.cs" />
+    <Compile Include="Migrations\201808131833174_renglon-fix.Designer.cs">
+      <DependentUpon>201808131833174_renglon-fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808141834332_fix en cuenta.cs" />
+    <Compile Include="Migrations\201808141834332_fix en cuenta.Designer.cs">
+      <DependentUpon>201808141834332_fix en cuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808141837346_fix en cuenta2.cs" />
+    <Compile Include="Migrations\201808141837346_fix en cuenta2.Designer.cs">
+      <DependentUpon>201808141837346_fix en cuenta2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ConfigurationVentas.cs" />
     <Compile Include="Models\Cuenta.cs" />
     <Compile Include="Models\Helpers\DatabaseOperations.cs" />
@@ -323,17 +343,17 @@
     <Compile Include="Views\Contabilidad\Asientos.Designer.cs">
       <DependentUpon>Asientos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Contabilidad\PlanDeCuentas.cs">
+    <Compile Include="Views\Contabilidad\abmPlanDeCuentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Contabilidad\PlanDeCuentas.Designer.cs">
-      <DependentUpon>PlanDeCuentas.cs</DependentUpon>
+    <Compile Include="Views\Contabilidad\abmPlanDeCuentas.Designer.cs">
+      <DependentUpon>abmPlanDeCuentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Contabilidad\PlanDeCuentasEditor.cs">
+    <Compile Include="Views\Contabilidad\helperPlanDeCuentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Contabilidad\PlanDeCuentasEditor.Designer.cs">
-      <DependentUpon>PlanDeCuentasEditor.cs</DependentUpon>
+    <Compile Include="Views\Contabilidad\helperPlanDeCuentas.Designer.cs">
+      <DependentUpon>helperPlanDeCuentas.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login\Lanzador.cs">
       <SubType>Form</SubType>
@@ -472,6 +492,21 @@
     <EmbeddedResource Include="Migrations\201808072101015_renglon.resx">
       <DependentUpon>201808072101015_renglon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808081927021_debe.resx">
+      <DependentUpon>201808081927021_debe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808081927594_debe2.resx">
+      <DependentUpon>201808081927594_debe2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808131833174_renglon-fix.resx">
+      <DependentUpon>201808131833174_renglon-fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808141834332_fix en cuenta.resx">
+      <DependentUpon>201808141834332_fix en cuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808141837346_fix en cuenta2.resx">
+      <DependentUpon>201808141837346_fix en cuenta2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -537,11 +572,11 @@
     <EmbeddedResource Include="Views\Contabilidad\Asientos.resx">
       <DependentUpon>Asientos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Contabilidad\PlanDeCuentas.resx">
-      <DependentUpon>PlanDeCuentas.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Contabilidad\abmPlanDeCuentas.resx">
+      <DependentUpon>abmPlanDeCuentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Contabilidad\PlanDeCuentasEditor.resx">
-      <DependentUpon>PlanDeCuentasEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Contabilidad\helperPlanDeCuentas.resx">
+      <DependentUpon>helperPlanDeCuentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\Lanzador.resx">
       <DependentUpon>Lanzador.cs</DependentUpon>
@@ -571,6 +606,7 @@
     <None Include="Practico1v4_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\Practico1v4.Models.Cuenta.datasource" />
     <None Include="Properties\DataSources\Practico1v4.Models.PuntoDeVenta.datasource" />
+    <None Include="Properties\DataSources\Practico1v4.Models.Renglon.datasource" />
     <None Include="Properties\DataSources\Practico1v4.Models.Usuario.datasource" />
     <None Include="Properties\DataSources\Practico1v4.Models.Vendedor.datasource" />
     <None Include="Properties\DataSources\Z.EntityFramework.Plus.AuditEntry.datasource" />

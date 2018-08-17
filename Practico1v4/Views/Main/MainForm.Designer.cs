@@ -36,10 +36,11 @@
 			this.auditoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.copiaDeSeguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.planDeCuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabelEmpresa = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabelUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-			this.planDeCuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.asientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -51,7 +52,8 @@
             this.auditoríasToolStripMenuItem,
             this.cerrarSesiónToolStripMenuItem,
             this.copiaDeSeguridadToolStripMenuItem,
-            this.planDeCuentasToolStripMenuItem});
+            this.planDeCuentasToolStripMenuItem,
+            this.asientosToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -111,6 +113,13 @@
 			this.copiaDeSeguridadToolStripMenuItem.Text = "Copia de Seguridad";
 			this.copiaDeSeguridadToolStripMenuItem.Click += new System.EventHandler(this.copiaDeSeguridadToolStripMenuItem_Click);
 			// 
+			// planDeCuentasToolStripMenuItem
+			// 
+			this.planDeCuentasToolStripMenuItem.Name = "planDeCuentasToolStripMenuItem";
+			this.planDeCuentasToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
+			this.planDeCuentasToolStripMenuItem.Text = "Plan de Cuentas";
+			this.planDeCuentasToolStripMenuItem.Click += new System.EventHandler(this.planDeCuentasToolStripMenuItem_Click);
+			// 
 			// statusStrip1
 			// 
 			this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -134,12 +143,12 @@
 			this.toolStripStatusLabelUsuario.Size = new System.Drawing.Size(118, 17);
 			this.toolStripStatusLabelUsuario.Text = "toolStripStatusLabel1";
 			// 
-			// planDeCuentasToolStripMenuItem
+			// asientosToolStripMenuItem
 			// 
-			this.planDeCuentasToolStripMenuItem.Name = "planDeCuentasToolStripMenuItem";
-			this.planDeCuentasToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
-			this.planDeCuentasToolStripMenuItem.Text = "Plan de Cuentas";
-			this.planDeCuentasToolStripMenuItem.Click += new System.EventHandler(this.planDeCuentasToolStripMenuItem_Click);
+			this.asientosToolStripMenuItem.Name = "asientosToolStripMenuItem";
+			this.asientosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+			this.asientosToolStripMenuItem.Text = "Asientos";
+			this.asientosToolStripMenuItem.Click += new System.EventHandler(this.asientosToolStripMenuItem_Click);
 			// 
 			// MainForm
 			// 
@@ -176,5 +185,6 @@
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelEmpresa;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelUsuario;
 		private System.Windows.Forms.ToolStripMenuItem planDeCuentasToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem asientosToolStripMenuItem;
 	}
 }

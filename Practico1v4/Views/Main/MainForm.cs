@@ -97,7 +97,13 @@ namespace Practico1v4.Views.Main
 
 		private void planDeCuentasToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Contabilidad.PlanDeCuentas frm = new Contabilidad.PlanDeCuentas();
+			Contabilidad.abmPlanDeCuentas frm = new Contabilidad.abmPlanDeCuentas();
+			frm.ShowDialog(this);
+		}
+
+		private void asientosToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Contabilidad.Asientos frm = new Contabilidad.Asientos();
 			frm.ShowDialog(this);
 		}
 	}

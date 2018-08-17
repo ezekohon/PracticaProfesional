@@ -119,10 +119,10 @@ namespace Practico1v4
 
 			//para que las proximas veces que abra crystal sea rapido. La primera tarda
 			Views.Reportes.frmPlanDeCuentasReporte rpt = new Views.Reportes.frmPlanDeCuentasReporte();
-			//rpt.Show();
+			rpt.Show();
 			rpt.Hide();
 			rpt.Close();
-			rpt.Dispose();
+			//rpt.Dispose();
 		}
 
         private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)

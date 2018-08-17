@@ -1,6 +1,6 @@
 ﻿namespace Practico1v4.Views.Contabilidad
 {
-	partial class PlanDeCuentas
+	partial class abmPlanDeCuentas
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,25 +29,33 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlanDeCuentas));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(abmPlanDeCuentas));
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.textBoxBuscar = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.buttonReporte = new System.Windows.Forms.Button();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.toolStripButtonInsertar = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButtonEditar = new System.Windows.Forms.ToolStripButton();
 			this.toolStripButtonBorrar = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripButtonReporte = new System.Windows.Forms.ToolStripButton();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.textBoxCodBalanceHijo = new System.Windows.Forms.TextBox();
+			this.comboBoxTipo = new System.Windows.Forms.ComboBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.textBoxCodBalance = new System.Windows.Forms.TextBox();
+			this.textBoxNombre = new System.Windows.Forms.TextBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.buttonGuardar = new System.Windows.Forms.Button();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.codigoBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.idPadreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.cuentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.toolStrip1.SuspendLayout();
+			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.cuentaBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -64,42 +72,35 @@
             this.idDataGridViewTextBoxColumn,
             this.codigoBalance,
             this.Nombre,
-            this.Tipo,
-            this.idPadreDataGridViewTextBoxColumn});
+            this.Tipo});
 			this.dataGridView1.DataSource = this.cuentaBindingSource;
-			this.dataGridView1.Location = new System.Drawing.Point(3, 94);
+			this.dataGridView1.Location = new System.Drawing.Point(3, 154);
+			this.dataGridView1.MultiSelect = false;
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(626, 354);
+			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dataGridView1.Size = new System.Drawing.Size(626, 294);
 			this.dataGridView1.TabIndex = 0;
+			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
 			this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
 			this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
 			// 
-			// textBox1
+			// textBoxBuscar
 			// 
-			this.textBox1.Location = new System.Drawing.Point(82, 58);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(100, 20);
-			this.textBox1.TabIndex = 1;
+			this.textBoxBuscar.Location = new System.Drawing.Point(82, 128);
+			this.textBoxBuscar.Name = "textBoxBuscar";
+			this.textBoxBuscar.Size = new System.Drawing.Size(141, 20);
+			this.textBoxBuscar.TabIndex = 1;
+			this.textBoxBuscar.TextChanged += new System.EventHandler(this.textBoxBuscar_TextChanged);
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(12, 61);
+			this.label2.Location = new System.Drawing.Point(12, 131);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(43, 13);
 			this.label2.TabIndex = 3;
 			this.label2.Text = "Buscar ";
-			// 
-			// buttonReporte
-			// 
-			this.buttonReporte.Location = new System.Drawing.Point(527, 65);
-			this.buttonReporte.Name = "buttonReporte";
-			this.buttonReporte.Size = new System.Drawing.Size(75, 23);
-			this.buttonReporte.TabIndex = 4;
-			this.buttonReporte.Text = "Reporte";
-			this.buttonReporte.UseVisualStyleBackColor = true;
-			this.buttonReporte.Click += new System.EventHandler(this.buttonReporte_Click);
 			// 
 			// toolStrip1
 			// 
@@ -136,6 +137,7 @@
 			this.toolStripButtonEditar.Name = "toolStripButtonEditar";
 			this.toolStripButtonEditar.Size = new System.Drawing.Size(47, 47);
 			this.toolStripButtonEditar.Text = "toolStripButton2";
+			this.toolStripButtonEditar.Click += new System.EventHandler(this.toolStripButtonEditar_Click);
 			// 
 			// toolStripButtonBorrar
 			// 
@@ -164,6 +166,94 @@
 			this.toolStripButtonReporte.Size = new System.Drawing.Size(47, 47);
 			this.toolStripButtonReporte.Text = "toolStripButton4";
 			this.toolStripButtonReporte.Click += new System.EventHandler(this.toolStripButtonReporte_Click);
+			// 
+			// panel1
+			// 
+			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Controls.Add(this.buttonGuardar);
+			this.panel1.Controls.Add(this.textBoxCodBalanceHijo);
+			this.panel1.Controls.Add(this.comboBoxTipo);
+			this.panel1.Controls.Add(this.label1);
+			this.panel1.Controls.Add(this.textBoxCodBalance);
+			this.panel1.Controls.Add(this.textBoxNombre);
+			this.panel1.Controls.Add(this.label4);
+			this.panel1.Controls.Add(this.label3);
+			this.panel1.Enabled = false;
+			this.panel1.Location = new System.Drawing.Point(3, 43);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(626, 79);
+			this.panel1.TabIndex = 6;
+			// 
+			// textBoxCodBalanceHijo
+			// 
+			this.textBoxCodBalanceHijo.Location = new System.Drawing.Point(214, 9);
+			this.textBoxCodBalanceHijo.Name = "textBoxCodBalanceHijo";
+			this.textBoxCodBalanceHijo.Size = new System.Drawing.Size(52, 20);
+			this.textBoxCodBalanceHijo.TabIndex = 17;
+			this.textBoxCodBalanceHijo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodBalanceHijo_KeyPress);
+			// 
+			// comboBoxTipo
+			// 
+			this.comboBoxTipo.FormattingEnabled = true;
+			this.comboBoxTipo.Items.AddRange(new object[] {
+            "0",
+            "1"});
+			this.comboBoxTipo.Location = new System.Drawing.Point(342, 9);
+			this.comboBoxTipo.Name = "comboBoxTipo";
+			this.comboBoxTipo.Size = new System.Drawing.Size(100, 21);
+			this.comboBoxTipo.TabIndex = 16;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(296, 12);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(28, 13);
+			this.label1.TabIndex = 13;
+			this.label1.Text = "Tipo";
+			// 
+			// textBoxCodBalance
+			// 
+			this.textBoxCodBalance.Location = new System.Drawing.Point(108, 9);
+			this.textBoxCodBalance.Name = "textBoxCodBalance";
+			this.textBoxCodBalance.ReadOnly = true;
+			this.textBoxCodBalance.Size = new System.Drawing.Size(100, 20);
+			this.textBoxCodBalance.TabIndex = 12;
+			// 
+			// textBoxNombre
+			// 
+			this.textBoxNombre.Location = new System.Drawing.Point(108, 46);
+			this.textBoxNombre.Name = "textBoxNombre";
+			this.textBoxNombre.Size = new System.Drawing.Size(334, 20);
+			this.textBoxNombre.TabIndex = 15;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(18, 9);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(82, 13);
+			this.label4.TabIndex = 11;
+			this.label4.Text = "Codigo Balance";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(18, 49);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(44, 13);
+			this.label3.TabIndex = 14;
+			this.label3.Text = "Nombre";
+			// 
+			// buttonGuardar
+			// 
+			this.buttonGuardar.Location = new System.Drawing.Point(546, 51);
+			this.buttonGuardar.Name = "buttonGuardar";
+			this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
+			this.buttonGuardar.TabIndex = 18;
+			this.buttonGuardar.Text = "Guardar";
+			this.buttonGuardar.UseVisualStyleBackColor = true;
+			this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
 			// 
 			// idDataGridViewTextBoxColumn
 			// 
@@ -194,14 +284,6 @@
 			this.Tipo.Name = "Tipo";
 			this.Tipo.ReadOnly = true;
 			// 
-			// idPadreDataGridViewTextBoxColumn
-			// 
-			this.idPadreDataGridViewTextBoxColumn.DataPropertyName = "IdPadre";
-			this.idPadreDataGridViewTextBoxColumn.HeaderText = "IdPadre";
-			this.idPadreDataGridViewTextBoxColumn.Name = "idPadreDataGridViewTextBoxColumn";
-			this.idPadreDataGridViewTextBoxColumn.ReadOnly = true;
-			this.idPadreDataGridViewTextBoxColumn.Visible = false;
-			// 
 			// cuentaBindingSource
 			// 
 			this.cuentaBindingSource.DataSource = typeof(Practico1v4.Models.Cuenta);
@@ -211,10 +293,10 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(630, 450);
+			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.toolStrip1);
-			this.Controls.Add(this.buttonReporte);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.textBoxBuscar);
 			this.Controls.Add(this.dataGridView1);
 			this.Name = "PlanDeCuentas";
 			this.Text = "PlanDeCuentas";
@@ -222,6 +304,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.cuentaBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -236,15 +320,22 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn codigoBalance;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-		private System.Windows.Forms.DataGridViewTextBoxColumn idPadreDataGridViewTextBoxColumn;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox textBoxBuscar;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Button buttonReporte;
 		private System.Windows.Forms.ToolStrip toolStrip1;
 		private System.Windows.Forms.ToolStripButton toolStripButtonInsertar;
 		private System.Windows.Forms.ToolStripButton toolStripButtonEditar;
 		private System.Windows.Forms.ToolStripButton toolStripButtonBorrar;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripButton toolStripButtonReporte;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.ComboBox comboBoxTipo;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TextBox textBoxCodBalance;
+		private System.Windows.Forms.TextBox textBoxNombre;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.TextBox textBoxCodBalanceHijo;
+		private System.Windows.Forms.Button buttonGuardar;
 	}
 }

@@ -12,6 +12,6 @@ namespace Practico1v4.Models
 		public int Tipo { get; set; }
 		public string Nombre { get; set; }
 		public string CodigoBalance { get; set; }
-		public int IdPadre { get; set; }
+		public string CodigoPadre { get; set; }
 	}
 }
