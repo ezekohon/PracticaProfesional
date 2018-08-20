@@ -20,5 +20,6 @@ namespace Practico1v4.Models
 		public string RazonSocial { get; set; }
 		public string SituacionFrenteAIVA { get; set; } //enum?
 		public string  DireccionFisica { get; set; }
+		public int UltimoNroAsientoCargando { get; set; }
 	}
 }

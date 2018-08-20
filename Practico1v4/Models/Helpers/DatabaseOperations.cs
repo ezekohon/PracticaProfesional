@@ -12,26 +12,27 @@ namespace Practico1v4.Models.Helpers
 {
 	class DatabaseOperations
 	{
-		public static void MigrateDatabase(string DBName/*VentasDBContext ctx*/)
+		public static void MigrateDatabase(Tenant tenant)//string DBName/*VentasDBContext ctx*/)
 		{
 			//context.Database.Create();
 			//var datab = context.Database;
-			Tenant tenant = new Tenant();
+			//Tenant tenant = new Tenant();
 			using (var context = new TenantsDBContext())
 			{
-				tenant.BaseDeDatos = DBName;
-				tenant.ConnectionString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=" + DBName + "; integrated security=SSPI";
+				//tenant.BaseDeDatos = DBName;
+				tenant.ConnectionString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=" + tenant.BaseDeDatos + "; integrated security=SSPI";
 				tenant.Host = (System.Environment.MachineName == "DESKTOP-JSIT42C") ? "DESKTOP-JSIT42C\\SQLEXPRESS" : "localhost"; 
-				tenant.Nombre = DBName;
+				tenant.Nombre = tenant.BaseDeDatos;
+				
 				context.Tenants.Add(tenant);
 				context.SaveChanges();
 			}
 			Common.TenantData.tenant = tenant;
-			var newDbConnString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=" + DBName + "; integrated security=SSPI";//context.Database.Connection.ConnectionString;
+			var newDbConnString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=" + tenant.BaseDeDatos + "; integrated security=SSPI";//context.Database.Connection.ConnectionString;
 			var connStringBuilder = new SqlConnectionStringBuilder(newDbConnString);
 			
 
-			connStringBuilder.InitialCatalog = DBName;
+			connStringBuilder.InitialCatalog = tenant.BaseDeDatos;
 
 			ConfigurationVentas config = new ConfigurationVentas();
 			DbMigrator migrator = new DbMigrator(config);

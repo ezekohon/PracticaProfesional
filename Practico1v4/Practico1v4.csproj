@@ -236,8 +236,17 @@
     <Compile Include="Migrations\201808141837346_fix en cuenta2.Designer.cs">
       <DependentUpon>201808141837346_fix en cuenta2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808181953126_ultnroasiento.cs" />
+    <Compile Include="Migrations\201808181953126_ultnroasiento.Designer.cs">
+      <DependentUpon>201808181953126_ultnroasiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808201544228_tablasnuevas.cs" />
+    <Compile Include="Migrations\201808201544228_tablasnuevas.Designer.cs">
+      <DependentUpon>201808201544228_tablasnuevas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ConfigurationVentas.cs" />
     <Compile Include="Models\Cuenta.cs" />
+    <Compile Include="Models\DiarioMayor.cs" />
     <Compile Include="Models\Helpers\DatabaseOperations.cs" />
     <Compile Include="Models\Helpers\DBFactory.cs" />
     <Compile Include="Models\Operacion.cs" />
@@ -245,6 +254,7 @@
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Tenant.cs" />
     <Compile Include="Models\TenantsDBContext.cs" />
+    <Compile Include="Models\UltimoDiario.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Zona.cs" />
     <Compile Include="Reportes\PlanDeCuentasReporte.cs">
@@ -506,6 +516,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808141837346_fix en cuenta2.resx">
       <DependentUpon>201808141837346_fix en cuenta2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808181953126_ultnroasiento.resx">
+      <DependentUpon>201808181953126_ultnroasiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808201544228_tablasnuevas.resx">
+      <DependentUpon>201808201544228_tablasnuevas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

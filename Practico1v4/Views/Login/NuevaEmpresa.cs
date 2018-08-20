@@ -23,7 +23,11 @@ namespace Practico1v4.Views.Login
 			{
 				try
 				{
-					Models.Helpers.DatabaseOperations.MigrateDatabase(textBoxNombre.Text);
+					//cambiar, pasarle como param un Tenant
+					Models.Tenant tenant = new Models.Tenant();
+					tenant.BaseDeDatos = textBoxNombre.Text;
+					tenant.UltimoNroAsientoCargando = 1;
+					Models.Helpers.DatabaseOperations.MigrateDatabase(tenant);
 					buttonCrear.Enabled = false;
 					textBoxNombre.Enabled = false;
 					Helpers.CreadorMensajes.mensajeObservacion("Empresa creada con éxito.");
