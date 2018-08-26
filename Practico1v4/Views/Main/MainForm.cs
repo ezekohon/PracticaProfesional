@@ -106,5 +106,11 @@ namespace Practico1v4.Views.Main
 			Contabilidad.Asientos frm = new Contabilidad.Asientos();
 			frm.ShowDialog(this);
 		}
+
+		private void reportesContabilidadToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Contabilidad.ReportesContabilidad frm = new Contabilidad.ReportesContabilidad();
+			frm.ShowDialog(this);
+		}
 	}
 }

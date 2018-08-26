@@ -23,7 +23,7 @@ namespace Practico1v4.Models.Helpers
 				tenant.ConnectionString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=" + tenant.BaseDeDatos + "; integrated security=SSPI";
 				tenant.Host = (System.Environment.MachineName == "DESKTOP-JSIT42C") ? "DESKTOP-JSIT42C\\SQLEXPRESS" : "localhost"; 
 				tenant.Nombre = tenant.BaseDeDatos;
-				
+
 				context.Tenants.Add(tenant);
 				context.SaveChanges();
 			}

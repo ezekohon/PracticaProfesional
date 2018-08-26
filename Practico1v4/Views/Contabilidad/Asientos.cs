@@ -1,6 +1,7 @@
 ﻿using Practico1v4.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
@@ -32,7 +33,12 @@ namespace Practico1v4.Views.Contabilidad
 
 		private void Asientos_Load(object sender, EventArgs e)
 		{
-			comboBoxTipo.DataSource = Enum.GetValues(typeof(Renglon.enumTipo));
+			dateTimePickerRPTDesde.Value = Common.TenantData.tenant.FechaInicioEjercicioContable;
+			dateTimePickerRPTHasta.Value = Common.TenantData.tenant.FechaCierreEjercicioContable;
+
+			//comentado para desarrollo, pero va
+			//dateTimePickerContabilidad.MinDate = Common.TenantData.tenant.FechaInicioEjercicioContable;
+			//dateTimePickerContabilidad.MaxDate = Common.TenantData.tenant.FechaCierreEjercicioContable;
 		}
 
 		VentasDBContext contextGlobal = new VentasDBContext(Common.TenantData.tenant.ConnectionString);
@@ -51,13 +57,17 @@ namespace Practico1v4.Views.Contabilidad
 
 		private void altaToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			deshabilitarAltaRetomar();
 			panelDatosAsiento.Enabled = true;
 			textBoxNAsiento.Visible = true;
 			comboBoxNAsientos.Visible = false;
 			aumentarUltimoRenglonCargandoTenant();
 
 			textBoxNAsiento.Text = Common.TenantData.tenant.UltimoNroAsientoCargando.ToString();
-			
+
+			textBoxRPTAsientoDesde.Text = Common.TenantData.tenant.UltimoNroAsientoCargando.ToString();
+			textBoxRPTAsientoHasta.Text = Common.TenantData.tenant.UltimoNroAsientoCargando.ToString();
+
 
 			//using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			//{
@@ -108,7 +118,7 @@ namespace Practico1v4.Views.Contabilidad
 								DialogResult dr = frm.ShowDialog();
 								if (dr == DialogResult.OK)
 								{
-									textBoxCuentaID.Text = frm.cuentaSeleccionada.CodigoBalance;
+									textBoxCuentaID.Text = frm.cuentaSeleccionada.Id.ToString();
 									textBoxCuenta.Text = frm.cuentaSeleccionada.Nombre;
 									textBoxCuentaID.Enabled = false;
 								}
@@ -132,7 +142,7 @@ namespace Practico1v4.Views.Contabilidad
 						
 						if (dr == DialogResult.OK)
 						{
-							textBoxCuentaID.Text = frm.cuentaSeleccionada.CodigoBalance;
+							textBoxCuentaID.Text = frm.cuentaSeleccionada.Id.ToString();
 							textBoxCuenta.Text = frm.cuentaSeleccionada.Nombre;
 							textBoxCuentaID.Enabled = false;
 						}
@@ -161,7 +171,7 @@ namespace Practico1v4.Views.Contabilidad
 
 		private void textBoxDebe_Leave(object sender, EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace( textBoxDebe.Text))
+			if (string.IsNullOrWhiteSpace(textBoxDebe.Text) || Convert.ToDecimal(textBoxDebe.Text) == 0)
 				textBoxHaber.Enabled = true;
 
 			Double value;
@@ -179,7 +189,7 @@ namespace Practico1v4.Views.Contabilidad
 
 		private void textBoxHaber_Leave(object sender, EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(textBoxHaber.Text))
+			if (string.IsNullOrWhiteSpace(textBoxHaber.Text) || Convert.ToDecimal(textBoxHaber.Text) == 0)
 				textBoxDebe.Enabled = true;
 
 			Double value;
@@ -215,17 +225,19 @@ namespace Practico1v4.Views.Contabilidad
 			Renglon r = new Renglon();
 
 			Cuenta c = new Cuenta();
-			string cuentaCodigo = (string.IsNullOrWhiteSpace(textBoxCuentaID.Text)) ? "" : textBoxCuentaID.Text;
+			int cuentaId = (string.IsNullOrWhiteSpace(textBoxCuentaID.Text)) ? 0 : Convert.ToInt32( textBoxCuentaID.Text);
 
-			c = contextGlobal.Cuentas.Where(x => x.CodigoBalance == cuentaCodigo).FirstOrDefault();
+			c = contextGlobal.Cuentas.Where(x => x.Id == cuentaId).FirstOrDefault();
 
-			r.NumeroAsiento = Convert.ToInt32(textBoxNAsiento.Text);
+			r.NumeroAsiento = (textBoxNAsiento.Visible) ? Convert.ToInt32(textBoxNAsiento.Text) : Convert.ToInt32(comboBoxNAsientos.Text);
 			r.FechaContabilidad = dateTimePickerContabilidad.Value;
 			r.Tipo = (Renglon.enumTipo)comboBoxTipo.SelectedItem;
 			r.NumeroRenglon = Convert.ToInt32(textBoxNRenglon.Text);
 			r.IdCuenta = c.Id;
 			r.FechaVencimiento = dateTimePickerVencimiento.Value;
 			r.FechaOperacion = dateTimePickerOperacion.Value;
+			r.Registrado = Renglon.enumRegistrado.NoRegistrado;
+			r.OK_Carga = Renglon.enumokCarga.OK;
 
 			
 			r.Debe = (string.IsNullOrWhiteSpace(textBoxDebe.Text)) ? 0 : Convert.ToDecimal(textBoxDebe.Text);
@@ -237,6 +249,7 @@ namespace Practico1v4.Views.Contabilidad
 			{
 				using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 				{
+					r.Id = RenglonActual.Id;
 					var entry = context.Renglones.Find(RenglonActual.Id);
 					context.Entry(entry).CurrentValues.SetValues(r);
 					context.SaveChanges();
@@ -251,6 +264,7 @@ namespace Practico1v4.Views.Contabilidad
 					r.Cuenta = c;
 
 					NroRenglonActual++;
+					textBoxNRenglon.Text = NroRenglonActual.ToString();
 					try
 					{
 						context.SaveChanges();
@@ -258,9 +272,11 @@ namespace Practico1v4.Views.Contabilidad
 					catch (Exception ex)
 					{ throw ex; }
 				}
+				
 			}
 			
 			cargarGrilla();
+			limpiarCamposRenglon();
 		}
 
 		private void modificaciónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -300,6 +316,7 @@ namespace Practico1v4.Views.Contabilidad
 		private void toolStripMenuItem1_Click(object sender, EventArgs e)
 		{
 			//darle al usuario a elegir el asiento a retomar que todavia no fue pasado a la tabla diario/mayor
+			deshabilitarAltaRetomar();
 			panelDatosAsiento.Enabled = true;
 			comboBoxNAsientos.Visible = true;
 			textBoxNAsiento.Visible = false;
@@ -362,9 +379,21 @@ namespace Practico1v4.Views.Contabilidad
 			textBoxCuentaID.Text = r.IdCuenta.ToString();
 			dateTimePickerOperacion.Value = r.FechaOperacion;
 			dateTimePickerVencimiento.Value = r.FechaVencimiento;
-			textBoxDebe.Text = r.Debe.ToString();
-			textBoxHaber.Text = r.Haber.ToString();
+
 			textBoxLeyenda.Text = r.Leyenda;
+
+			//if (r.Debe != 0)
+			//{
+				textBoxDebe.Text = r.Debe.ToString();
+				//textBoxDebe.Enabled = true;
+			//}
+			//else
+			//{
+				textBoxHaber.Text = r.Haber.ToString();
+				//textBoxHaber.Enabled = true;
+			//}
+			
+			
 		}
 
 		private void bajaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -424,6 +453,8 @@ namespace Practico1v4.Views.Contabilidad
 					context.SaveChanges();
 					cargarGrilla();
 					panelDatosAsiento.Enabled = false;
+					panelDatosRenglon.Enabled = false;
+					habilitarAltaRetomar();
 				}
 			}
 		}
@@ -435,10 +466,192 @@ namespace Practico1v4.Views.Contabilidad
 			{
 				if (DebeActual - HaberActual == 0)
 				{
-					//pasar los asientos a la otra tabla??
+					habilitarAltaRetomar();
+					panelDatosAsiento.Enabled = false;
+					panelDatosRenglon.Enabled = false;
 				}
 				else
-					Helpers.CreadorMensajes.mensajeError("El debe no da con el haber!!!");
+					Helpers.CreadorMensajes.mensajeError("El debe no concuerda con el haber, no puede salir de asiento!");
+			}
+		}
+
+		private bool validarCampos()
+		{
+			return true;
+		}
+
+		private void dateTimePickerContabilidad_ValueChanged(object sender, EventArgs e)
+		{
+			comboBoxTipo.DataSource = Enum.GetValues(typeof(Renglon.enumTipo));
+			if (dateTimePickerContabilidad.Value.Date != Common.TenantData.tenant.FechaInicioEjercicioContable)
+			{
+				comboBoxTipo.DataSource = Enum.GetValues(typeof(Renglon.enumTipo))
+					.Cast<Renglon.enumTipo>()
+					.Where(x => x != Renglon.enumTipo.Apertura)
+					.ToArray();
+
+				if (dateTimePickerContabilidad.Value.Date != Common.TenantData.tenant.FechaCierreEjercicioContable)
+					comboBoxTipo.DataSource = Enum.GetValues(typeof(Renglon.enumTipo))
+						.Cast<Renglon.enumTipo>()
+						.Where(x => x == Renglon.enumTipo.Normal)
+						.ToArray();
+			}
+		
+			dateTimePickerOperacion.Value = dateTimePickerContabilidad.Value;
+			dateTimePickerVencimiento.Value = dateTimePickerContabilidad.Value;
+		}
+
+		private void deshabilitarAltaRetomar()
+		{
+			altaToolStripMenuItem.Enabled = false;
+			toolStripMenuItemRetomar.Enabled = false;
+		}
+		private void habilitarAltaRetomar()
+		{
+			altaToolStripMenuItem.Enabled = true;
+			toolStripMenuItemRetomar.Enabled = true;
+		}
+
+		private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			//chekea el debe/haber
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+			{
+				if (DebeActual - HaberActual == 0)
+				{
+					this.Close();
+				}
+				else
+					Helpers.CreadorMensajes.mensajeError("El debe no concuerda con el haber, no puede salir de la pantalla!");
+			}
+		}
+
+		private void listarToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Reportes.frmRenglonesReporte frm = new Reportes.frmRenglonesReporte();
+			frm.NAsientoDesde = Convert.ToInt32(textBoxRPTAsientoDesde.Text);
+			frm.NAsientoHasta = Convert.ToInt32(textBoxRPTAsientoHasta.Text);
+
+			frm.ShowDialog(this);
+		}
+
+		private void buttonListar_Click(object sender, EventArgs e)
+		{
+			Reportes.frmRenglonesReporte frm = new Reportes.frmRenglonesReporte();
+			frm.NAsientoDesde = Convert.ToInt32(textBoxRPTAsientoDesde.Text);
+			frm.NAsientoHasta = Convert.ToInt32(textBoxRPTAsientoHasta.Text);
+			frm.FechaDesde = dateTimePickerRPTDesde.Value;
+			frm.FechaHasta = dateTimePickerRPTHasta.Value;
+
+			frm.ShowDialog(this);
+		}
+
+		private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var asientoDesde = (string.IsNullOrWhiteSpace(textBoxRPTAsientoDesde.Text)) ? 0 : Convert.ToInt32(textBoxRPTAsientoDesde.Text);
+			var asientoHasta = (string.IsNullOrWhiteSpace(textBoxRPTAsientoHasta.Text)) ? 0 : Convert.ToInt32(textBoxRPTAsientoHasta.Text);
+
+			if (asientoHasta != 0 && asientoDesde != 0)
+			{
+				ObservableCollection<Renglon> listaRegistrar = new ObservableCollection<Renglon>();
+				using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+				{
+					context.Renglones.Where(x => x.NumeroAsiento >= asientoDesde && x.NumeroAsiento <= asientoHasta).Include(y => y.Cuenta).Load();
+					listaRegistrar = context.Renglones.Local;
+				}
+
+				var agrupadosAsientos = listaRegistrar.GroupBy(x => x.NumeroAsiento);
+				bool errorDH = false;
+				int asientoError = 0;
+				decimal dh = 0;
+				foreach(var group in agrupadosAsientos)
+				{
+					foreach(Renglon r in group)
+					{
+						dh += (r.Debe != 0) ? r.Debe : -r.Haber;
+					}
+
+					if (dh != 0)
+					{
+						errorDH = true;
+						asientoError = group.FirstOrDefault().NumeroAsiento;
+					}
+					dh = 0;
+				}
+
+				if (errorDH)
+					Helpers.CreadorMensajes.mensajeError("No puede registrar los asientos, el debe y haber no concuerdan en el asiento " + asientoError.ToString());
+				else
+				{
+					//registrar
+					using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+					{
+						context.DiarioMayor.Load();
+						var ultima = context.DiarioMayor.Local.OrderByDescending(x => x.FechaInsertado).FirstOrDefault();
+						int nAsiento = (ultima == null) ? 1 : ultima.NumeroAsiento + 1;
+						foreach (var group in agrupadosAsientos)
+						{
+							int nRenglon = 1;
+							foreach (Renglon r in group)
+							{
+								DiarioMayor dm = new DiarioMayor();
+								dm.NumeroAsiento = nAsiento;
+								dm.NumeroRenglon = nRenglon;
+								dm.FechaContabilidad = r.FechaContabilidad;
+								dm.Tipo = r.Tipo;
+								dm.FechaOperacion = r.FechaOperacion;
+								dm.FechaVencimiento = r.FechaVencimiento;
+								dm.FechaInsertado = DateTime.Now;
+								dm.IdCuenta = r.IdCuenta;
+								dm.Cuenta = r.Cuenta;
+								dm.Comprobante = r.Comprobante;
+								dm.Leyenda = r.Leyenda;
+								dm.Debe = r.Debe;
+								dm.Haber = r.Haber;
+								dm.Registrado = Renglon.enumRegistrado.Registrado;
+
+								context.DiarioMayor.Add(dm);
+								context.Renglones.Attach(r);
+								context.Renglones.Remove(r);
+								context.Cuentas.Attach(dm.Cuenta);
+								nRenglon++;
+							}
+							nRenglon = 0;
+							nAsiento++;
+						}
+						try
+						{
+							context.SaveChanges();
+							Helpers.CreadorMensajes.mensajeObservacion("Los asientos han sido registrados con éxito!");
+						}
+						catch (Exception ex)
+						{
+							throw ex;
+						}
+
+					}
+				}
+			}
+			else
+			{
+				Helpers.CreadorMensajes.mensajeError("Ingrese numeros de asiento desde y hasta!");
+			}
+
+		}
+
+		private void textBoxRPTAsientoDesde_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+			{
+				e.Handled = true;
+			}
+		}
+
+		private void textBoxRPTAsientoHasta_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+			{
+				e.Handled = true;
 			}
 		}
 	}

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,10 @@ namespace Practico1v4.Models
 		public int Id { get; set; }
 
 		public DateTime FechaContabilidad { get; set; }
-		public int NumeroAsiento { get; set; }
 
+		[Index("IX_AsientoRenglon", 1, IsUnique = true)]
+		public int NumeroAsiento { get; set; }
+		[Index("IX_AsientoRenglon", 2, IsUnique = true)]
 		public int NumeroRenglon { get; set; }
 
 		public int IdCuenta { get; set; }
@@ -33,8 +36,11 @@ namespace Practico1v4.Models
 		public Decimal Haber { get; set; }
 		public string Leyenda { get; set; }
 		
+
 		public Renglon.enumRegistrado Registrado { get; set; } //0/5/9
 		public Renglon.enumTipo Tipo { get; set; } //apertura, normal, cierre ENUM??
+
+		public DateTime FechaInsertado { get; set; }
 
 
 	}

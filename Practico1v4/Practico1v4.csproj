@@ -244,6 +244,14 @@
     <Compile Include="Migrations\201808201544228_tablasnuevas.Designer.cs">
       <DependentUpon>201808201544228_tablasnuevas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808251424061_unique.cs" />
+    <Compile Include="Migrations\201808251424061_unique.Designer.cs">
+      <DependentUpon>201808251424061_unique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808251512443_fechainsertado.cs" />
+    <Compile Include="Migrations\201808251512443_fechainsertado.Designer.cs">
+      <DependentUpon>201808251512443_fechainsertado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ConfigurationVentas.cs" />
     <Compile Include="Models\Cuenta.cs" />
     <Compile Include="Models\DiarioMayor.cs" />
@@ -257,6 +265,12 @@
     <Compile Include="Models\UltimoDiario.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Zona.cs" />
+    <Compile Include="Reportes\MayorReporte.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MayorReporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\PlanDeCuentasReporte.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -267,6 +281,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PuntoDeVentasReporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RenglonesReporte.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RenglonesReporte.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\UsuariosReporte.cs">
@@ -365,6 +385,12 @@
     <Compile Include="Views\Contabilidad\helperPlanDeCuentas.Designer.cs">
       <DependentUpon>helperPlanDeCuentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Contabilidad\ReportesContabilidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Contabilidad\ReportesContabilidad.Designer.cs">
+      <DependentUpon>ReportesContabilidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login\Lanzador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,6 +426,12 @@
     <Compile Include="Views\ABMs\PuntoDeVentasABM.Designer.cs">
       <DependentUpon>PuntoDeVentasABM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Reportes\frmMayorReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Reportes\frmMayorReporte.Designer.cs">
+      <DependentUpon>frmMayorReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Reportes\frmPlanDeCuentasReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -411,6 +443,12 @@
     </Compile>
     <Compile Include="Views\Reportes\frmPuntoDeVentasReporte.Designer.cs">
       <DependentUpon>frmPuntoDeVentasReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reportes\frmRenglonesReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Reportes\frmRenglonesReporte.Designer.cs">
+      <DependentUpon>frmRenglonesReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Reportes\frmUsuariosReporte.cs">
       <SubType>Form</SubType>
@@ -523,6 +561,12 @@
     <EmbeddedResource Include="Migrations\201808201544228_tablasnuevas.resx">
       <DependentUpon>201808201544228_tablasnuevas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808251424061_unique.resx">
+      <DependentUpon>201808251424061_unique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808251512443_fechainsertado.resx">
+      <DependentUpon>201808251512443_fechainsertado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -533,6 +577,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\MayorReporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MayorReporte.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\PlanDeCuentasReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PlanDeCuentasReporte.cs</LastGenOutput>
@@ -540,6 +588,10 @@
     <EmbeddedResource Include="Reportes\PuntoDeVentasReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PuntoDeVentasReporte.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RenglonesReporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RenglonesReporte.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\UsuariosReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -594,6 +646,9 @@
     <EmbeddedResource Include="Views\Contabilidad\helperPlanDeCuentas.resx">
       <DependentUpon>helperPlanDeCuentas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Contabilidad\ReportesContabilidad.resx">
+      <DependentUpon>ReportesContabilidad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\Lanzador.resx">
       <DependentUpon>Lanzador.cs</DependentUpon>
     </EmbeddedResource>
@@ -606,11 +661,17 @@
     <EmbeddedResource Include="Views\Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reportes\frmMayorReporte.resx">
+      <DependentUpon>frmMayorReporte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Reportes\frmPlanDeCuentasReporte.resx">
       <DependentUpon>frmPlanDeCuentasReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Reportes\frmPuntoDeVentasReporte.resx">
       <DependentUpon>frmPuntoDeVentasReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reportes\frmRenglonesReporte.resx">
+      <DependentUpon>frmRenglonesReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Reportes\frmUsuariosReporte.resx">
       <DependentUpon>frmUsuariosReporte.cs</DependentUpon>

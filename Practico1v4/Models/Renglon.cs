@@ -41,7 +41,7 @@ namespace Practico1v4.Models
 		public enum enumokCarga
 		{
 			Mal = 0,
-			Bein = 1
+			OK = 1
 		}
 
 		public enum enumDebeHaber

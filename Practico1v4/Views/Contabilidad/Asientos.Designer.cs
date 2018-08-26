@@ -29,20 +29,20 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItemRetomar = new System.Windows.Forms.ToolStripMenuItem();
+			this.registrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip2 = new System.Windows.Forms.MenuStrip();
 			this.altaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.modificaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.bajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.abandonarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.listarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.panelDatosAsiento = new System.Windows.Forms.Panel();
+			this.comboBoxNAsientos = new System.Windows.Forms.ComboBox();
 			this.buttonAceptarDatosAsiento = new System.Windows.Forms.Button();
 			this.comboBoxTipo = new System.Windows.Forms.ComboBox();
 			this.label17 = new System.Windows.Forms.Label();
@@ -57,6 +57,8 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.Debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Haber = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.label9 = new System.Windows.Forms.Label();
 			this.textBoxNRenglon = new System.Windows.Forms.TextBox();
 			this.textBoxCuenta = new System.Windows.Forms.TextBox();
@@ -76,10 +78,20 @@
 			this.buttonLimpiar = new System.Windows.Forms.Button();
 			this.textBoxCuentaID = new System.Windows.Forms.TextBox();
 			this.panel3 = new System.Windows.Forms.Panel();
-			this.comboBoxNAsientos = new System.Windows.Forms.ComboBox();
-			this.renglonBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-			this.cuentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.renglonBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.panelParametros = new System.Windows.Forms.Panel();
+			this.buttonLimpiarParams = new System.Windows.Forms.Button();
+			this.buttonListar = new System.Windows.Forms.Button();
+			this.dateTimePickerRPTHasta = new System.Windows.Forms.DateTimePicker();
+			this.dateTimePickerRPTDesde = new System.Windows.Forms.DateTimePicker();
+			this.textBoxRPTAsientoHasta = new System.Windows.Forms.TextBox();
+			this.textBoxRPTAsientoDesde = new System.Windows.Forms.TextBox();
+			this.label19 = new System.Windows.Forms.Label();
+			this.label18 = new System.Windows.Forms.Label();
+			this.label13 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.fechaContabilidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.numeroAsientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,17 +102,19 @@
 			this.fechaOperacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.comprobanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.leyendaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Haber = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.oKCargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registradoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.renglonBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+			this.cuentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.renglonBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.menuStrip1.SuspendLayout();
 			this.menuStrip2.SuspendLayout();
 			this.panelDatosAsiento.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.panelDatosRenglon.SuspendLayout();
 			this.panel3.SuspendLayout();
+			this.panelParametros.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.renglonBindingSource1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.cuentaBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.renglonBindingSource)).BeginInit();
@@ -112,12 +126,13 @@
 			this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Left;
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.altaToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.listarToolStripMenuItem});
+            this.toolStripMenuItemRetomar,
+            this.registrarToolStripMenuItem,
+            this.salirToolStripMenuItem1});
 			this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(119, 450);
+			this.menuStrip1.Size = new System.Drawing.Size(119, 572);
 			this.menuStrip1.TabIndex = 1;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -129,23 +144,26 @@
 			this.altaToolStripMenuItem.Text = "Alta";
 			this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
 			// 
-			// toolStripMenuItem1
+			// toolStripMenuItemRetomar
 			// 
-			this.toolStripMenuItem1.AutoSize = false;
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(113, 40);
-			this.toolStripMenuItem1.Text = "Retomar";
-			this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+			this.toolStripMenuItemRetomar.AutoSize = false;
+			this.toolStripMenuItemRetomar.Name = "toolStripMenuItemRetomar";
+			this.toolStripMenuItemRetomar.Size = new System.Drawing.Size(113, 40);
+			this.toolStripMenuItemRetomar.Text = "Retomar";
+			this.toolStripMenuItemRetomar.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
 			// 
-			// listarToolStripMenuItem
+			// registrarToolStripMenuItem
 			// 
-			this.listarToolStripMenuItem.AutoSize = false;
-			this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-			this.listarToolStripMenuItem.Size = new System.Drawing.Size(113, 40);
-			this.listarToolStripMenuItem.Text = "Listar";
+			this.registrarToolStripMenuItem.AutoSize = false;
+			this.registrarToolStripMenuItem.Name = "registrarToolStripMenuItem";
+			this.registrarToolStripMenuItem.Size = new System.Drawing.Size(113, 40);
+			this.registrarToolStripMenuItem.Text = "Registrar";
+			this.registrarToolStripMenuItem.Click += new System.EventHandler(this.registrarToolStripMenuItem_Click);
 			// 
 			// menuStrip2
 			// 
+			this.menuStrip2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.menuStrip2.AutoSize = false;
 			this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
 			this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -153,11 +171,10 @@
             this.modificaciónToolStripMenuItem,
             this.bajaToolStripMenuItem,
             this.salirToolStripMenuItem,
-            this.abandonarToolStripMenuItem,
-            this.listarToolStripMenuItem1});
+            this.abandonarToolStripMenuItem});
 			this.menuStrip2.Location = new System.Drawing.Point(119, 0);
 			this.menuStrip2.Name = "menuStrip2";
-			this.menuStrip2.Size = new System.Drawing.Size(766, 24);
+			this.menuStrip2.Size = new System.Drawing.Size(825, 24);
 			this.menuStrip2.TabIndex = 2;
 			this.menuStrip2.Text = "menuStrip2";
 			// 
@@ -185,8 +202,8 @@
 			// 
 			this.salirToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
 			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-			this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
-			this.salirToolStripMenuItem.Text = "Salir";
+			this.salirToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+			this.salirToolStripMenuItem.Text = "Salir/Terminar";
 			this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
 			// 
 			// abandonarToolStripMenuItem
@@ -196,13 +213,6 @@
 			this.abandonarToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
 			this.abandonarToolStripMenuItem.Text = "Abandonar";
 			this.abandonarToolStripMenuItem.Click += new System.EventHandler(this.abandonarToolStripMenuItem_Click);
-			// 
-			// listarToolStripMenuItem1
-			// 
-			this.listarToolStripMenuItem1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-			this.listarToolStripMenuItem1.Name = "listarToolStripMenuItem1";
-			this.listarToolStripMenuItem1.Size = new System.Drawing.Size(47, 20);
-			this.listarToolStripMenuItem1.Text = "Listar";
 			// 
 			// panelDatosAsiento
 			// 
@@ -220,8 +230,18 @@
 			this.panelDatosAsiento.Enabled = false;
 			this.panelDatosAsiento.Location = new System.Drawing.Point(119, 27);
 			this.panelDatosAsiento.Name = "panelDatosAsiento";
-			this.panelDatosAsiento.Size = new System.Drawing.Size(560, 78);
+			this.panelDatosAsiento.Size = new System.Drawing.Size(619, 78);
 			this.panelDatosAsiento.TabIndex = 3;
+			// 
+			// comboBoxNAsientos
+			// 
+			this.comboBoxNAsientos.FormattingEnabled = true;
+			this.comboBoxNAsientos.Location = new System.Drawing.Point(20, 34);
+			this.comboBoxNAsientos.Name = "comboBoxNAsientos";
+			this.comboBoxNAsientos.Size = new System.Drawing.Size(121, 21);
+			this.comboBoxNAsientos.TabIndex = 25;
+			this.comboBoxNAsientos.Visible = false;
+			this.comboBoxNAsientos.SelectedIndexChanged += new System.EventHandler(this.comboBoxNAsientos_SelectedIndexChanged);
 			// 
 			// buttonAceptarDatosAsiento
 			// 
@@ -236,7 +256,7 @@
 			// comboBoxTipo
 			// 
 			this.comboBoxTipo.FormattingEnabled = true;
-			this.comboBoxTipo.Location = new System.Drawing.Point(168, 34);
+			this.comboBoxTipo.Location = new System.Drawing.Point(311, 34);
 			this.comboBoxTipo.Name = "comboBoxTipo";
 			this.comboBoxTipo.Size = new System.Drawing.Size(104, 21);
 			this.comboBoxTipo.TabIndex = 11;
@@ -244,7 +264,7 @@
 			// label17
 			// 
 			this.label17.AutoSize = true;
-			this.label17.Location = new System.Drawing.Point(190, 12);
+			this.label17.Location = new System.Drawing.Point(333, 12);
 			this.label17.Name = "label17";
 			this.label17.Size = new System.Drawing.Size(66, 13);
 			this.label17.TabIndex = 10;
@@ -263,10 +283,11 @@
 			// 
 			this.dateTimePickerContabilidad.CustomFormat = "dd/MM/yyyy";
 			this.dateTimePickerContabilidad.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePickerContabilidad.Location = new System.Drawing.Point(309, 36);
+			this.dateTimePickerContabilidad.Location = new System.Drawing.Point(174, 36);
 			this.dateTimePickerContabilidad.Name = "dateTimePickerContabilidad";
 			this.dateTimePickerContabilidad.Size = new System.Drawing.Size(100, 20);
 			this.dateTimePickerContabilidad.TabIndex = 2;
+			this.dateTimePickerContabilidad.ValueChanged += new System.EventHandler(this.dateTimePickerContabilidad_ValueChanged);
 			// 
 			// textBoxNAsiento
 			// 
@@ -279,7 +300,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(311, 12);
+			this.label1.Location = new System.Drawing.Point(176, 12);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(98, 13);
 			this.label1.TabIndex = 0;
@@ -368,13 +389,27 @@
             this.registradoDataGridViewTextBoxColumn,
             this.tipoDataGridViewTextBoxColumn});
 			this.dataGridView1.DataSource = this.renglonBindingSource1;
-			this.dataGridView1.Location = new System.Drawing.Point(122, 217);
+			this.dataGridView1.Location = new System.Drawing.Point(122, 339);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
 			this.dataGridView1.RowHeadersVisible = false;
 			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView1.Size = new System.Drawing.Size(763, 233);
+			this.dataGridView1.Size = new System.Drawing.Size(822, 233);
 			this.dataGridView1.TabIndex = 4;
+			// 
+			// Debe
+			// 
+			this.Debe.DataPropertyName = "Debe";
+			this.Debe.HeaderText = "Debe";
+			this.Debe.Name = "Debe";
+			this.Debe.ReadOnly = true;
+			// 
+			// Haber
+			// 
+			this.Haber.DataPropertyName = "Haber";
+			this.Haber.HeaderText = "Haber";
+			this.Haber.Name = "Haber";
+			this.Haber.ReadOnly = true;
 			// 
 			// label9
 			// 
@@ -422,7 +457,7 @@
 			// label12
 			// 
 			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(367, 10);
+			this.label12.Location = new System.Drawing.Point(383, 10);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(89, 13);
 			this.label12.TabIndex = 15;
@@ -505,7 +540,7 @@
 			// 
 			this.dateTimePickerOperacion.CustomFormat = "dd/MM/yyyy";
 			this.dateTimePickerOperacion.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePickerOperacion.Location = new System.Drawing.Point(361, 26);
+			this.dateTimePickerOperacion.Location = new System.Drawing.Point(377, 26);
 			this.dateTimePickerOperacion.Name = "dateTimePickerOperacion";
 			this.dateTimePickerOperacion.Size = new System.Drawing.Size(95, 20);
 			this.dateTimePickerOperacion.TabIndex = 25;
@@ -514,6 +549,7 @@
 			// 
 			this.panelDatosRenglon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.panelDatosRenglon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panelDatosRenglon.Controls.Add(this.buttonLimpiar);
 			this.panelDatosRenglon.Controls.Add(this.textBoxCuentaID);
 			this.panelDatosRenglon.Controls.Add(this.textBoxLeyenda);
@@ -534,12 +570,13 @@
 			this.panelDatosRenglon.Enabled = false;
 			this.panelDatosRenglon.Location = new System.Drawing.Point(119, 111);
 			this.panelDatosRenglon.Name = "panelDatosRenglon";
-			this.panelDatosRenglon.Size = new System.Drawing.Size(766, 100);
+			this.panelDatosRenglon.Size = new System.Drawing.Size(825, 100);
 			this.panelDatosRenglon.TabIndex = 26;
 			// 
 			// buttonLimpiar
 			// 
-			this.buttonLimpiar.Location = new System.Drawing.Point(707, 77);
+			this.buttonLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonLimpiar.Location = new System.Drawing.Point(767, 75);
 			this.buttonLimpiar.Name = "buttonLimpiar";
 			this.buttonLimpiar.Size = new System.Drawing.Size(56, 23);
 			this.buttonLimpiar.TabIndex = 28;
@@ -558,6 +595,7 @@
 			// 
 			// panel3
 			// 
+			this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.panel3.Controls.Add(this.label3);
 			this.panel3.Controls.Add(this.label4);
@@ -565,32 +603,146 @@
 			this.panel3.Controls.Add(this.labelDebe);
 			this.panel3.Controls.Add(this.label7);
 			this.panel3.Controls.Add(this.labelHaber);
-			this.panel3.Location = new System.Drawing.Point(685, 27);
+			this.panel3.Location = new System.Drawing.Point(744, 27);
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(200, 78);
 			this.panel3.TabIndex = 12;
 			// 
-			// comboBoxNAsientos
+			// panelParametros
 			// 
-			this.comboBoxNAsientos.FormattingEnabled = true;
-			this.comboBoxNAsientos.Location = new System.Drawing.Point(20, 34);
-			this.comboBoxNAsientos.Name = "comboBoxNAsientos";
-			this.comboBoxNAsientos.Size = new System.Drawing.Size(121, 21);
-			this.comboBoxNAsientos.TabIndex = 25;
-			this.comboBoxNAsientos.Visible = false;
-			this.comboBoxNAsientos.SelectedIndexChanged += new System.EventHandler(this.comboBoxNAsientos_SelectedIndexChanged);
+			this.panelParametros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panelParametros.Controls.Add(this.buttonLimpiarParams);
+			this.panelParametros.Controls.Add(this.buttonListar);
+			this.panelParametros.Controls.Add(this.dateTimePickerRPTHasta);
+			this.panelParametros.Controls.Add(this.dateTimePickerRPTDesde);
+			this.panelParametros.Controls.Add(this.textBoxRPTAsientoHasta);
+			this.panelParametros.Controls.Add(this.textBoxRPTAsientoDesde);
+			this.panelParametros.Controls.Add(this.label19);
+			this.panelParametros.Controls.Add(this.label18);
+			this.panelParametros.Controls.Add(this.label13);
+			this.panelParametros.Controls.Add(this.label8);
+			this.panelParametros.Controls.Add(this.label6);
+			this.panelParametros.Controls.Add(this.label5);
+			this.panelParametros.Location = new System.Drawing.Point(119, 217);
+			this.panelParametros.Name = "panelParametros";
+			this.panelParametros.Size = new System.Drawing.Size(825, 116);
+			this.panelParametros.TabIndex = 27;
 			// 
-			// renglonBindingSource1
+			// buttonLimpiarParams
 			// 
-			this.renglonBindingSource1.DataSource = typeof(Practico1v4.Models.Renglon);
+			this.buttonLimpiarParams.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonLimpiarParams.Location = new System.Drawing.Point(767, 90);
+			this.buttonLimpiarParams.Name = "buttonLimpiarParams";
+			this.buttonLimpiarParams.Size = new System.Drawing.Size(56, 24);
+			this.buttonLimpiarParams.TabIndex = 11;
+			this.buttonLimpiarParams.Text = "Limpiar";
+			this.buttonLimpiarParams.UseVisualStyleBackColor = true;
 			// 
-			// cuentaBindingSource
+			// buttonListar
 			// 
-			this.cuentaBindingSource.DataSource = typeof(Practico1v4.Models.Cuenta);
+			this.buttonListar.Location = new System.Drawing.Point(533, 90);
+			this.buttonListar.Name = "buttonListar";
+			this.buttonListar.Size = new System.Drawing.Size(108, 23);
+			this.buttonListar.TabIndex = 10;
+			this.buttonListar.Text = "Listar";
+			this.buttonListar.UseVisualStyleBackColor = true;
+			this.buttonListar.Click += new System.EventHandler(this.buttonListar_Click);
 			// 
-			// renglonBindingSource
+			// dateTimePickerRPTHasta
 			// 
-			this.renglonBindingSource.DataSource = typeof(Practico1v4.Models.Renglon);
+			this.dateTimePickerRPTHasta.CustomFormat = "dd/MM/yyyy";
+			this.dateTimePickerRPTHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dateTimePickerRPTHasta.Location = new System.Drawing.Point(434, 68);
+			this.dateTimePickerRPTHasta.Name = "dateTimePickerRPTHasta";
+			this.dateTimePickerRPTHasta.Size = new System.Drawing.Size(90, 20);
+			this.dateTimePickerRPTHasta.TabIndex = 9;
+			// 
+			// dateTimePickerRPTDesde
+			// 
+			this.dateTimePickerRPTDesde.CustomFormat = "dd/MM/yyyy";
+			this.dateTimePickerRPTDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dateTimePickerRPTDesde.Location = new System.Drawing.Point(326, 68);
+			this.dateTimePickerRPTDesde.Name = "dateTimePickerRPTDesde";
+			this.dateTimePickerRPTDesde.Size = new System.Drawing.Size(90, 20);
+			this.dateTimePickerRPTDesde.TabIndex = 8;
+			// 
+			// textBoxRPTAsientoHasta
+			// 
+			this.textBoxRPTAsientoHasta.Location = new System.Drawing.Point(148, 68);
+			this.textBoxRPTAsientoHasta.Name = "textBoxRPTAsientoHasta";
+			this.textBoxRPTAsientoHasta.Size = new System.Drawing.Size(100, 20);
+			this.textBoxRPTAsientoHasta.TabIndex = 7;
+			this.textBoxRPTAsientoHasta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRPTAsientoHasta_KeyPress);
+			// 
+			// textBoxRPTAsientoDesde
+			// 
+			this.textBoxRPTAsientoDesde.Location = new System.Drawing.Point(26, 68);
+			this.textBoxRPTAsientoDesde.Name = "textBoxRPTAsientoDesde";
+			this.textBoxRPTAsientoDesde.Size = new System.Drawing.Size(100, 20);
+			this.textBoxRPTAsientoDesde.TabIndex = 6;
+			this.textBoxRPTAsientoDesde.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRPTAsientoDesde_KeyPress);
+			// 
+			// label19
+			// 
+			this.label19.AutoSize = true;
+			this.label19.Location = new System.Drawing.Point(431, 39);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(35, 13);
+			this.label19.TabIndex = 5;
+			this.label19.Text = "Hasta";
+			// 
+			// label18
+			// 
+			this.label18.AutoSize = true;
+			this.label18.Location = new System.Drawing.Point(323, 39);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(38, 13);
+			this.label18.TabIndex = 4;
+			this.label18.Text = "Desde";
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Location = new System.Drawing.Point(268, 4);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(37, 13);
+			this.label13.TabIndex = 3;
+			this.label13.Text = "Fecha";
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(145, 39);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(35, 13);
+			this.label8.TabIndex = 2;
+			this.label8.Text = "Hasta";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(23, 39);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(38, 13);
+			this.label6.TabIndex = 1;
+			this.label6.Text = "Desde";
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(23, 4);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(53, 13);
+			this.label5.TabIndex = 0;
+			this.label5.Text = "N Asiento";
+			// 
+			// salirToolStripMenuItem1
+			// 
+			this.salirToolStripMenuItem1.AutoSize = false;
+			this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
+			this.salirToolStripMenuItem1.Size = new System.Drawing.Size(113, 40);
+			this.salirToolStripMenuItem1.Text = "Salir";
+			this.salirToolStripMenuItem1.Click += new System.EventHandler(this.salirToolStripMenuItem1_Click);
 			// 
 			// idDataGridViewTextBoxColumn
 			// 
@@ -641,8 +793,8 @@
 			// fechaVencimientoDataGridViewTextBoxColumn
 			// 
 			this.fechaVencimientoDataGridViewTextBoxColumn.DataPropertyName = "FechaVencimiento";
-			dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-			this.fechaVencimientoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle3.Format = "dd/MM/yyyy";
+			this.fechaVencimientoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
 			this.fechaVencimientoDataGridViewTextBoxColumn.HeaderText = "F Vencimiento";
 			this.fechaVencimientoDataGridViewTextBoxColumn.Name = "fechaVencimientoDataGridViewTextBoxColumn";
 			this.fechaVencimientoDataGridViewTextBoxColumn.ReadOnly = true;
@@ -650,8 +802,8 @@
 			// fechaOperacionDataGridViewTextBoxColumn
 			// 
 			this.fechaOperacionDataGridViewTextBoxColumn.DataPropertyName = "FechaOperacion";
-			dataGridViewCellStyle2.Format = "dd/MM/yyyy";
-			this.fechaOperacionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle4.Format = "dd/MM/yyyy";
+			this.fechaOperacionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
 			this.fechaOperacionDataGridViewTextBoxColumn.HeaderText = "F Operacion";
 			this.fechaOperacionDataGridViewTextBoxColumn.Name = "fechaOperacionDataGridViewTextBoxColumn";
 			this.fechaOperacionDataGridViewTextBoxColumn.ReadOnly = true;
@@ -670,20 +822,6 @@
 			this.leyendaDataGridViewTextBoxColumn.HeaderText = "Leyenda";
 			this.leyendaDataGridViewTextBoxColumn.Name = "leyendaDataGridViewTextBoxColumn";
 			this.leyendaDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// Debe
-			// 
-			this.Debe.DataPropertyName = "Debe";
-			this.Debe.HeaderText = "Debe";
-			this.Debe.Name = "Debe";
-			this.Debe.ReadOnly = true;
-			// 
-			// Haber
-			// 
-			this.Haber.DataPropertyName = "Haber";
-			this.Haber.HeaderText = "Haber";
-			this.Haber.Name = "Haber";
-			this.Haber.ReadOnly = true;
 			// 
 			// oKCargaDataGridViewTextBoxColumn
 			// 
@@ -709,12 +847,25 @@
 			this.tipoDataGridViewTextBoxColumn.ReadOnly = true;
 			this.tipoDataGridViewTextBoxColumn.Visible = false;
 			// 
+			// renglonBindingSource1
+			// 
+			this.renglonBindingSource1.DataSource = typeof(Practico1v4.Models.Renglon);
+			// 
+			// cuentaBindingSource
+			// 
+			this.cuentaBindingSource.DataSource = typeof(Practico1v4.Models.Cuenta);
+			// 
+			// renglonBindingSource
+			// 
+			this.renglonBindingSource.DataSource = typeof(Practico1v4.Models.Renglon);
+			// 
 			// Asientos
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(888, 450);
+			this.ClientSize = new System.Drawing.Size(947, 572);
 			this.ControlBox = false;
+			this.Controls.Add(this.panelParametros);
 			this.Controls.Add(this.panel3);
 			this.Controls.Add(this.panelDatosRenglon);
 			this.Controls.Add(this.panelDatosAsiento);
@@ -736,6 +887,8 @@
 			this.panelDatosRenglon.PerformLayout();
 			this.panel3.ResumeLayout(false);
 			this.panel3.PerformLayout();
+			this.panelParametros.ResumeLayout(false);
+			this.panelParametros.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.renglonBindingSource1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.cuentaBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.renglonBindingSource)).EndInit();
@@ -747,15 +900,13 @@
 		#endregion
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem altaToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRetomar;
 		private System.Windows.Forms.MenuStrip menuStrip2;
 		private System.Windows.Forms.ToolStripMenuItem altaToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem modificaciónToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem bajaToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem abandonarToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem1;
 		private System.Windows.Forms.Panel panelDatosAsiento;
 		private System.Windows.Forms.Label labelDiferencia;
 		private System.Windows.Forms.Label label7;
@@ -812,5 +963,20 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn oKCargaDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn registradoDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
+		private System.Windows.Forms.ToolStripMenuItem registrarToolStripMenuItem;
+		private System.Windows.Forms.Panel panelParametros;
+		private System.Windows.Forms.Button buttonLimpiarParams;
+		private System.Windows.Forms.Button buttonListar;
+		private System.Windows.Forms.DateTimePicker dateTimePickerRPTHasta;
+		private System.Windows.Forms.DateTimePicker dateTimePickerRPTDesde;
+		private System.Windows.Forms.TextBox textBoxRPTAsientoHasta;
+		private System.Windows.Forms.TextBox textBoxRPTAsientoDesde;
+		private System.Windows.Forms.Label label19;
+		private System.Windows.Forms.Label label18;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem1;
 	}
 }

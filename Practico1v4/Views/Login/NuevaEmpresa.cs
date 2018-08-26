@@ -23,10 +23,13 @@ namespace Practico1v4.Views.Login
 			{
 				try
 				{
-					//cambiar, pasarle como param un Tenant
+					
 					Models.Tenant tenant = new Models.Tenant();
 					tenant.BaseDeDatos = textBoxNombre.Text;
 					tenant.UltimoNroAsientoCargando = 1;
+					tenant.FechaCierreEjercicioContable = dateTimePickerCierre.Value.Date;
+					tenant.FechaImpresionUltimoDiario = dateTimePickerInicio.Value.Date.AddDays(-1);
+					tenant.FechaInicioEjercicioContable = dateTimePickerInicio.Value.Date;
 					Models.Helpers.DatabaseOperations.MigrateDatabase(tenant);
 					buttonCrear.Enabled = false;
 					textBoxNombre.Enabled = false;
