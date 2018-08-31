@@ -19,7 +19,13 @@ namespace Practico1v4.Views.Contabilidad
 
 		private void buttonGenerarMayor_Click(object sender, EventArgs e)
 		{
+			Reportes.frmMayorReporte frm = new Reportes.frmMayorReporte();
+			//frm.NCuentaDesde = Convert.ToInt32(textBoxCuentaDesde.Text);
+			//frm.NCuentaHasta = Convert.ToInt32(textBoxCuentaHasta.Text);
+			frm.FechaDesde = dateTimePickerDesde.Value;
+			frm.FechaHasta = dateTimePickerHasta.Value;
 
+			frm.ShowDialog(this);
 		}
 	}
 }

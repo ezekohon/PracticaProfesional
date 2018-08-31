@@ -33,6 +33,25 @@ namespace Practico1v4.Views.Contabilidad
 
 		private void Asientos_Load(object sender, EventArgs e)
 		{
+			comboBoxTipo.DataSource = Enum.GetValues(typeof(Renglon.enumTipo));
+			if (DateTime.Now.Date != Common.TenantData.tenant.FechaInicioEjercicioContable)
+			{
+				comboBoxTipo.DataSource = Enum.GetValues(typeof(Renglon.enumTipo))
+					.Cast<Renglon.enumTipo>()
+					.Where(x => x != Renglon.enumTipo.Apertura)
+					.ToArray();
+
+				if (DateTime.Now.Date != Common.TenantData.tenant.FechaCierreEjercicioContable)
+					comboBoxTipo.DataSource = Enum.GetValues(typeof(Renglon.enumTipo))
+						.Cast<Renglon.enumTipo>()
+						.Where(x => x == Renglon.enumTipo.Normal)
+						.ToArray();
+			}
+
+			dateTimePickerOperacion.Value = dateTimePickerContabilidad.Value;
+			dateTimePickerVencimiento.Value = dateTimePickerContabilidad.Value;
+
+
 			dateTimePickerRPTDesde.Value = Common.TenantData.tenant.FechaInicioEjercicioContable;
 			dateTimePickerRPTHasta.Value = Common.TenantData.tenant.FechaCierreEjercicioContable;
 
@@ -482,23 +501,7 @@ namespace Practico1v4.Views.Contabilidad
 
 		private void dateTimePickerContabilidad_ValueChanged(object sender, EventArgs e)
 		{
-			comboBoxTipo.DataSource = Enum.GetValues(typeof(Renglon.enumTipo));
-			if (dateTimePickerContabilidad.Value.Date != Common.TenantData.tenant.FechaInicioEjercicioContable)
-			{
-				comboBoxTipo.DataSource = Enum.GetValues(typeof(Renglon.enumTipo))
-					.Cast<Renglon.enumTipo>()
-					.Where(x => x != Renglon.enumTipo.Apertura)
-					.ToArray();
 
-				if (dateTimePickerContabilidad.Value.Date != Common.TenantData.tenant.FechaCierreEjercicioContable)
-					comboBoxTipo.DataSource = Enum.GetValues(typeof(Renglon.enumTipo))
-						.Cast<Renglon.enumTipo>()
-						.Where(x => x == Renglon.enumTipo.Normal)
-						.ToArray();
-			}
-		
-			dateTimePickerOperacion.Value = dateTimePickerContabilidad.Value;
-			dateTimePickerVencimiento.Value = dateTimePickerContabilidad.Value;
 		}
 
 		private void deshabilitarAltaRetomar()

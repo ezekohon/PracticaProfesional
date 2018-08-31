@@ -16,14 +16,14 @@ namespace Practico1v4.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class MayorReporte : ReportClass {
+    public class DiarioReporte : ReportClass {
         
-        public MayorReporte() {
+        public DiarioReporte() {
         }
         
         public override string ResourceName {
             get {
-                return "MayorReporte.rpt";
+                return "DiarioReporte.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Practico1v4.Reportes {
         
         public override string FullResourceName {
             get {
-                return "Practico1v4.Reportes.MayorReporte.rpt";
+                return "Practico1v4.Reportes.DiarioReporte.rpt";
             }
             set {
                 // Do nothing
@@ -74,7 +74,7 @@ namespace Practico1v4.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -106,33 +106,17 @@ namespace Practico1v4.Reportes {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_FechaDesde {
+        public CrystalDecisions.Shared.IParameterField Parameter_FechaCierreEjercicio {
             get {
                 return this.DataDefinition.ParameterFields[0];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_FechaHasta {
-            get {
-                return this.DataDefinition.ParameterFields[1];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_FechaInicioEjercicio {
-            get {
-                return this.DataDefinition.ParameterFields[2];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedMayorReporte : Component, ICachedReport {
+    public class CachedDiarioReporte : Component, ICachedReport {
         
-        public CachedMayorReporte() {
+        public CachedDiarioReporte() {
         }
         
         [Browsable(false)]
@@ -169,7 +153,7 @@ namespace Practico1v4.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            MayorReporte rpt = new MayorReporte();
+            DiarioReporte rpt = new DiarioReporte();
             rpt.Site = this.Site;
             return rpt;
         }

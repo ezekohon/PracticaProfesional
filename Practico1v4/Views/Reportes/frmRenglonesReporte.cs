@@ -47,9 +47,9 @@ namespace Practico1v4.Views.Reportes
 				context.Cuentas.Load();
 				rpt.Database.Tables[0].SetDataSource(context.Renglones.Local.Where(x => 
 					x.NumeroAsiento >= NAsientoDesde && 
-					x.NumeroAsiento < NAsientoHasta &&
+					x.NumeroAsiento <= NAsientoHasta &&
 					x.FechaContabilidad >= FechaDesde &&
-					x.FechaContabilidad < FechaHasta));
+					x.FechaContabilidad <= FechaHasta));
 				rpt.Database.Tables[1].SetDataSource(context.Cuentas.Local);
 				
 			}
