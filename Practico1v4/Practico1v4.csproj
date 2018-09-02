@@ -257,6 +257,7 @@
     <Compile Include="Models\DiarioMayor.cs" />
     <Compile Include="Models\Helpers\DatabaseOperations.cs" />
     <Compile Include="Models\Helpers\DBFactory.cs" />
+    <Compile Include="Models\Helpers\Enums.cs" />
     <Compile Include="Models\Operacion.cs" />
     <Compile Include="Models\Renglon.cs" />
     <Compile Include="Models\Rol.cs" />
@@ -281,6 +282,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PlanDeCuentasReporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\prueba.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>prueba.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\PuntoDeVentasReporte.cs">
@@ -431,6 +438,12 @@
     </Compile>
     <Compile Include="Views\ABMs\PuntoDeVentasABM.Designer.cs">
       <DependentUpon>PuntoDeVentasABM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reportes\frmDiarioReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Reportes\frmDiarioReporte.Designer.cs">
+      <DependentUpon>frmDiarioReporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Reportes\frmMayorReporte.cs">
       <SubType>Form</SubType>
@@ -595,6 +608,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PlanDeCuentasReporte.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\prueba.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>prueba.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\PuntoDeVentasReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PuntoDeVentasReporte.cs</LastGenOutput>
@@ -670,6 +687,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reportes\frmDiarioReporte.resx">
+      <DependentUpon>frmDiarioReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Reportes\frmMayorReporte.resx">
       <DependentUpon>frmMayorReporte.cs</DependentUpon>

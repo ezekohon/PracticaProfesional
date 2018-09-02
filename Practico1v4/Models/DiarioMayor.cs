@@ -11,7 +11,7 @@ namespace Practico1v4.Models
 	public class DiarioMayor
 	{
 		[Key]
-		public int Id { get; set; }
+		public int Id { get; set; }//C:\Users\Ezequiel\Google Drive\Juan 23\Practica Profesional\Practico1v4\Practico1v4\Models\DiarioMayor.cs
 
 		public DateTime FechaContabilidad { get; set; }
 
@@ -35,13 +35,49 @@ namespace Practico1v4.Models
 		public Decimal Debe { get; set; }
 		public Decimal Haber { get; set; }
 		public string Leyenda { get; set; }
-		
 
-		public Renglon.enumRegistrado Registrado { get; set; } //0/5/9
-		public Renglon.enumTipo Tipo { get; set; } //apertura, normal, cierre ENUM??
+
+
+		[NotMapped]
+		public string TipoAsiento {
+			get 
+			{
+				return this.Tipo.ToString();
+			}
+		}
+
+
+		public enumRegistrado Registrado { get; set; } //0/5/9
+		public enumTipo Tipo { get; set; } //apertura, normal, cierre ENUM??
 
 		public DateTime FechaInsertado { get; set; }
 
 
 	}
+
+	//public enum enumokCarga
+	//{
+	//	Mal = 0,
+	//	OK = 1
+	//}
+
+	//public enum enumDebeHaber
+	//{
+	//	Debe = 0,
+	//	Haber = 1
+	//}
+
+	//public enum enumRegistrado
+	//{
+	//	NoRegistrado = 0,
+	//	Parcial = 5,
+	//	Registrado = 9
+	//}
+
+	//public enum enumTipo
+	//{
+	//	Apertura = 0,
+	//	Normal = 1,
+	//	Cierre = 2
+	//}
 }

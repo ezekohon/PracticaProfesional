@@ -50,12 +50,13 @@ namespace Practico1v4.Views.Reportes
 
 				//
 
-				rpt.Database.Tables[0].SetDataSource(context.DiarioMayor.Local);//.Where(x =>
+				rpt.Database.Tables[0].SetDataSource(context.DiarioMayor.Local);
 					//x.IdCuenta >= NCuentaDesde &&
 					//x.IdCuenta <= NCuentaHasta &&
 					//x.FechaContabilidad >= FechaDesde &&
 					//x.FechaContabilidad <= FechaHasta));
 				rpt.Database.Tables[1].SetDataSource(context.Cuentas.Local);
+				
 
 				rpt.SetParameterValue("FechaDesde", FechaDesde);
 				rpt.SetParameterValue("FechaHasta", FechaHasta);

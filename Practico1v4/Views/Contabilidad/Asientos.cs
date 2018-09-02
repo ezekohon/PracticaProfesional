@@ -33,18 +33,18 @@ namespace Practico1v4.Views.Contabilidad
 
 		private void Asientos_Load(object sender, EventArgs e)
 		{
-			comboBoxTipo.DataSource = Enum.GetValues(typeof(Renglon.enumTipo));
+			comboBoxTipo.DataSource = Enum.GetValues(typeof(enumTipo));
 			if (DateTime.Now.Date != Common.TenantData.tenant.FechaInicioEjercicioContable)
 			{
-				comboBoxTipo.DataSource = Enum.GetValues(typeof(Renglon.enumTipo))
-					.Cast<Renglon.enumTipo>()
-					.Where(x => x != Renglon.enumTipo.Apertura)
+				comboBoxTipo.DataSource = Enum.GetValues(typeof(enumTipo))
+					.Cast<enumTipo>()
+					.Where(x => x != enumTipo.Apertura)
 					.ToArray();
 
 				if (DateTime.Now.Date != Common.TenantData.tenant.FechaCierreEjercicioContable)
-					comboBoxTipo.DataSource = Enum.GetValues(typeof(Renglon.enumTipo))
-						.Cast<Renglon.enumTipo>()
-						.Where(x => x == Renglon.enumTipo.Normal)
+					comboBoxTipo.DataSource = Enum.GetValues(typeof(enumTipo))
+						.Cast<enumTipo>()
+						.Where(x => x == enumTipo.Normal)
 						.ToArray();
 			}
 
@@ -250,13 +250,13 @@ namespace Practico1v4.Views.Contabilidad
 
 			r.NumeroAsiento = (textBoxNAsiento.Visible) ? Convert.ToInt32(textBoxNAsiento.Text) : Convert.ToInt32(comboBoxNAsientos.Text);
 			r.FechaContabilidad = dateTimePickerContabilidad.Value;
-			r.Tipo = (Renglon.enumTipo)comboBoxTipo.SelectedItem;
+			r.Tipo = (enumTipo)comboBoxTipo.SelectedItem;
 			r.NumeroRenglon = Convert.ToInt32(textBoxNRenglon.Text);
 			r.IdCuenta = c.Id;
 			r.FechaVencimiento = dateTimePickerVencimiento.Value;
 			r.FechaOperacion = dateTimePickerOperacion.Value;
-			r.Registrado = Renglon.enumRegistrado.NoRegistrado;
-			r.OK_Carga = Renglon.enumokCarga.OK;
+			r.Registrado = enumRegistrado.NoRegistrado;
+			r.OK_Carga = enumokCarga.OK;
 
 			
 			r.Debe = (string.IsNullOrWhiteSpace(textBoxDebe.Text)) ? 0 : Convert.ToDecimal(textBoxDebe.Text);
@@ -611,7 +611,7 @@ namespace Practico1v4.Views.Contabilidad
 								dm.Leyenda = r.Leyenda;
 								dm.Debe = r.Debe;
 								dm.Haber = r.Haber;
-								dm.Registrado = Renglon.enumRegistrado.Registrado;
+								dm.Registrado = enumRegistrado.Registrado;
 
 								context.DiarioMayor.Add(dm);
 								context.Renglones.Attach(r);

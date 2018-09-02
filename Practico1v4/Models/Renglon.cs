@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Practico1v4.Models
 {
 	[Table("Renglones")]
-	public class Renglon //es en realidad asientos
+	public class Renglon //es en realidad asientoC:\Users\Ezequiel\Google Drive\Juan 23\Practica Profesional\Practico1v4\Practico1v4\Models\Renglon.css
 	{
 		[Key]
 		public int Id { get; set; }
@@ -38,32 +38,36 @@ namespace Practico1v4.Models
 		public enumRegistrado Registrado { get; set; } //0/5/9
 		public enumTipo Tipo { get; set; } //apertura, normal, cierre ENUM??
 
-		public enum enumokCarga
-		{
-			Mal = 0,
-			OK = 1
-		}
-
-		public enum enumDebeHaber
-		{
-			Debe = 0,
-			Haber = 1
-		}
-
-		public enum enumRegistrado
-		{
-			NoRegistrado = 0,
-			Parcial = 5,
-			Registrado = 9
-		}
-
-		public enum enumTipo
-		{
-			Apertura = 0,
-			Normal = 1,
-			Cierre = 2
-		}
 
 
+
+
+
+	}
+
+	public enum enumokCarga
+	{
+		Mal = 0,
+		OK = 1
+	}
+
+	public enum enumDebeHaber
+	{
+		Debe = 0,
+		Haber = 1
+	}
+
+	public enum enumRegistrado
+	{
+		NoRegistrado = 0,
+		Parcial = 5,
+		Registrado = 9
+	}
+
+	public enum enumTipo
+	{
+		Apertura = 0,
+		Normal = 1,
+		Cierre = 2
 	}
 }

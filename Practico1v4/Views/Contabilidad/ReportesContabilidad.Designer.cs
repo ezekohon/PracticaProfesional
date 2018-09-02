@@ -183,6 +183,7 @@
 			this.buttonGenerarDiario.TabIndex = 6;
 			this.buttonGenerarDiario.Text = "Generar Diario";
 			this.buttonGenerarDiario.UseVisualStyleBackColor = true;
+			this.buttonGenerarDiario.Click += new System.EventHandler(this.buttonGenerarDiario_Click);
 			// 
 			// ReportesContabilidad
 			// 

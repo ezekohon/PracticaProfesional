@@ -27,5 +27,14 @@ namespace Practico1v4.Views.Contabilidad
 
 			frm.ShowDialog(this);
 		}
+
+		private void buttonGenerarDiario_Click(object sender, EventArgs e)
+		{
+			Reportes.frmDiarioReporte frm = new Reportes.frmDiarioReporte();
+
+			
+			frm.FechaHasta = dateTimePickerHasta.Value;
+			frm.ShowDialog(this);
+		}
 	}
 }
