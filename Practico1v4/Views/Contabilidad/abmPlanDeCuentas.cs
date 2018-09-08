@@ -30,6 +30,13 @@ namespace Practico1v4.Views.Contabilidad
 		{
 			actualizarGrilla();
 			dataGridView1.ClearSelection();
+			comboBoxTipo.DataSource = Enum.GetValues(typeof(enumCuentas));
+		}
+
+		private enum enumCuentas
+		{
+			Título = 0,
+			NoImputable = 1
 		}
 
 		private void actualizarGrilla()
@@ -103,7 +110,7 @@ namespace Practico1v4.Views.Contabilidad
 				}
 				else
 				{
-					Helpers.CreadorMensajes.mensajeObservacion("Seleccione una ...");
+					Helpers.CreadorMensajes.mensajeObservacion("Seleccione una cuenta título.");
 				}
 			}
 			else
@@ -116,16 +123,22 @@ namespace Practico1v4.Views.Contabilidad
 		{
 			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
-				DialogResult r = Helpers.CreadorMensajes.mensajeEliminar("la Cuenta");
-				if (r != DialogResult.Cancel)
+				if (CuentaSeleccionada.Tipo == 1)
 				{
-					//attach porque la entity no fue cargada en el mismo context
-					context.Cuentas.Attach(CuentaSeleccionada);
+					DialogResult r = Helpers.CreadorMensajes.mensajeEliminar("la Cuenta");
+					if (r != DialogResult.Cancel)
+					{
+						//attach porque la entity no fue cargada en el mismo context
+						context.Cuentas.Attach(CuentaSeleccionada);
 
-					context.Cuentas.Remove(CuentaSeleccionada);
-					context.SaveChanges();
-					actualizarGrilla();
+						context.Cuentas.Remove(CuentaSeleccionada);
+						context.SaveChanges();
+						actualizarGrilla();
+					}
 				}
+				else
+					Helpers.CreadorMensajes.mensajeError("No puede eliminar una cuenta título.");
+				
 			}
 		}
 
@@ -144,39 +157,56 @@ namespace Practico1v4.Views.Contabilidad
 			//si dejo actualizar el codigo de balance tengo que ir a cambiar todos los codbalancepadre
 			c.CodigoPadre = textBoxCodBalance.Text;
 			c.Nombre = textBoxNombre.Text;
-			c.Tipo = Convert.ToInt32(comboBoxTipo.Text);
+			c.Tipo = (int)comboBoxTipo.SelectedItem;
 			if (AccionActual == "M")
 				c.Id = CuentaSeleccionada.Id;
 
+			bool errorCodBalance = false;
+			string mensaje = string.Empty;
+
 			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
-				if (AccionActual == "A")
-				{
-					try
-					{
-						context.Cuentas.Add(c);
-						context.SaveChanges();
-					}
-					catch (Exception ex)
-					{ throw ex; }
-
-				}
-				else
-				{
-					try
-					{
-						var entry = context.Cuentas.Find(CuentaSeleccionada.Id);
-						context.Entry(entry).CurrentValues.SetValues(c);
-						context.SaveChanges();
-					}
-					catch (Exception ex)
-					{ throw ex; }
-				}
+				if (context.Cuentas.Any(x => x.CodigoBalance == c.CodigoBalance))
+					errorCodBalance = true;
 			}
 
-			panel1.Enabled = false;
-			limpiarCampos();
-			actualizarGrilla();
+			if (errorCodBalance && AccionActual == "A")
+				mensaje = "El código balance ya existe";
+
+			if (string.IsNullOrWhiteSpace(mensaje))
+			{
+				using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+				{
+					if (AccionActual == "A")
+					{
+						try
+						{
+							context.Cuentas.Add(c);
+							context.SaveChanges();
+						}
+						catch (Exception ex)
+						{ throw ex; }
+
+					}
+					else
+					{
+						try
+						{
+							var entry = context.Cuentas.Find(CuentaSeleccionada.Id);
+							context.Entry(entry).CurrentValues.SetValues(c);
+							context.SaveChanges();
+						}
+						catch (Exception ex)
+						{ throw ex; }
+					}
+				}
+
+				panel1.Enabled = false;
+				limpiarCampos();
+				actualizarGrilla();
+			}
+			else
+				Helpers.CreadorMensajes.mensajeError(mensaje);
 		}
 
 		private void toolStripButtonEditar_Click(object sender, EventArgs e)
@@ -189,7 +219,7 @@ namespace Practico1v4.Views.Contabilidad
 				panel1.Enabled = true;
 				textBoxCodBalance.Text = c.CodigoBalance;
 				textBoxNombre.Text = c.Nombre.Trim();
-				comboBoxTipo.SelectedText = c.Tipo.ToString();
+				comboBoxTipo.SelectedItem = (enumCuentas)Enum.ToObject(typeof(enumCuentas), c.Tipo);
 				comboBoxTipo.Enabled = false;
 
 				textBoxCodBalanceHijo.Enabled = false;

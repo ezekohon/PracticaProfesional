@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Practico1v4.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -35,6 +37,25 @@ namespace Practico1v4.Views.Contabilidad
 			
 			frm.FechaHasta = dateTimePickerHasta.Value;
 			frm.ShowDialog(this);
+		}
+
+		private void buttonGenerarBalance_Click(object sender, EventArgs e)
+		{
+			Reportes.frmBalanceReporte frm = new Reportes.frmBalanceReporte();
+
+			frm.FechaDesde = dateTimePickerDesde.Value;
+			frm.FechaHasta = dateTimePickerHasta.Value;
+
+			frm.ShowDialog(this);
+		}
+
+		private void ReportesContabilidad_Load(object sender, EventArgs e)
+		{
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+			{
+				context.UltimoDiario.Load();
+				dataGridView1.DataSource = context.UltimoDiario.Local;
+			}
 		}
 	}
 }

@@ -47,6 +47,33 @@ namespace Practico1v4.Views.Reportes
 			crystalReportViewer1.ReportSource = rpt;
 		}
 
+		private void frmDiarioReporte_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			Helpers.MessageBoxManager.Cancel = "Cancelar";
+			DialogResult r = MessageBox.Show("Ha impreso el libro diario sin errores?", "Confirmación", MessageBoxButtons.OKCancel);
+			//DialogResult r = Helpers.CreadorMensajes.mensajeConfirmacion();
+			if (r != DialogResult.Cancel)
+			{
+				using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+				{
+					UltimoDiario u = new UltimoDiario();
+					u.UltimaFechaImpresion = DateTime.Now;
+					u.UltimoNumeroAsiento = Common.TenantData.tenant.UltimoNroAsientoCargando;
+					u.Id = 1;
+					var entry = context.UltimoDiario.Find(1);
+					context.Entry(entry).CurrentValues.SetValues(u);
+					try
+					{
+						context.SaveChanges();
+						DialogResult = DialogResult.OK;
+					}
+					catch (Exception ex)
+					{
+						throw ex;
+					}
+				}
+			}
+		}
 	}
 	
 }

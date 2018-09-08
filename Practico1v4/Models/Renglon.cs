@@ -39,7 +39,19 @@ namespace Practico1v4.Models
 		public enumTipo Tipo { get; set; } //apertura, normal, cierre ENUM??
 
 
+		[NotMapped]
+		public string TipoAsiento {
+			get {
+				return this.Tipo.ToString();
+			}
+		}
 
+		[NotMapped]
+		public string RegistradoAsiento {
+			get {
+				return this.Registrado.ToString();
+			}
+		}
 
 
 

@@ -27,6 +27,7 @@ namespace Practico1v4.Models
 		public DbSet<Renglon> Renglones { get; set; }
 		public DbSet<UltimoDiario> UltimoDiario { get; set; }
 		public DbSet<DiarioMayor> DiarioMayor { get; set; }
+		public DbSet<tempBalance> tempBalance { get; set; }
 
 		public VentasDBContext() //es static, no public
 		{

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practico1v4.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,6 +34,9 @@ namespace Practico1v4.Views.Login
 					Models.Helpers.DatabaseOperations.MigrateDatabase(tenant);
 					buttonCrear.Enabled = false;
 					textBoxNombre.Enabled = false;
+					
+
+
 					Helpers.CreadorMensajes.mensajeObservacion("Empresa creada con éxito.");
 				}
 				catch (Exception ex)

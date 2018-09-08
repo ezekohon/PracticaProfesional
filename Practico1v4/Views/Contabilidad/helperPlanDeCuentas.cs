@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -38,7 +39,11 @@ namespace Practico1v4.Views.Contabilidad
 
 		private void helperPlanDeCuentas_Load(object sender, EventArgs e)
 		{
-			dataGridView1.DataSource = listaCuentas;
+			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+			{
+				context.Cuentas.OrderBy(x => x.CodigoBalance).Load();
+				dataGridView1.DataSource = context.Cuentas.Local;
+			}
 		}
 
 		private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

@@ -28,6 +28,16 @@ namespace Practico1v4.Helpers
 			}
 		}
 
+		public static DialogResult mensajeConfirmacion(string mensaje)
+		{
+			using (new CenterWinDialog(Form.ActiveForm))
+			{
+				MessageBoxManager.Cancel = "Cancelar";
+				DialogResult r = MessageBox.Show(mensaje, "Confirmación", MessageBoxButtons.OKCancel);
+				return r;
+			}
+		}
+
 		public static void mensajeObservacion(string msj)
 		{
 			using (new CenterWinDialog(Form.ActiveForm))

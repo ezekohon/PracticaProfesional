@@ -31,6 +31,11 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(abmPlanDeCuentas));
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.codigoBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.cuentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.textBoxBuscar = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -40,6 +45,7 @@
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.toolStripButtonReporte = new System.Windows.Forms.ToolStripButton();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.buttonGuardar = new System.Windows.Forms.Button();
 			this.textBoxCodBalanceHijo = new System.Windows.Forms.TextBox();
 			this.comboBoxTipo = new System.Windows.Forms.ComboBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -47,16 +53,10 @@
 			this.textBoxNombre = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.buttonGuardar = new System.Windows.Forms.Button();
-			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.codigoBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.cuentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.cuentaBindingSource)).BeginInit();
 			this.toolStrip1.SuspendLayout();
 			this.panel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.cuentaBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dataGridView1
@@ -84,6 +84,39 @@
 			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
 			this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
 			this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
+			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
+			this.idDataGridViewTextBoxColumn.Visible = false;
+			// 
+			// codigoBalance
+			// 
+			this.codigoBalance.DataPropertyName = "CodigoBalance";
+			this.codigoBalance.HeaderText = "CodigoBalance";
+			this.codigoBalance.Name = "codigoBalance";
+			this.codigoBalance.ReadOnly = true;
+			// 
+			// Nombre
+			// 
+			this.Nombre.DataPropertyName = "Nombre";
+			this.Nombre.HeaderText = "Nombre";
+			this.Nombre.Name = "Nombre";
+			this.Nombre.ReadOnly = true;
+			// 
+			// Tipo
+			// 
+			this.Tipo.DataPropertyName = "Tipo";
+			this.Tipo.HeaderText = "Tipo";
+			this.Tipo.Name = "Tipo";
+			this.Tipo.ReadOnly = true;
+			// 
+			// cuentaBindingSource
+			// 
+			this.cuentaBindingSource.DataSource = typeof(Practico1v4.Models.Cuenta);
 			// 
 			// textBoxBuscar
 			// 
@@ -184,6 +217,16 @@
 			this.panel1.Size = new System.Drawing.Size(626, 79);
 			this.panel1.TabIndex = 6;
 			// 
+			// buttonGuardar
+			// 
+			this.buttonGuardar.Location = new System.Drawing.Point(546, 51);
+			this.buttonGuardar.Name = "buttonGuardar";
+			this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
+			this.buttonGuardar.TabIndex = 18;
+			this.buttonGuardar.Text = "Guardar";
+			this.buttonGuardar.UseVisualStyleBackColor = true;
+			this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
+			// 
 			// textBoxCodBalanceHijo
 			// 
 			this.textBoxCodBalanceHijo.Location = new System.Drawing.Point(214, 9);
@@ -195,9 +238,6 @@
 			// comboBoxTipo
 			// 
 			this.comboBoxTipo.FormattingEnabled = true;
-			this.comboBoxTipo.Items.AddRange(new object[] {
-            "0",
-            "1"});
 			this.comboBoxTipo.Location = new System.Drawing.Point(342, 9);
 			this.comboBoxTipo.Name = "comboBoxTipo";
 			this.comboBoxTipo.Size = new System.Drawing.Size(100, 21);
@@ -245,50 +285,7 @@
 			this.label3.TabIndex = 14;
 			this.label3.Text = "Nombre";
 			// 
-			// buttonGuardar
-			// 
-			this.buttonGuardar.Location = new System.Drawing.Point(546, 51);
-			this.buttonGuardar.Name = "buttonGuardar";
-			this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
-			this.buttonGuardar.TabIndex = 18;
-			this.buttonGuardar.Text = "Guardar";
-			this.buttonGuardar.UseVisualStyleBackColor = true;
-			this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
-			// 
-			// idDataGridViewTextBoxColumn
-			// 
-			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			this.idDataGridViewTextBoxColumn.ReadOnly = true;
-			this.idDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// codigoBalance
-			// 
-			this.codigoBalance.DataPropertyName = "CodigoBalance";
-			this.codigoBalance.HeaderText = "CodigoBalance";
-			this.codigoBalance.Name = "codigoBalance";
-			this.codigoBalance.ReadOnly = true;
-			// 
-			// Nombre
-			// 
-			this.Nombre.DataPropertyName = "Nombre";
-			this.Nombre.HeaderText = "Nombre";
-			this.Nombre.Name = "Nombre";
-			this.Nombre.ReadOnly = true;
-			// 
-			// Tipo
-			// 
-			this.Tipo.DataPropertyName = "Tipo";
-			this.Tipo.HeaderText = "Tipo";
-			this.Tipo.Name = "Tipo";
-			this.Tipo.ReadOnly = true;
-			// 
-			// cuentaBindingSource
-			// 
-			this.cuentaBindingSource.DataSource = typeof(Practico1v4.Models.Cuenta);
-			// 
-			// PlanDeCuentas
+			// abmPlanDeCuentas
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -298,15 +295,15 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.textBoxBuscar);
 			this.Controls.Add(this.dataGridView1);
-			this.Name = "PlanDeCuentas";
+			this.Name = "abmPlanDeCuentas";
 			this.Text = "PlanDeCuentas";
 			this.Load += new System.EventHandler(this.PlanDeCuentas_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.cuentaBindingSource)).EndInit();
 			this.toolStrip1.ResumeLayout(false);
 			this.toolStrip1.PerformLayout();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.cuentaBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

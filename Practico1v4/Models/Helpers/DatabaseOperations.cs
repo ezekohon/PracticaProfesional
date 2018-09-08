@@ -20,7 +20,7 @@ namespace Practico1v4.Models.Helpers
 			using (var context = new TenantsDBContext())
 			{
 				//tenant.BaseDeDatos = DBName;
-				tenant.ConnectionString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=" + tenant.BaseDeDatos + "; integrated security=SSPI";
+				tenant.ConnectionString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; MultipleActiveResultSets=true ;initial catalog=" + tenant.BaseDeDatos + "; integrated security=SSPI";
 				tenant.Host = (System.Environment.MachineName == "DESKTOP-JSIT42C") ? "DESKTOP-JSIT42C\\SQLEXPRESS" : "localhost"; 
 				tenant.Nombre = tenant.BaseDeDatos;
 
@@ -28,6 +28,17 @@ namespace Practico1v4.Models.Helpers
 				context.SaveChanges();
 			}
 			Common.TenantData.tenant = tenant;
+			using (var context = new VentasDBContext(tenant.ConnectionString))
+			{
+				UltimoDiario u = new UltimoDiario();
+				u.UltimaFechaImpresion = tenant.FechaImpresionUltimoDiario;
+				u.UltimoNumeroAsiento = 1;
+				u.UltimoNumeroFolio = 1;
+				u.UltimoNumeroRenglon = 1;
+				u.UltimoNumeroTransporte = 1;
+				context.UltimoDiario.Add(u);
+				context.SaveChanges();
+			}
 			var newDbConnString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=" + tenant.BaseDeDatos + "; integrated security=SSPI";//context.Database.Connection.ConnectionString;
 			var connStringBuilder = new SqlConnectionStringBuilder(newDbConnString);
 			

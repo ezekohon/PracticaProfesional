@@ -1,6 +1,6 @@
 ﻿namespace Practico1v4.Views.Reportes
 {
-	partial class frmDiarioReporte
+	partial class frmBalanceReporte
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -42,16 +42,15 @@
 			this.crystalReportViewer1.Size = new System.Drawing.Size(800, 450);
 			this.crystalReportViewer1.TabIndex = 0;
 			// 
-			// frmDiarioReporte
+			// frmBalanceReporte
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.crystalReportViewer1);
-			this.Name = "frmDiarioReporte";
-			this.Text = "frmDiarioReporte";
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDiarioReporte_FormClosing);
-			this.Load += new System.EventHandler(this.frmDiarioReporte_Load);
+			this.Name = "frmBalanceReporte";
+			this.Text = "frmBalanceReporte";
+			this.Load += new System.EventHandler(this.frmBalanceReporte_Load);
 			this.ResumeLayout(false);
 
 		}
