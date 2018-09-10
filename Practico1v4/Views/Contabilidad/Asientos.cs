@@ -58,7 +58,7 @@ namespace Practico1v4.Views.Contabilidad
 			dateTimePickerVencimiento.Value = dateTimePickerContabilidad.Value;
 
 
-			dateTimePickerRPTDesde.Value = Common.TenantData.tenant.FechaInicioEjercicioContable;
+			dateTimePickerRPTDesde.Value = Common.TenantData.tenant.FechaImpresionUltimoDiario;
 			dateTimePickerRPTHasta.Value = Common.TenantData.tenant.FechaCierreEjercicioContable;
 
 			//comentado para desarrollo, pero va

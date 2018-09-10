@@ -28,18 +28,18 @@ namespace Practico1v4.Models.Helpers
 				context.SaveChanges();
 			}
 			Common.TenantData.tenant = tenant;
-			using (var context = new VentasDBContext(tenant.ConnectionString))
-			{
-				UltimoDiario u = new UltimoDiario();
-				u.UltimaFechaImpresion = tenant.FechaImpresionUltimoDiario;
-				u.UltimoNumeroAsiento = 1;
-				u.UltimoNumeroFolio = 1;
-				u.UltimoNumeroRenglon = 1;
-				u.UltimoNumeroTransporte = 1;
-				context.UltimoDiario.Add(u);
-				context.SaveChanges();
-			}
-			var newDbConnString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; initial catalog=" + tenant.BaseDeDatos + "; integrated security=SSPI";//context.Database.Connection.ConnectionString;
+			//using (var context = new VentasDBContext(tenant.ConnectionString))
+			//{
+			//	UltimoDiario u = new UltimoDiario();
+			//	u.UltimaFechaImpresion = tenant.FechaImpresionUltimoDiario;
+			//	u.UltimoNumeroAsiento = 1;
+			//	u.UltimoNumeroFolio = 1;
+			//	u.UltimoNumeroRenglon = 1;
+			//	u.UltimoNumeroTransporte = 1;
+			//	context.UltimoDiario.Add(u);
+			//	context.SaveChanges();
+			//}
+			var newDbConnString = "data source=DESKTOP-JSIT42C\\SQLEXPRESS; MultipleActiveResultSets=true ;initial catalog=" + tenant.BaseDeDatos + "; integrated security=SSPI";//context.Database.Connection.ConnectionString;
 			var connStringBuilder = new SqlConnectionStringBuilder(newDbConnString);
 			
 

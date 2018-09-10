@@ -277,12 +277,6 @@
       <DependentUpon>BalanceReporte.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reportes\CrystalReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Reportes\DiarioReporte.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -619,10 +613,6 @@
     <EmbeddedResource Include="Reportes\BalanceReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BalanceReporte.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\CrystalReport1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\DiarioReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

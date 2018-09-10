@@ -37,10 +37,6 @@ namespace Practico1v4.Views.Reportes
 			//TextObject hasta = (TextObject)rpt.ReportDefinition.ReportObjects["TextHasta"];
 			//hasta.Text = FechaHasta.ToString();
 
-
-	
-
-
 			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{
 				context.DiarioMayor.Load();

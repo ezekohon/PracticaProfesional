@@ -57,10 +57,11 @@ namespace Practico1v4.Views.Reportes
 				using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 				{
 					UltimoDiario u = new UltimoDiario();
-					u.UltimaFechaImpresion = DateTime.Now;
+					u.UltimaFechaImpresion = FechaHasta;//DateTime.Now;
 					u.UltimoNumeroAsiento = Common.TenantData.tenant.UltimoNroAsientoCargando;
-					u.Id = 1;
-					var entry = context.UltimoDiario.Find(1);
+					
+					u.Id = context.UltimoDiario.FirstOrDefault().Id;
+					var entry = context.UltimoDiario.Find(u.Id);
 					context.Entry(entry).CurrentValues.SetValues(u);
 					try
 					{
@@ -71,6 +72,15 @@ namespace Practico1v4.Views.Reportes
 					{
 						throw ex;
 					}
+				}
+				using (var context = new TenantsDBContext())
+				{
+					var entity = context.Tenants.Find(Common.TenantData.tenant.Id);
+					//var t = new Tenant();
+					Tenant t = context.Tenants.SingleOrDefault(x => x.Id == Common.TenantData.tenant.Id);
+					t.FechaImpresionUltimoDiario = FechaHasta;
+					context.Entry(entity).CurrentValues.SetValues(t);
+					context.SaveChanges();
 				}
 			}
 		}

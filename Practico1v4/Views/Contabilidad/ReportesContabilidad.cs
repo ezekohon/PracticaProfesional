@@ -34,9 +34,9 @@ namespace Practico1v4.Views.Contabilidad
 		{
 			Reportes.frmDiarioReporte frm = new Reportes.frmDiarioReporte();
 
-			
 			frm.FechaHasta = dateTimePickerHasta.Value;
 			frm.ShowDialog(this);
+			cargarGrilla();
 		}
 
 		private void buttonGenerarBalance_Click(object sender, EventArgs e)
@@ -45,11 +45,15 @@ namespace Practico1v4.Views.Contabilidad
 
 			frm.FechaDesde = dateTimePickerDesde.Value;
 			frm.FechaHasta = dateTimePickerHasta.Value;
-
 			frm.ShowDialog(this);
 		}
 
 		private void ReportesContabilidad_Load(object sender, EventArgs e)
+		{
+			cargarGrilla();
+		}
+
+		private void cargarGrilla()
 		{
 			using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
 			{

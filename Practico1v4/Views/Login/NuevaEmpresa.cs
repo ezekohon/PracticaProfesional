@@ -37,7 +37,7 @@ namespace Practico1v4.Views.Login
 					
 
 
-					Helpers.CreadorMensajes.mensajeObservacion("Empresa creada con éxito.");
+					//Helpers.CreadorMensajes.mensajeObservacion("Empresa creada con éxito.");
 				}
 				catch (Exception ex)
 				{
