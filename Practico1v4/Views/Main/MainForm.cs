@@ -112,5 +112,11 @@ namespace Practico1v4.Views.Main
 			Contabilidad.ReportesContabilidad frm = new Contabilidad.ReportesContabilidad();
 			frm.ShowDialog(this);
 		}
+
+		private void emisiónComprobanteToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Facturacion.EmisionComprobantes frm = new Facturacion.EmisionComprobantes();
+			frm.ShowDialog(this);
+		}
 	}
 }

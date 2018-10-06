@@ -256,18 +256,56 @@
     <Compile Include="Migrations\201809051959042_tempBalance.Designer.cs">
       <DependentUpon>201809051959042_tempBalance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810052055465_tablas facturacion.cs" />
+    <Compile Include="Migrations\201810052055465_tablas facturacion.Designer.cs">
+      <DependentUpon>201810052055465_tablas facturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810052150389_codigos a string.cs" />
+    <Compile Include="Migrations\201810052150389_codigos a string.Designer.cs">
+      <DependentUpon>201810052150389_codigos a string.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810061212379_codigos a string v2.cs" />
+    <Compile Include="Migrations\201810061212379_codigos a string v2.Designer.cs">
+      <DependentUpon>201810061212379_codigos a string v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810061237253_tipo comprobante.cs" />
+    <Compile Include="Migrations\201810061237253_tipo comprobante.Designer.cs">
+      <DependentUpon>201810061237253_tipo comprobante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810061919391_temporales comprobantes.cs" />
+    <Compile Include="Migrations\201810061919391_temporales comprobantes.Designer.cs">
+      <DependentUpon>201810061919391_temporales comprobantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810062017406_ultimonrocomprobante.cs" />
+    <Compile Include="Migrations\201810062017406_ultimonrocomprobante.Designer.cs">
+      <DependentUpon>201810062017406_ultimonrocomprobante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810062052569_a ver.cs" />
+    <Compile Include="Migrations\201810062052569_a ver.Designer.cs">
+      <DependentUpon>201810062052569_a ver.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ConfigurationVentas.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\ComprobantePorSituacion.cs" />
+    <Compile Include="Models\ComprobanteRenglon.cs" />
     <Compile Include="Models\Cuenta.cs" />
     <Compile Include="Models\DiarioMayor.cs" />
+    <Compile Include="Models\ComprobanteEncabezadoPie.cs" />
     <Compile Include="Models\Helpers\DatabaseOperations.cs" />
     <Compile Include="Models\Helpers\DBFactory.cs" />
     <Compile Include="Models\Helpers\Enums.cs" />
+    <Compile Include="Models\Articulo.cs" />
     <Compile Include="Models\Operacion.cs" />
     <Compile Include="Models\Renglon.cs" />
     <Compile Include="Models\Rol.cs" />
+    <Compile Include="Models\SituacionIVA.cs" />
+    <Compile Include="Models\TasaIVA.cs" />
     <Compile Include="Models\tempBalance.cs" />
+    <Compile Include="Models\tempComprobanteEncabezadoPie.cs" />
+    <Compile Include="Models\tempComprobanteRenglon.cs" />
     <Compile Include="Models\Tenant.cs" />
     <Compile Include="Models\TenantsDBContext.cs" />
+    <Compile Include="Models\TipoComprobanteVenta.cs" />
     <Compile Include="Models\UltimoDiario.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Zona.cs" />
@@ -408,6 +446,18 @@
     </Compile>
     <Compile Include="Views\Contabilidad\ReportesContabilidad.Designer.cs">
       <DependentUpon>ReportesContabilidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Facturacion\EmisionComprobantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Facturacion\EmisionComprobantes.Designer.cs">
+      <DependentUpon>EmisionComprobantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Facturacion\ListaComprobantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Facturacion\ListaComprobantes.Designer.cs">
+      <DependentUpon>ListaComprobantes.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login\Lanzador.cs">
       <SubType>Form</SubType>
@@ -600,6 +650,27 @@
     <EmbeddedResource Include="Migrations\201809051959042_tempBalance.resx">
       <DependentUpon>201809051959042_tempBalance.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810052055465_tablas facturacion.resx">
+      <DependentUpon>201810052055465_tablas facturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810052150389_codigos a string.resx">
+      <DependentUpon>201810052150389_codigos a string.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810061212379_codigos a string v2.resx">
+      <DependentUpon>201810061212379_codigos a string v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810061237253_tipo comprobante.resx">
+      <DependentUpon>201810061237253_tipo comprobante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810061919391_temporales comprobantes.resx">
+      <DependentUpon>201810061919391_temporales comprobantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810062017406_ultimonrocomprobante.resx">
+      <DependentUpon>201810062017406_ultimonrocomprobante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810062052569_a ver.resx">
+      <DependentUpon>201810062052569_a ver.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -690,6 +761,9 @@
     <EmbeddedResource Include="Views\Contabilidad\ReportesContabilidad.resx">
       <DependentUpon>ReportesContabilidad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Facturacion\EmisionComprobantes.resx">
+      <DependentUpon>EmisionComprobantes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\Lanzador.resx">
       <DependentUpon>Lanzador.cs</DependentUpon>
     </EmbeddedResource>
@@ -731,6 +805,7 @@
     <None Include="Properties\DataSources\Practico1v4.Models.Cuenta.datasource" />
     <None Include="Properties\DataSources\Practico1v4.Models.PuntoDeVenta.datasource" />
     <None Include="Properties\DataSources\Practico1v4.Models.Renglon.datasource" />
+    <None Include="Properties\DataSources\Practico1v4.Models.tempComprobanteRenglon.datasource" />
     <None Include="Properties\DataSources\Practico1v4.Models.UltimoDiario.datasource" />
     <None Include="Properties\DataSources\Practico1v4.Models.Usuario.datasource" />
     <None Include="Properties\DataSources\Practico1v4.Models.Vendedor.datasource" />

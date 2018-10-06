@@ -92,28 +92,28 @@ namespace Practico1v4
             contextGlobal.Tenants.Load();
 
 			//autologin
-			//Tenant tenant = new Tenant();
-			//using (var context = new TenantsDBContext())
-			//{
-			//	tenant = context.Tenants.SingleOrDefault(t => t.BaseDeDatos == "VentasDBContext");
-			//	Common.TenantData.tenant = tenant;
-			//}
+			Tenant tenant = new Tenant();
+			using (var context = new TenantsDBContext())
+			{
+				tenant = context.Tenants.SingleOrDefault(t => t.BaseDeDatos == "VentasDBContext");
+				Common.TenantData.tenant = tenant;
+			}
 
-			//string usuarioIngresado = "super";
-			//string passwordIngresado = "super";
+			string usuarioIngresado = "super";
+			string passwordIngresado = "super";
 
-			//if (string.IsNullOrEmpty(usuarioIngresado) || string.IsNullOrEmpty(passwordIngresado))
-			//{
-			//	Helpers.CreadorMensajes.mensajeError("Ingrese usuario y contraseña");
-			//}
-			//else if (loginCorrecto(usuarioIngresado, passwordIngresado))
-			//{
-			//	using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
-			//	{
-			//		Common.UsuarioData.usuario = context.Usuarios.Where(u => u.Username == usuarioIngresado).Include(u => u.Rol).Include(u => u.Rol.Operaciones).SingleOrDefault();
-			//	}
-			//	DialogResult = DialogResult.OK;
-			//}
+			if (string.IsNullOrEmpty(usuarioIngresado) || string.IsNullOrEmpty(passwordIngresado))
+			{
+				Helpers.CreadorMensajes.mensajeError("Ingrese usuario y contraseña");
+			}
+			else if (loginCorrecto(usuarioIngresado, passwordIngresado))
+			{
+				using (var context = new VentasDBContext(Common.TenantData.tenant.ConnectionString))
+				{
+					Common.UsuarioData.usuario = context.Usuarios.Where(u => u.Username == usuarioIngresado).Include(u => u.Rol).Include(u => u.Rol.Operaciones).SingleOrDefault();
+				}
+				DialogResult = DialogResult.OK;
+			}
 
 			//autologin
 

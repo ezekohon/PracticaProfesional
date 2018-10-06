@@ -37,11 +37,14 @@
 			this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.copiaDeSeguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.planDeCuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.contabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.asientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.reportesContabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabelEmpresa = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripStatusLabelUsuario = new System.Windows.Forms.ToolStripStatusLabel();
-			this.reportesContabilidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.facturaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.emisiónComprobanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.statusStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -54,8 +57,8 @@
             this.cerrarSesiónToolStripMenuItem,
             this.copiaDeSeguridadToolStripMenuItem,
             this.planDeCuentasToolStripMenuItem,
-            this.asientosToolStripMenuItem,
-            this.reportesContabilidadToolStripMenuItem});
+            this.contabilidadToolStripMenuItem,
+            this.facturaciónToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -122,12 +125,28 @@
 			this.planDeCuentasToolStripMenuItem.Text = "Plan de Cuentas";
 			this.planDeCuentasToolStripMenuItem.Click += new System.EventHandler(this.planDeCuentasToolStripMenuItem_Click);
 			// 
+			// contabilidadToolStripMenuItem
+			// 
+			this.contabilidadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.asientosToolStripMenuItem,
+            this.reportesContabilidadToolStripMenuItem});
+			this.contabilidadToolStripMenuItem.Name = "contabilidadToolStripMenuItem";
+			this.contabilidadToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+			this.contabilidadToolStripMenuItem.Text = "Contabilidad";
+			// 
 			// asientosToolStripMenuItem
 			// 
 			this.asientosToolStripMenuItem.Name = "asientosToolStripMenuItem";
-			this.asientosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+			this.asientosToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
 			this.asientosToolStripMenuItem.Text = "Asientos";
 			this.asientosToolStripMenuItem.Click += new System.EventHandler(this.asientosToolStripMenuItem_Click);
+			// 
+			// reportesContabilidadToolStripMenuItem
+			// 
+			this.reportesContabilidadToolStripMenuItem.Name = "reportesContabilidadToolStripMenuItem";
+			this.reportesContabilidadToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+			this.reportesContabilidadToolStripMenuItem.Text = "Reportes Contabilidad";
+			this.reportesContabilidadToolStripMenuItem.Click += new System.EventHandler(this.reportesContabilidadToolStripMenuItem_Click);
 			// 
 			// statusStrip1
 			// 
@@ -152,12 +171,20 @@
 			this.toolStripStatusLabelUsuario.Size = new System.Drawing.Size(118, 17);
 			this.toolStripStatusLabelUsuario.Text = "toolStripStatusLabel1";
 			// 
-			// reportesContabilidadToolStripMenuItem
+			// facturaciónToolStripMenuItem
 			// 
-			this.reportesContabilidadToolStripMenuItem.Name = "reportesContabilidadToolStripMenuItem";
-			this.reportesContabilidadToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
-			this.reportesContabilidadToolStripMenuItem.Text = "Reportes Contabilidad";
-			this.reportesContabilidadToolStripMenuItem.Click += new System.EventHandler(this.reportesContabilidadToolStripMenuItem_Click);
+			this.facturaciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.emisiónComprobanteToolStripMenuItem});
+			this.facturaciónToolStripMenuItem.Name = "facturaciónToolStripMenuItem";
+			this.facturaciónToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+			this.facturaciónToolStripMenuItem.Text = "Facturación";
+			// 
+			// emisiónComprobanteToolStripMenuItem
+			// 
+			this.emisiónComprobanteToolStripMenuItem.Name = "emisiónComprobanteToolStripMenuItem";
+			this.emisiónComprobanteToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+			this.emisiónComprobanteToolStripMenuItem.Text = "Emisión Comprobante";
+			this.emisiónComprobanteToolStripMenuItem.Click += new System.EventHandler(this.emisiónComprobanteToolStripMenuItem_Click);
 			// 
 			// MainForm
 			// 
@@ -194,7 +221,10 @@
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelEmpresa;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelUsuario;
 		private System.Windows.Forms.ToolStripMenuItem planDeCuentasToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem contabilidadToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem asientosToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem reportesContabilidadToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem facturaciónToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem emisiónComprobanteToolStripMenuItem;
 	}
 }

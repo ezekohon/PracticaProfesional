@@ -21,5 +21,7 @@ namespace Practico1v4.Models
 		public string SituacionFrenteAIVA { get; set; } //enum?
 		public string  DireccionFisica { get; set; }
 		public int UltimoNroAsientoCargando { get; set; }
+
+		public int UltimoNroComprobante { get; set; }
 	}
 }

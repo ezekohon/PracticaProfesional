@@ -29,6 +29,17 @@ namespace Practico1v4.Models
 		public DbSet<DiarioMayor> DiarioMayor { get; set; }
 		public DbSet<tempBalance> tempBalance { get; set; }
 
+		public DbSet<Cliente> Clientes { get; set; }
+		public DbSet<SituacionIVA> SituacionesIVA { get; set; }
+		public DbSet<TasaIVA> TasasIVA { get; set; }
+		public DbSet<TipoComprobanteVenta> TiposComprobantesVenta { get; set; }
+		public DbSet<Articulo> Articulos { get; set; }
+		public DbSet<ComprobanteEncabezadoPie> ComprobantesEncabezadoPie { get; set; }
+		public DbSet<ComprobanteRenglon> ComprobantesRenglones { get; set; }
+		public DbSet<ComprobantePorSituacion> ComprobantePorSituacion { get; set; }
+		public DbSet<tempComprobanteEncabezadoPie> tempComprobantesEncabezadoPie { get; set; }
+		public DbSet<tempComprobanteRenglon> tempComprobantesRenglones { get; set; }
+
 		public VentasDBContext() //es static, no public
 		{
 			AuditManager.DefaultConfiguration.AutoSavePreAction = (context, audit) =>
